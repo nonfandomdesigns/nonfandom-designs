@@ -1,216 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yomizakura</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #050505;
-    }
+<title>Yomizakura — NonFandomDesigns</title>
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #090609;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-    .scene {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      background: #050505;
-    }
+.landing {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, #160b16 0%, #090609 65%);
+}
 
-    .tree {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: min(90vw, 700px);
-      height: auto;
-      transform: translate(-50%, -50%);
-      transform-origin: 50% 75%;
-      animation: treeSway 7s ease-in-out infinite;
-      user-select: none;
-      pointer-events: none;
-      z-index: 2;
-    }
+/* =========================
+   TITLE
+========================= */
 
-    @keyframes treeSway {
-      0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
+.title {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 
-      25% {
-        transform: translate(calc(-50% - 4px), -50%) rotate(-0.6deg);
-      }
+  color: #ff4fa3;
+  font-size: clamp(38px, 6vw, 82px);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-align: center;
 
-      50% {
-        transform: translate(-50%, calc(-50% + 2px)) rotate(0.5deg);
-      }
+  text-shadow:
+    0 0 8px rgba(255,79,163,0.7),
+    0 0 25px rgba(255,79,163,0.35);
+}
 
-      75% {
-        transform: translate(calc(-50% + 4px), -50%) rotate(-0.3deg);
-      }
+.subtitle {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 
-      100% {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
-    }
+  color: #ff7ab8;
+  font-size: clamp(11px, 1.4vw, 18px);
+  letter-spacing: 0.25em;
+  text-align: center;
+  white-space: nowrap;
+}
 
-    .petal {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50% 50% 50% 0;
-      background: #e8b5c5;
-      transform: rotate(45deg);
-      opacity: 0;
-      z-index: 3;
-      animation: fall linear infinite;
-    }
+/* =========================
+   TREE
+========================= */
 
-    @keyframes fall {
-      0% {
-        opacity: 0;
-        transform: translate3d(0, -30px, 0) rotate(45deg);
-      }
+.tree {
+  position: absolute;
 
-      10% {
-        opacity: 0.9;
-      }
+  left: 50%;
+  top: 55%;
 
-      80% {
-        opacity: 0.7;
-      }
+  width: min(72vw, 760px);
+  max-height: 72vh;
 
-      100% {
-        opacity: 0;
-        transform: translate3d(180px, 100vh, 0) rotate(420deg);
-      }
-    }
+  object-fit: contain;
 
-    .skull {
-      position: absolute;
-      color: #111;
-      font-size: 24px;
-      opacity: 0.75;
-      z-index: 4;
-      animation: floatSkull ease-in-out infinite;
-      pointer-events: none;
-    }
+  transform: translate(-50%, -50%);
+  transform-origin: 50% 65%;
 
-    @keyframes floatSkull {
-      0%,
-      100% {
-        transform: translateY(0) rotate(-5deg);
-      }
+  z-index: 4;
 
-      50% {
-        transform: translateY(-18px) rotate(5deg);
-      }
-    }
+  filter:
+    drop-shadow(0 0 12px rgba(255,79,163,0.18))
+    drop-shadow(0 0 35px rgba(255,79,163,0.10));
 
-    .skull.one {
-      left: 18%;
-      top: 22%;
-      animation-duration: 4.5s;
-    }
+  animation: treeSway 7s ease-in-out infinite;
+}
 
-    .skull.two {
-      left: 76%;
-      top: 27%;
-      font-size: 19px;
-      animation-duration: 5.5s;
-      animation-delay: -2s;
-    }
+@keyframes treeSway {
+  0%, 100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(-0.7deg)
+      scale(1);
+  }
 
-    .skull.three {
-      left: 27%;
-      top: 38%;
-      font-size: 15px;
-      animation-duration: 6s;
-      animation-delay: -1s;
-    }
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(0.7deg)
+      scale(1.015);
+  }
+}
 
-    .skull.four {
-      left: 70%;
-      top: 42%;
-      font-size: 17px;
-      animation-duration: 5s;
-      animation-delay: -3s;
-    }
+/* =========================
+   ENTER BUTTON
+========================= */
 
-    .blue-flower {
-      position: absolute;
-      left: 53%;
-      top: 63%;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: #2874d8;
-      box-shadow:
-        0 0 8px rgba(40, 116, 216, 0.7),
-        0 0 18px rgba(40, 116, 216, 0.35);
-      z-index: 5;
-      animation: flowerPulse 3s ease-in-out infinite;
-    }
+.enter {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
 
-    @keyframes flowerPulse {
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.8;
-      }
+  z-index: 20;
 
-      50% {
-        transform: scale(1.15);
-        opacity: 1;
-      }
-    }
+  padding: 14px 28px;
 
-    @media (prefers-reduced-motion: reduce) {
-      .tree,
-      .petal,
-      .skull,
-      .blue-flower {
-        animation: none;
-      }
-    }
-  </style>
+  border: 1px solid #ff4fa3;
+  border-radius: 4px;
+
+  background: rgba(9,6,9,0.75);
+
+  color: #ff4fa3;
+
+  font-size: 15px;
+  letter-spacing: 0.2em;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 12px rgba(255,79,163,0.25);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.enter:hover {
+  background: #ff4fa3;
+  color: #090609;
+
+  box-shadow:
+    0 0 25px rgba(255,79,163,0.7);
+
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* =========================
+   SKULLS
+========================= */
+
+.skull {
+  position: absolute;
+  z-index: 7;
+
+  color: #080608;
+
+  font-size: 25px;
+
+  opacity: 0.85;
+
+  text-shadow:
+    0 0 5px rgba(255,255,255,0.08);
+
+  animation: skullFloat 5s ease-in-out infinite;
+}
+
+.s1 {
+  left: 18%;
+  top: 27%;
+  animation-delay: 0s;
+}
+
+.s2 {
+  right: 18%;
+  top: 31%;
+  animation-delay: 1.2s;
+}
+
+.s3 {
+  left: 27%;
+  top: 48%;
+  animation-delay: 2.2s;
+}
+
+.s4 {
+  right: 27%;
+  top: 51%;
+  animation-delay: 3.2s;
+}
+
+@keyframes skullFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(4deg);
+  }
+}
+
+/* =========================
+   BLUE FLOWER
+========================= */
+
+.blueFlower {
+  position: absolute;
+
+  left: 69%;
+  top: 58%;
+
+  width: 22px;
+  height: 22px;
+
+  z-index: 8;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle,
+      #ffffff 0 12%,
+      #3d8cff 13% 35%,
+      #1470ff 36% 65%,
+      #0748b8 66% 100%
+    );
+
+  box-shadow:
+    0 0 10px rgba(40,120,255,0.8),
+    0 0 25px rgba(40,120,255,0.35);
+
+  animation: flowerPulse 3s ease-in-out infinite;
+}
+
+@keyframes flowerPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* =========================
+   FALLING PETALS
+========================= */
+
+.petal {
+  position: absolute;
+  top: -30px;
+
+  width: 7px;
+  height: 10px;
+
+  background: #ff77b7;
+
+  border-radius: 70% 30% 70% 30%;
+
+  opacity: 0.8;
+
+  z-index: 6;
+
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.p1 { left: 8%;  animation-duration: 8s;  animation-delay: 0s; }
+.p2 { left: 18%; animation-duration: 10s; animation-delay: 2s; }
+.p3 { left: 30%; animation-duration: 7s;  animation-delay: 1s; }
+.p4 { left: 42%; animation-duration: 11s; animation-delay: 4s; }
+.p5 { left: 55%; animation-duration: 8s;  animation-delay: 3s; }
+.p6 { left: 67%; animation-duration: 10s; animation-delay: 1s; }
+.p7 { left: 78%; animation-duration: 7s;  animation-delay: 5s; }
+.p8 { left: 90%; animation-duration: 9s;  animation-delay: 2s; }
+
+@keyframes fall {
+  0% {
+    transform:
+      translate3d(0, -20px, 0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translate3d(35px, 25vh, 0)
+      rotate(90deg);
+  }
+
+  50% {
+    transform:
+      translate3d(-25px, 50vh, 0)
+      rotate(180deg);
+  }
+
+  75% {
+    transform:
+      translate3d(40px, 75vh, 0)
+      rotate(270deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-10px, 110vh, 0)
+      rotate(360deg);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .title {
+    top: 5%;
+    font-size: 36px;
+  }
+
+  .subtitle {
+    top: 13%;
+    font-size: 9px;
+  }
+
+  .tree {
+    width: 95vw;
+    top: 53%;
+  }
+
+  .skull {
+    font-size: 18px;
+  }
+
+  .s1 {
+    left: 8%;
+    top: 28%;
+  }
+
+  .s2 {
+    right: 8%;
+    top: 32%;
+  }
+
+  .s3 {
+    left: 12%;
+    top: 55%;
+  }
+
+  .s4 {
+    right: 12%;
+    top: 58%;
+  }
+
+  .blueFlower {
+    left: 76%;
+    top: 58%;
+  }
+
+  .enter {
+    bottom: 5%;
+    font-size: 12px;
+    padding: 12px 20px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="scene">
 
-    <img
-      class="tree"
-      src="./IMG_6683.PNG"
-      alt="Yomizakura"
-    />
+<div class="landing">
 
-    <div class="skull one">☠</div>
-    <div class="skull two">☠</div>
-    <div class="skull three">☠</div>
-    <div class="skull four">☠</div>
+  <!-- TITLE -->
+  <div class="title">YOMIZAKURA</div>
 
-    <div class="blue-flower"></div>
-
-    <div class="petal" style="left: 12%; animation-duration: 8s; animation-delay: -2s;"></div>
-    <div class="petal" style="left: 25%; animation-duration: 10s; animation-delay: -6s;"></div>
-    <div class="petal" style="left: 38%; animation-duration: 7s; animation-delay: -1s;"></div>
-    <div class="petal" style="left: 52%; animation-duration: 11s; animation-delay: -7s;"></div>
-    <div class="petal" style="left: 66%; animation-duration: 9s; animation-delay: -4s;"></div>
-    <div class="petal" style="left: 78%; animation-duration: 12s; animation-delay: -9s;"></div>
-    <div class="petal" style="left: 90%; animation-duration: 8s; animation-delay: -5s;"></div>
-
+  <div class="subtitle">
+    HANDCRAFTED RUGS · NONFANDOMDESIGNS
   </div>
+
+  <!-- YOUR ACTUAL YOMIZAKURA TREE -->
+  <img
+    class="tree"
+    src="./IMG_6683.PNG"
+    alt="Yomizakura"
+  >
+
+  <!-- FLOATING SKULLS -->
+  <div class="skull s1">☠</div>
+  <div class="skull s2">☠</div>
+  <div class="skull s3">☠</div>
+  <div class="skull s4">☠</div>
+
+  <!-- BLUE FLOWER -->
+  <div class="blueFlower"></div>
+
+  <!-- FALLING PETALS -->
+  <div class="petal p1"></div>
+  <div class="petal p2"></div>
+  <div class="petal p3"></div>
+  <div class="petal p4"></div>
+  <div class="petal p5"></div>
+  <div class="petal p6"></div>
+  <div class="petal p7"></div>
+  <div class="petal p8"></div>
+
+  <!-- ENTER -->
+  <button class="enter" onclick="enterSite()">
+    ENTER YOMIZAKURA
+  </button>
+
+</div>
+
+<script>
+function enterSite() {
+  alert("Yomizakura awaits...");
+}
+</script>
+
 </body>
 </html>
