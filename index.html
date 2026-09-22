@@ -1,165 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yomizakura — NonFandomDesigns</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yomizakura</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
+    html,
+    body {
       margin: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: #090609;
-      color: white;
-      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
     }
 
-    .landing {
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scene {
       position: relative;
       width: 100vw;
       height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
+      background: #050505;
     }
 
-    .title {
+    .tree {
       position: absolute;
-      top: 8%;
-      text-align: center;
-      letter-spacing: 0.25em;
-      font-size: clamp(32px, 6vw, 72px);
-      font-weight: 800;
-      z-index: 3;
-    }
-
-    .subtitle {
-      position: absolute;
-      top: 17%;
-      font-size: clamp(13px, 2vw, 20px);
-      letter-spacing: 0.12em;
-      opacity: 0.8;
-      z-index: 3;
-    }
-
-    .flower {
-      position: relative;
-      width: min(42vw, 420px);
-      height: min(42vw, 420px);
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at center,
-          #ff8fba 0%,
-          #e84d86 28%,
-          #8f174f 58%,
-          #35091f 78%,
-          transparent 79%);
-      box-shadow:
-        0 0 35px rgba(255, 70, 140, 0.35),
-        0 0 100px rgba(160, 20, 90, 0.2);
-      animation: breathe 4s ease-in-out infinite;
+      left: 50%;
+      top: 50%;
+      width: min(90vw, 700px);
+      height: auto;
+      transform: translate(-50%, -50%);
+      transform-origin: 50% 75%;
+      animation: treeSway 7s ease-in-out infinite;
+      user-select: none;
+      pointer-events: none;
       z-index: 2;
     }
 
-    .flower::before,
-    .flower::after {
-      content: "";
+    @keyframes treeSway {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+
+      25% {
+        transform: translate(calc(-50% - 4px), -50%) rotate(-0.6deg);
+      }
+
+      50% {
+        transform: translate(-50%, calc(-50% + 2px)) rotate(0.5deg);
+      }
+
+      75% {
+        transform: translate(calc(-50% + 4px), -50%) rotate(-0.3deg);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+    }
+
+    .petal {
       position: absolute;
-      inset: 8%;
-      border: 5px solid rgba(20, 5, 15, 0.75);
-      border-radius: 48% 52% 50% 50%;
-      transform: rotate(25deg);
+      width: 8px;
+      height: 8px;
+      border-radius: 50% 50% 50% 0;
+      background: #e8b5c5;
+      transform: rotate(45deg);
+      opacity: 0;
+      z-index: 3;
+      animation: fall linear infinite;
     }
 
-    .flower::after {
-      transform: rotate(-25deg);
-    }
+    @keyframes fall {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, -30px, 0) rotate(45deg);
+      }
 
-    .enter {
-      margin-top: 45px;
-      padding: 15px 34px;
-      border: 1px solid rgba(255, 150, 190, 0.7);
-      border-radius: 4px;
-      background: rgba(20, 5, 15, 0.8);
-      color: white;
-      font-size: 16px;
-      letter-spacing: 0.16em;
-      cursor: pointer;
-      z-index: 4;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
+      10% {
+        opacity: 0.9;
+      }
 
-    .enter:hover {
-      transform: scale(1.05);
-      background: rgba(120, 20, 65, 0.8);
+      80% {
+        opacity: 0.7;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(180px, 100vh, 0) rotate(420deg);
+      }
     }
 
     .skull {
       position: absolute;
+      color: #111;
       font-size: 24px;
-      opacity: 0.55;
-      animation: float 5s ease-in-out infinite;
+      opacity: 0.75;
+      z-index: 4;
+      animation: floatSkull ease-in-out infinite;
+      pointer-events: none;
     }
 
-    .s1 { left: 12%; top: 25%; }
-    .s2 { right: 14%; top: 31%; animation-delay: 1s; }
-    .s3 { left: 22%; bottom: 18%; animation-delay: 2s; }
-    .s4 { right: 23%; bottom: 22%; animation-delay: 3s; }
+    @keyframes floatSkull {
+      0%,
+      100% {
+        transform: translateY(0) rotate(-5deg);
+      }
 
-    @keyframes breathe {
-      0%, 100% {
+      50% {
+        transform: translateY(-18px) rotate(5deg);
+      }
+    }
+
+    .skull.one {
+      left: 18%;
+      top: 22%;
+      animation-duration: 4.5s;
+    }
+
+    .skull.two {
+      left: 76%;
+      top: 27%;
+      font-size: 19px;
+      animation-duration: 5.5s;
+      animation-delay: -2s;
+    }
+
+    .skull.three {
+      left: 27%;
+      top: 38%;
+      font-size: 15px;
+      animation-duration: 6s;
+      animation-delay: -1s;
+    }
+
+    .skull.four {
+      left: 70%;
+      top: 42%;
+      font-size: 17px;
+      animation-duration: 5s;
+      animation-delay: -3s;
+    }
+
+    .blue-flower {
+      position: absolute;
+      left: 53%;
+      top: 63%;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #2874d8;
+      box-shadow:
+        0 0 8px rgba(40, 116, 216, 0.7),
+        0 0 18px rgba(40, 116, 216, 0.35);
+      z-index: 5;
+      animation: flowerPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes flowerPulse {
+      0%,
+      100% {
         transform: scale(1);
+        opacity: 0.8;
       }
+
       50% {
-        transform: scale(1.04);
+        transform: scale(1.15);
+        opacity: 1;
       }
     }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-15px);
+    @media (prefers-reduced-motion: reduce) {
+      .tree,
+      .petal,
+      .skull,
+      .blue-flower {
+        animation: none;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="landing">
+  <div class="scene">
 
-    <div class="title">YOMIZAKURA</div>
+    <img
+      class="tree"
+      src="./IMG_6683.PNG"
+      alt="Yomizakura"
+    />
 
-    <div class="subtitle">
-      HANDCRAFTED RUGS · NONFANDOMDESIGNS
-    </div>
+    <div class="skull one">☠</div>
+    <div class="skull two">☠</div>
+    <div class="skull three">☠</div>
+    <div class="skull four">☠</div>
 
-    <div class="skull s1">☠</div>
-    <div class="skull s2">☠</div>
-    <div class="skull s3">☠</div>
-    <div class="skull s4">☠</div>
+    <div class="blue-flower"></div>
 
-    <div class="flower"></div>
+    <div class="petal" style="left: 12%; animation-duration: 8s; animation-delay: -2s;"></div>
+    <div class="petal" style="left: 25%; animation-duration: 10s; animation-delay: -6s;"></div>
+    <div class="petal" style="left: 38%; animation-duration: 7s; animation-delay: -1s;"></div>
+    <div class="petal" style="left: 52%; animation-duration: 11s; animation-delay: -7s;"></div>
+    <div class="petal" style="left: 66%; animation-duration: 9s; animation-delay: -4s;"></div>
+    <div class="petal" style="left: 78%; animation-duration: 12s; animation-delay: -9s;"></div>
+    <div class="petal" style="left: 90%; animation-duration: 8s; animation-delay: -5s;"></div>
 
-    <button class="enter" onclick="enterSite()">
-      ENTER YOMIZAKURA
-    </button>
-
-  </main>
-
-  <script>
-    function enterSite() {
-      alert("Yomizakura awaits...");
-    }
-  </script>
+  </div>
 </body>
 </html>
