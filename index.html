@@ -1,170 +1,165 @@
-import { useEffect, useRef } from "react"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yomizakura — NonFandomDesigns</title>
 
-export default function YomizakuraFlower() {
-    const canvasRef = useRef(null)
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    useEffect(() => {
-        const canvas = canvasRef.current
-        if (!canvas) return
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #090609;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        const ctx = canvas.getContext("2d")
-        let animationFrame
-        let time = 0
+    .landing {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-        const resize = () => {
-            const rect = canvas.getBoundingClientRect()
-            const dpr = window.devicePixelRatio || 1
+    .title {
+      position: absolute;
+      top: 8%;
+      text-align: center;
+      letter-spacing: 0.25em;
+      font-size: clamp(32px, 6vw, 72px);
+      font-weight: 800;
+      z-index: 3;
+    }
 
-            canvas.width = rect.width * dpr
-            canvas.height = rect.height * dpr
+    .subtitle {
+      position: absolute;
+      top: 17%;
+      font-size: clamp(13px, 2vw, 20px);
+      letter-spacing: 0.12em;
+      opacity: 0.8;
+      z-index: 3;
+    }
 
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-        }
+    .flower {
+      position: relative;
+      width: min(42vw, 420px);
+      height: min(42vw, 420px);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center,
+          #ff8fba 0%,
+          #e84d86 28%,
+          #8f174f 58%,
+          #35091f 78%,
+          transparent 79%);
+      box-shadow:
+        0 0 35px rgba(255, 70, 140, 0.35),
+        0 0 100px rgba(160, 20, 90, 0.2);
+      animation: breathe 4s ease-in-out infinite;
+      z-index: 2;
+    }
 
-        resize()
-        window.addEventListener("resize", resize)
+    .flower::before,
+    .flower::after {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 5px solid rgba(20, 5, 15, 0.75);
+      border-radius: 48% 52% 50% 50%;
+      transform: rotate(25deg);
+    }
 
-        const draw = () => {
-            const width = canvas.clientWidth
-            const height = canvas.clientHeight
+    .flower::after {
+      transform: rotate(-25deg);
+    }
 
-            ctx.clearRect(0, 0, width, height)
+    .enter {
+      margin-top: 45px;
+      padding: 15px 34px;
+      border: 1px solid rgba(255, 150, 190, 0.7);
+      border-radius: 4px;
+      background: rgba(20, 5, 15, 0.8);
+      color: white;
+      font-size: 16px;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      z-index: 4;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
 
-            const centerX = width / 2
-            const centerY = height * 0.28
-            const sway = Math.sin(time * 0.0012) * 3
+    .enter:hover {
+      transform: scale(1.05);
+      background: rgba(120, 20, 65, 0.8);
+    }
 
-            ctx.save()
-            ctx.translate(centerX + sway, centerY)
+    .skull {
+      position: absolute;
+      font-size: 24px;
+      opacity: 0.55;
+      animation: float 5s ease-in-out infinite;
+    }
 
-            for (let i = 0; i < 5; i++) {
-                ctx.save()
-                ctx.rotate((Math.PI * 2 * i) / 5)
+    .s1 { left: 12%; top: 25%; }
+    .s2 { right: 14%; top: 31%; animation-delay: 1s; }
+    .s3 { left: 22%; bottom: 18%; animation-delay: 2s; }
+    .s4 { right: 23%; bottom: 22%; animation-delay: 3s; }
 
-                ctx.beginPath()
-                ctx.moveTo(0, 0)
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.04);
+      }
+    }
 
-                ctx.bezierCurveTo(-38, -10, -45, -48, 0, -62)
-                ctx.bezierCurveTo(45, -48, 38, -10, 0, 0)
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+  </style>
+</head>
 
-                ctx.fillStyle = "#f29ab5"
-                ctx.fill()
+<body>
+  <main class="landing">
 
-                ctx.restore()
-            }
+    <div class="title">YOMIZAKURA</div>
 
-            ctx.beginPath()
-            ctx.arc(0, 0, 14, 0, Math.PI * 2)
-            ctx.fillStyle = "#171017"
-            ctx.fill()
+    <div class="subtitle">
+      HANDCRAFTED RUGS · NONFANDOMDESIGNS
+    </div>
 
-            ctx.restore()
+    <div class="skull s1">☠</div>
+    <div class="skull s2">☠</div>
+    <div class="skull s3">☠</div>
+    <div class="skull s4">☠</div>
 
-            const slimeTop = centerY + 32
+    <div class="flower"></div>
 
-            const drips = [
-                {
-                    x: centerX - 23,
-                    width: 12,
-                    length: 42,
-                    delay: 0,
-                },
-                {
-                    x: centerX,
-                    width: 18,
-                    length: 82,
-                    delay: 1.2,
-                },
-                {
-                    x: centerX + 24,
-                    width: 11,
-                    length: 52,
-                    delay: 2.4,
-                },
-            ]
+    <button class="enter" onclick="enterSite()">
+      ENTER YOMIZAKURA
+    </button>
 
-            drips.forEach((drip) => {
-                const movement =
-                    Math.sin(time * 0.002 + drip.delay) * 6
+  </main>
 
-                const length = drip.length + movement
-
-                ctx.beginPath()
-
-                ctx.moveTo(
-                    drip.x - drip.width / 2,
-                    slimeTop
-                )
-
-                ctx.lineTo(
-                    drip.x - drip.width / 2,
-                    slimeTop + length
-                )
-
-                ctx.quadraticCurveTo(
-                    drip.x,
-                    slimeTop + length + 12,
-                    drip.x + drip.width / 2,
-                    slimeTop + length
-                )
-
-                ctx.lineTo(
-                    drip.x + drip.width / 2,
-                    slimeTop
-                )
-
-                ctx.closePath()
-
-                ctx.fillStyle = "#8f174f"
-                ctx.fill()
-            })
-
-            const dropCycle = (time * 0.035) % 110
-
-            if (dropCycle > 35 && dropCycle < 100) {
-                ctx.beginPath()
-
-                ctx.arc(
-                    centerX,
-                    slimeTop + dropCycle,
-                    4,
-                    0,
-                    Math.PI * 2
-                )
-
-                ctx.fillStyle = "#8f174f"
-                ctx.fill()
-            }
-
-            time += 16
-            animationFrame = requestAnimationFrame(draw)
-        }
-
-        draw()
-
-        return () => {
-            window.removeEventListener("resize", resize)
-            cancelAnimationFrame(animationFrame)
-        }
-    }, [])
-
-    return (
-        <div
-            style={{
-                width: "100%",
-                height: "100%",
-                position: "relative",
-                overflow: "visible",
-            }}
-        >
-            <canvas
-                ref={canvasRef}
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    display: "block",
-                }}
-            />
-        </div>
-    )
-}
+  <script>
+    function enterSite() {
+      alert("Yomizakura awaits...");
+    }
+  </script>
+</body>
+</html>
