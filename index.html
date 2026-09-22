@@ -1,0 +1,170 @@
+import { useEffect, useRef } from "react"
+
+export default function YomizakuraFlower() {
+    const canvasRef = useRef(null)
+
+    useEffect(() => {
+        const canvas = canvasRef.current
+        if (!canvas) return
+
+        const ctx = canvas.getContext("2d")
+        let animationFrame
+        let time = 0
+
+        const resize = () => {
+            const rect = canvas.getBoundingClientRect()
+            const dpr = window.devicePixelRatio || 1
+
+            canvas.width = rect.width * dpr
+            canvas.height = rect.height * dpr
+
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+        }
+
+        resize()
+        window.addEventListener("resize", resize)
+
+        const draw = () => {
+            const width = canvas.clientWidth
+            const height = canvas.clientHeight
+
+            ctx.clearRect(0, 0, width, height)
+
+            const centerX = width / 2
+            const centerY = height * 0.28
+            const sway = Math.sin(time * 0.0012) * 3
+
+            ctx.save()
+            ctx.translate(centerX + sway, centerY)
+
+            for (let i = 0; i < 5; i++) {
+                ctx.save()
+                ctx.rotate((Math.PI * 2 * i) / 5)
+
+                ctx.beginPath()
+                ctx.moveTo(0, 0)
+
+                ctx.bezierCurveTo(-38, -10, -45, -48, 0, -62)
+                ctx.bezierCurveTo(45, -48, 38, -10, 0, 0)
+
+                ctx.fillStyle = "#f29ab5"
+                ctx.fill()
+
+                ctx.restore()
+            }
+
+            ctx.beginPath()
+            ctx.arc(0, 0, 14, 0, Math.PI * 2)
+            ctx.fillStyle = "#171017"
+            ctx.fill()
+
+            ctx.restore()
+
+            const slimeTop = centerY + 32
+
+            const drips = [
+                {
+                    x: centerX - 23,
+                    width: 12,
+                    length: 42,
+                    delay: 0,
+                },
+                {
+                    x: centerX,
+                    width: 18,
+                    length: 82,
+                    delay: 1.2,
+                },
+                {
+                    x: centerX + 24,
+                    width: 11,
+                    length: 52,
+                    delay: 2.4,
+                },
+            ]
+
+            drips.forEach((drip) => {
+                const movement =
+                    Math.sin(time * 0.002 + drip.delay) * 6
+
+                const length = drip.length + movement
+
+                ctx.beginPath()
+
+                ctx.moveTo(
+                    drip.x - drip.width / 2,
+                    slimeTop
+                )
+
+                ctx.lineTo(
+                    drip.x - drip.width / 2,
+                    slimeTop + length
+                )
+
+                ctx.quadraticCurveTo(
+                    drip.x,
+                    slimeTop + length + 12,
+                    drip.x + drip.width / 2,
+                    slimeTop + length
+                )
+
+                ctx.lineTo(
+                    drip.x + drip.width / 2,
+                    slimeTop
+                )
+
+                ctx.closePath()
+
+                ctx.fillStyle = "#8f174f"
+                ctx.fill()
+            })
+
+            const dropCycle = (time * 0.035) % 110
+
+            if (dropCycle > 35 && dropCycle < 100) {
+                ctx.beginPath()
+
+                ctx.arc(
+                    centerX,
+                    slimeTop + dropCycle,
+                    4,
+                    0,
+                    Math.PI * 2
+                )
+
+                ctx.fillStyle = "#8f174f"
+                ctx.fill()
+            }
+
+            time += 16
+            animationFrame = requestAnimationFrame(draw)
+        }
+
+        draw()
+
+        return () => {
+            window.removeEventListener("resize", resize)
+            cancelAnimationFrame(animationFrame)
+        }
+    }, [])
+
+    return (
+        <div
+            style={{
+                width: "100%",
+                height: "100%",
+                position: "relative",
+                overflow: "visible",
+            }}
+        >
+            <canvas
+                ref={canvasRef}
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    display: "block",
+                }}
+            />
+        </div>
+    )
+}
