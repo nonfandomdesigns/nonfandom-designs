@@ -17,30 +17,37 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* =========================
+   LANDING PAGE
+========================= */
+
 .landing {
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+
   background:
     radial-gradient(circle at center, #160b16 0%, #090609 65%);
+
   transition: opacity 0.8s ease;
 }
 
-/* =========================
-   TITLE
-========================= */
+/* TITLE */
 
 .title {
   position: absolute;
   top: 6%;
   left: 50%;
   transform: translateX(-50%);
+
   z-index: 10;
 
   color: #ff4fa3;
+
   font-size: clamp(38px, 6vw, 82px);
   font-weight: 800;
+
   letter-spacing: 0.18em;
   text-align: center;
 
@@ -54,11 +61,14 @@ html, body {
   top: 15%;
   left: 50%;
   transform: translateX(-50%);
+
   z-index: 10;
 
   color: #ff7ab8;
+
   font-size: clamp(11px, 1.4vw, 18px);
   letter-spacing: 0.25em;
+
   text-align: center;
   white-space: nowrap;
 }
@@ -112,8 +122,10 @@ html, body {
 
 .enter {
   position: absolute;
+
   left: 50%;
   bottom: 7%;
+
   transform: translateX(-50%);
 
   z-index: 20;
@@ -153,107 +165,12 @@ html, body {
 }
 
 /* =========================
-   SKULLS
-========================= */
-
-.skull {
-  position: absolute;
-  z-index: 7;
-
-  color: #080608;
-
-  font-size: 25px;
-
-  opacity: 0.85;
-
-  text-shadow:
-    0 0 5px rgba(255,255,255,0.08);
-
-  animation: skullFloat 5s ease-in-out infinite;
-}
-
-.s1 {
-  left: 18%;
-  top: 27%;
-  animation-delay: 0s;
-}
-
-.s2 {
-  right: 18%;
-  top: 31%;
-  animation-delay: 1.2s;
-}
-
-.s3 {
-  left: 27%;
-  top: 48%;
-  animation-delay: 2.2s;
-}
-
-.s4 {
-  right: 27%;
-  top: 51%;
-  animation-delay: 3.2s;
-}
-
-@keyframes skullFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(-4deg);
-  }
-
-  50% {
-    transform: translateY(-14px) rotate(4deg);
-  }
-}
-
-/* =========================
-   BLUE FLOWER
-========================= */
-
-.blueFlower {
-  position: absolute;
-
-  left: 69%;
-  top: 58%;
-
-  width: 22px;
-  height: 22px;
-
-  z-index: 8;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(circle,
-      #ffffff 0 12%,
-      #3d8cff 13% 35%,
-      #1470ff 36% 65%,
-      #0748b8 66% 100%
-    );
-
-  box-shadow:
-    0 0 10px rgba(40,120,255,0.8),
-    0 0 25px rgba(40,120,255,0.35);
-
-  animation: flowerPulse 3s ease-in-out infinite;
-}
-
-@keyframes flowerPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.15);
-  }
-}
-
-/* =========================
-   FALLING PETALS
+   FALLING CHERRY BLOSSOMS
 ========================= */
 
 .petal {
   position: absolute;
+
   top: -30px;
 
   width: 7px;
@@ -314,49 +231,25 @@ html, body {
 }
 
 /* =========================
-   SECOND SCREEN
+   CHARACTER HUB
 ========================= */
 
 .world {
+  position: relative;
+
   width: 100vw;
   height: 100vh;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  overflow: hidden;
 
   background:
-    radial-gradient(circle at center, #160b16 0%, #090609 70%);
+    radial-gradient(circle at center, #180b18 0%, #090609 72%);
 
   color: #ff4fa3;
 
-  text-align: center;
-
   opacity: 0;
+
   animation: worldFade 1.2s ease forwards;
-}
-
-.world h1 {
-  margin: 0;
-
-  font-size: clamp(42px, 7vw, 90px);
-
-  letter-spacing: 0.18em;
-
-  text-shadow:
-    0 0 10px rgba(255,79,163,0.7),
-    0 0 30px rgba(255,79,163,0.35);
-}
-
-.world p {
-  margin-top: 18px;
-
-  color: #ff7ab8;
-
-  font-size: clamp(12px, 1.5vw, 18px);
-
-  letter-spacing: 0.3em;
 }
 
 @keyframes worldFade {
@@ -366,6 +259,194 @@ html, body {
 
   to {
     opacity: 1;
+  }
+}
+
+/* HUB TITLE */
+
+.hubTitle {
+  position: absolute;
+
+  top: 5%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  text-align: center;
+
+  color: #ff4fa3;
+
+  font-size: clamp(30px, 5vw, 64px);
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    0 0 10px rgba(255,79,163,0.7),
+    0 0 30px rgba(255,79,163,0.35);
+}
+
+.hubSubtitle {
+  position: absolute;
+
+  top: 13%;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: #ff7ab8;
+
+  font-size: clamp(10px, 1.2vw, 16px);
+
+  letter-spacing: 0.25em;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   SAKURAMA
+========================= */
+
+.sakurama {
+  position: absolute;
+
+  left: 50%;
+  top: 53%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
+
+  width: min(42vw, 500px);
+  max-height: 68vh;
+
+  object-fit: contain;
+
+  z-index: 8;
+
+  cursor: pointer;
+
+  filter:
+    drop-shadow(0 0 14px rgba(255,79,163,0.35))
+    drop-shadow(0 0 40px rgba(255,79,163,0.15));
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.sakurama:hover {
+  transform:
+    translate(-50%, -50%)
+    scale(1.04);
+
+  filter:
+    drop-shadow(0 0 20px rgba(255,79,163,0.65))
+    drop-shadow(0 0 55px rgba(255,79,163,0.3));
+}
+
+/* SAKURAMA NAME */
+
+.sakuramaName {
+  position: absolute;
+
+  left: 50%;
+  top: 87%;
+
+  transform: translateX(-50%);
+
+  z-index: 12;
+
+  color: #ff4fa3;
+
+  font-size: clamp(18px, 2vw, 28px);
+
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+
+  opacity: 0.9;
+
+  text-shadow:
+    0 0 10px rgba(255,79,163,0.6);
+}
+
+/* COMING SOON CHARACTER POSITIONS */
+
+.characterPlaceholder {
+  position: absolute;
+
+  z-index: 7;
+
+  color: #ff7ab8;
+
+  font-size: clamp(10px, 1.2vw, 15px);
+
+  letter-spacing: 0.15em;
+
+  opacity: 0.65;
+
+  text-align: center;
+}
+
+.kurogi {
+  left: 16%;
+  top: 30%;
+}
+
+.sakuyo {
+  left: 18%;
+  top: 67%;
+}
+
+.aoma {
+  right: 18%;
+  top: 67%;
+}
+
+.ikoka {
+  right: 16%;
+  top: 30%;
+}
+
+/* SUBTLE PETALS ON HUB */
+
+.hubPetal {
+  position: absolute;
+
+  width: 6px;
+  height: 9px;
+
+  background: #ff77b7;
+
+  border-radius: 70% 30% 70% 30%;
+
+  opacity: 0.65;
+
+  animation: hubFall linear infinite;
+}
+
+.hp1 { left: 10%; top: -20px; animation-duration: 9s; }
+.hp2 { left: 25%; top: -40px; animation-duration: 12s; animation-delay: 2s; }
+.hp3 { left: 45%; top: -30px; animation-duration: 8s; animation-delay: 1s; }
+.hp4 { left: 65%; top: -20px; animation-duration: 11s; animation-delay: 3s; }
+.hp5 { left: 85%; top: -30px; animation-duration: 9s; animation-delay: 4s; }
+
+@keyframes hubFall {
+  0% {
+    transform: translate(0, -20px) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(35px, 50vh) rotate(180deg);
+  }
+
+  100% {
+    transform: translate(-20px, 110vh) rotate(360deg);
   }
 }
 
@@ -390,39 +471,53 @@ html, body {
     top: 53%;
   }
 
-  .skull {
-    font-size: 18px;
-  }
-
-  .s1 {
-    left: 8%;
-    top: 28%;
-  }
-
-  .s2 {
-    right: 8%;
-    top: 32%;
-  }
-
-  .s3 {
-    left: 12%;
-    top: 55%;
-  }
-
-  .s4 {
-    right: 12%;
-    top: 58%;
-  }
-
-  .blueFlower {
-    left: 76%;
-    top: 58%;
-  }
-
   .enter {
     bottom: 5%;
     font-size: 12px;
     padding: 12px 20px;
+  }
+
+  .sakurama {
+    width: 72vw;
+    max-height: 62vh;
+  }
+
+  .hubTitle {
+    top: 5%;
+    font-size: 30px;
+  }
+
+  .hubSubtitle {
+    top: 13%;
+    font-size: 8px;
+  }
+
+  .characterPlaceholder {
+    font-size: 9px;
+  }
+
+  .kurogi {
+    left: 7%;
+    top: 31%;
+  }
+
+  .sakuyo {
+    left: 8%;
+    top: 70%;
+  }
+
+  .aoma {
+    right: 8%;
+    top: 70%;
+  }
+
+  .ikoka {
+    right: 7%;
+    top: 31%;
+  }
+
+  .sakuramaName {
+    top: 85%;
   }
 }
 </style>
@@ -444,12 +539,7 @@ html, body {
     alt="Yomizakura"
   >
 
-  <div class="skull s1">☠</div>
-  <div class="skull s2">☠</div>
-  <div class="skull s3">☠</div>
-  <div class="skull s4">☠</div>
-
-  <div class="blueFlower"></div>
+  <!-- EXISTING CHERRY BLOSSOMS -->
 
   <div class="petal p1"></div>
   <div class="petal p2"></div>
@@ -467,6 +557,7 @@ html, body {
 </div>
 
 <script>
+
 function enterSite() {
 
   const landing = document.querySelector(".landing");
@@ -476,19 +567,62 @@ function enterSite() {
   setTimeout(() => {
 
     landing.innerHTML = `
+
       <div class="world">
 
-        <h1>YOMIZAKURA</h1>
+        <div class="hubTitle">
+          YOMIZAKURA
+        </div>
 
-        <p>
-          THE WORLD AWAITS
-        </p>
+        <div class="hubSubtitle">
+          ENTER THE WORLD
+        </div>
+
+        <!-- SAKURAMA -->
+
+        <img
+          class="sakurama"
+          src="./IMG_6692.PNG"
+          alt="Sakurama"
+        >
+
+        <div class="sakuramaName">
+          SAKURAMA
+        </div>
+
+        <!-- FUTURE CHARACTERS -->
+
+        <div class="characterPlaceholder kurogi">
+          KUROGI
+        </div>
+
+        <div class="characterPlaceholder sakuyo">
+          SAKUYO
+        </div>
+
+        <div class="characterPlaceholder aoma">
+          AOMA
+        </div>
+
+        <div class="characterPlaceholder ikoka">
+          IKO / IKA
+        </div>
+
+        <!-- HUB PETALS -->
+
+        <div class="hubPetal hp1"></div>
+        <div class="hubPetal hp2"></div>
+        <div class="hubPetal hp3"></div>
+        <div class="hubPetal hp4"></div>
+        <div class="hubPetal hp5"></div>
 
       </div>
+
     `;
 
   }, 800);
 }
+
 </script>
 
 </body>
