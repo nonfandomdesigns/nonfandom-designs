@@ -24,6 +24,7 @@ html, body {
   overflow: hidden;
   background:
     radial-gradient(circle at center, #160b16 0%, #090609 65%);
+  transition: opacity 0.8s ease;
 }
 
 /* =========================
@@ -313,6 +314,62 @@ html, body {
 }
 
 /* =========================
+   SECOND SCREEN
+========================= */
+
+.world {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background:
+    radial-gradient(circle at center, #160b16 0%, #090609 70%);
+
+  color: #ff4fa3;
+
+  text-align: center;
+
+  opacity: 0;
+  animation: worldFade 1.2s ease forwards;
+}
+
+.world h1 {
+  margin: 0;
+
+  font-size: clamp(42px, 7vw, 90px);
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    0 0 10px rgba(255,79,163,0.7),
+    0 0 30px rgba(255,79,163,0.35);
+}
+
+.world p {
+  margin-top: 18px;
+
+  color: #ff7ab8;
+
+  font-size: clamp(12px, 1.5vw, 18px);
+
+  letter-spacing: 0.3em;
+}
+
+@keyframes worldFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
    MOBILE
 ========================= */
 
@@ -375,30 +432,25 @@ html, body {
 
 <div class="landing">
 
-  <!-- TITLE -->
   <div class="title">YOMIZAKURA</div>
 
   <div class="subtitle">
     HANDCRAFTED RUGS · NONFANDOMDESIGNS
   </div>
 
-  <!-- YOUR ACTUAL YOMIZAKURA TREE -->
   <img
     class="tree"
     src="./IMG_6683.PNG"
     alt="Yomizakura"
   >
 
-  <!-- FLOATING SKULLS -->
   <div class="skull s1">☠</div>
   <div class="skull s2">☠</div>
   <div class="skull s3">☠</div>
   <div class="skull s4">☠</div>
 
-  <!-- BLUE FLOWER -->
   <div class="blueFlower"></div>
 
-  <!-- FALLING PETALS -->
   <div class="petal p1"></div>
   <div class="petal p2"></div>
   <div class="petal p3"></div>
@@ -408,7 +460,6 @@ html, body {
   <div class="petal p7"></div>
   <div class="petal p8"></div>
 
-  <!-- ENTER -->
   <button class="enter" onclick="enterSite()">
     ENTER YOMIZAKURA
   </button>
@@ -417,7 +468,26 @@ html, body {
 
 <script>
 function enterSite() {
-  alert("Yomizakura awaits...");
+
+  const landing = document.querySelector(".landing");
+
+  landing.style.opacity = "0";
+
+  setTimeout(() => {
+
+    landing.innerHTML = `
+      <div class="world">
+
+        <h1>YOMIZAKURA</h1>
+
+        <p>
+          THE WORLD AWAITS
+        </p>
+
+      </div>
+    `;
+
+  }, 800);
 }
 </script>
 
