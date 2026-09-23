@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Characters & World Lore — Yomizakura</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #090609;
+  color: #ff4fa3;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  padding: 70px 20px 100px;
+
+  background:
+    radial-gradient(circle at center top, #180b18 0%, #090609 65%);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.title {
+  color: #ff4fa3;
+
+  font-size: clamp(38px, 6vw, 76px);
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    0 0 10px rgba(255,79,163,0.7),
+    0 0 30px rgba(255,79,163,0.35);
+}
+
+.subtitle {
+  margin-top: 12px;
+
+  color: #ff7ab8;
+
+  font-size: clamp(10px, 1.4vw, 17px);
+  letter-spacing: 0.25em;
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back {
+  position: fixed;
+
+  top: 22px;
+  left: 25px;
+
+  z-index: 50;
+
+  padding: 9px 15px;
+
+  border: 1px solid rgba(255,79,163,0.5);
+
+  background: rgba(9,6,9,0.8);
+
+  color: #ff7ab8;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  letter-spacing: 0.15em;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.back:hover {
+  background: #ff4fa3;
+  color: #090609;
+
+  box-shadow:
+    0 0 20px rgba(255,79,163,0.6);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  width: min(1000px, 92vw);
+
+  margin: 0 auto 80px;
+}
+
+.sectionTitle {
+  margin-bottom: 28px;
+
+  color: #ff4fa3;
+
+  font-size: clamp(22px, 3vw, 34px);
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  text-align: center;
+
+  text-shadow:
+    0 0 12px rgba(255,79,163,0.45);
+}
+
+.sectionTitle::after {
+  content: "";
+
+  display: block;
+
+  width: 80px;
+  height: 1px;
+
+  margin: 15px auto 0;
+
+  background: #ff4fa3;
+
+  box-shadow:
+    0 0 10px rgba(255,79,163,0.7);
+}
+
+/* =========================
+   CHARACTER CARDS
+========================= */
+
+.character {
+  margin-bottom: 14px;
+
+  border: 1px solid rgba(255,79,163,0.22);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,79,163,0.045),
+      rgba(9,6,9,0.75)
+    );
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.character:hover {
+  border-color: rgba(255,79,163,0.55);
+
+  box-shadow:
+    0 0 20px rgba(255,79,163,0.08);
+}
+
+/* =========================
+   CHARACTER NAME
+========================= */
+
+.character summary {
+  cursor: pointer;
+
+  list-style: none;
+
+  padding: 20px 24px;
+
+  color: #ff7ab8;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.character summary::-webkit-details-marker {
+  display: none;
+}
+
+.character summary::after {
+  content: "+";
+
+  float: right;
+
+  color: #ff4fa3;
+
+  font-size: 20px;
+
+  font-weight: 400;
+}
+
+.character[open] summary::after {
+  content: "−";
+}
+
+.character summary:hover {
+  color: #ff4fa3;
+
+  background: rgba(255,79,163,0.04);
+}
+
+/* =========================
+   CHARACTER CONTENT
+========================= */
+
+.characterContent {
+  padding: 0 24px 25px;
+
+  border-top: 1px solid rgba(255,79,163,0.12);
+}
+
+.imagePlaceholder {
+  width: min(420px, 100%);
+  height: 230px;
+
+  margin: 25px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed rgba(255,79,163,0.3);
+
+  color: rgba(255,122,184,0.5);
+
+  font-size: 11px;
+
+  letter-spacing: 0.18em;
+
+  background: rgba(0,0,0,0.18);
+}
+
+.description {
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  color: #d8b9ca;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  letter-spacing: 0.03em;
+
+  text-align: center;
+}
+
+/* =========================
+   PETALS
+========================= */
+
+.petal {
+  position: fixed;
+
+  top: -30px;
+
+  width: 7px;
+  height: 10px;
+
+  background: #ff77b7;
+
+  border-radius: 70% 30% 70% 30%;
+
+  opacity: 0.55;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  animation: fall linear infinite;
+}
+
+.p1 {
+  left: 8%;
+  animation-duration: 9s;
+}
+
+.p2 {
+  left: 23%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.p3 {
+  left: 41%;
+  animation-duration: 8s;
+  animation-delay: 1s;
+}
+
+.p4 {
+  left: 63%;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+
+.p5 {
+  left: 82%;
+  animation-duration: 9s;
+  animation-delay: 4s;
+}
+
+@keyframes fall {
+  0% {
+    transform:
+      translate3d(0, -20px, 0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translate3d(35px, 50vh, 0)
+      rotate(180deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-20px, 110vh, 0)
+      rotate(360deg);
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  margin-top: 100px;
+
+  text-align: center;
+
+  color: rgba(255,122,184,0.45);
+
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .page {
+    padding:
+      65px 12px 70px;
+  }
+
+  .header {
+    margin-bottom: 50px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 8px;
+  }
+
+  .section {
+    width: 94vw;
+
+    margin-bottom: 55px;
+  }
+
+  .sectionTitle {
+    font-size: 21px;
+  }
+
+  .character summary {
+    padding: 17px 16px;
+
+    font-size: 12px;
+  }
+
+  .characterContent {
+    padding:
+      0 16px 20px;
+  }
+
+  .imagePlaceholder {
+    height: 180px;
+  }
+
+  .description {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+  .back {
+    top: 15px;
+    left: 15px;
+
+    font-size: 9px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- BACK TO YOMIZAKURA -->
+
+  <a class="back" href="index.html">
+    ← RETURN TO YOMIZAKURA
+  </a>
+
+
+  <!-- HEADER -->
+
+  <header class="header">
+
+    <div class="title">
+      YOMIZAKURA
+    </div>
+
+    <div class="subtitle">
+      CHARACTERS &amp; WORLD LORE
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN CHARACTERS
+  ========================= -->
+
+  <section class="section">
+
+    <div class="sectionTitle">
+      MAIN CHARACTERS
+    </div>
+
+
+    <!-- YOMIZAKURA -->
+
+    <details class="character">
+
+      <summary>
+        YOMIZAKURA TREE
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          For thousands of years, hidden in Mount Yoshino in Nara Prefecture,
+          was a dark cherry blossom tree infested by dark spirits.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- SAKURAMA -->
+
+    <details class="character">
+
+      <summary>
+        SAKURAMA
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          Emerging from the heart of the tree, she's also the spirit of the tree
+          and the manifestation of the tree in devil form.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- KUROGI -->
+
+    <details class="character">
+
+      <summary>
+        KUROGI
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          The first creation and first seed of Sakurama, her main vessel used.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- IKO / IKA -->
+
+    <details class="character">
+
+      <summary>
+        IKO &amp; IKA
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          The devil twins that were brought to life by Kurogi.
+          They are his children.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- AOMA -->
+
+    <details class="character">
+
+      <summary>
+        AOMA
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          The secret blue devil who is a twin of Kurogi, created by Sakurama
+          in secret from Kurogi. He is represented in the Yomizakura tree by
+          one blue cherry blossom flower.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- SAKUYO -->
+
+    <details class="character">
+
+      <summary>
+        SAKUYO
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          The Night Blossom and mask that was created by Kurogi.
+          When I wear it, I'm under his control and do his bidding.
+          When I wear this mask, I make my custom rugs under Kurogi's bidding.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- SAKU -->
+
+    <details class="character">
+
+      <summary>
+        SAKU
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          A small little demon cherry blossom flower that Sakurama found
+          during her trip to the underworld. Saku serves as a little guide
+          and helper to Sakurama, almost like a shoulder pal.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- KUROGUMO-RYUU -->
+
+    <details class="character">
+
+      <summary>
+        KUROGUMO-RYUU
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          The Black Cloud Dragon, discovered during a trip to the underworld
+          by Iko and Ika. They bound it and took control of it, making it
+          their giant dragon pet.
+        </div>
+
+      </div>
+
+    </details>
+
+  </section>
+
+
+  <!-- =========================
+       SUPPORTING CHARACTERS
+  ========================= -->
+
+  <section class="section">
+
+    <div class="sectionTitle">
+      SUPPORTING CHARACTERS
+    </div>
+
+
+    <!-- TENZARU -->
+
+    <details class="character">
+
+      <summary>
+        TENZARU
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          The golden hand and feet macaque monkey who is a semi-omnipotent
+          character whose main focus is to maintain balance.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- SHIKAYOMI -->
+
+    <details class="character">
+
+      <summary>
+        SHIKAYOMI
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          A yokai who has antlers and a black fox tail.
+          She serves as the main love interest for Kurogi,
+          who is obsessed with her beauty.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- TORAI -->
+
+    <details class="character">
+
+      <summary>
+        TORAI
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          Based off a Hyottoko mask, Torai is kind of a fourth wall character
+          who is mostly for comedy purposes. He appears out of nowhere,
+          but doesn't necessarily interact with characters directly.
+          He's simply a fourth wall character.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- ANKYU -->
+
+    <details class="character">
+
+      <summary>
+        ANKYU
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          The guardian of the cherry blossom underworld, with a similar look
+          to Anubis from Egypt. He contains a blue lotus arm and also carries
+          a khopesh sword.
+        </div>
+
+      </div>
+
+    </details>
+
+  </section>
+
+
+  <!-- =========================
+       VILLAINS
+  ========================= -->
+
+  <section class="section">
+
+    <div class="sectionTitle">
+      VILLAINS
+    </div>
+
+
+    <!-- KOJI & KIRI -->
+
+    <details class="character">
+
+      <summary>
+        KOJI &amp; KIRI
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          Conjoined-head mushroom spore twins who are the main enemies
+          of Iko and Ika.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- KINHOSHI -->
+
+    <details class="character">
+
+      <summary>
+        KINHOSHI
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          Another mushroom spore character whose body also has wood
+          for arms and legs. He carries a tesser with sharp spikes
+          on the ends and is a main enemy to Kurogi.
+        </div>
+
+      </div>
+
+    </details>
+
+
+    <!-- JOROBANA -->
+
+    <details class="character">
+
+      <summary>
+        JOROBANA
+      </summary>
+
+      <div class="characterContent">
+
+        <div class="imagePlaceholder">
+          IMAGE COMING SOON
+        </div>
+
+        <div class="description">
+          A giant spider with a mushroom spore abdomen and a Kanzashi
+          hair pin on the abdomen. She serves as the most powerful
+          of the villains and is a main enemy to Kurogumo-Ryuu.
+        </div>
+
+      </div>
+
+    </details>
+
+  </section>
+
+
+  <div class="footer">
+    YOMIZAKURA · NONFANDOMDESIGNS
+  </div>
+
+</div>
+
+
+<!-- FALLING PETALS -->
+
+<div class="petal p1"></div>
+<div class="petal p2"></div>
+<div class="petal p3"></div>
+<div class="petal p4"></div>
+<div class="petal p5"></div>
+
+</body>
+</html>
