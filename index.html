@@ -373,6 +373,51 @@ html, body {
 
   text-shadow:
     0 0 10px rgba(255,79,163,0.6);
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+/* WORLD LORE HOVER TEXT */
+
+.sakuramaName span {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #ff7ab8;
+
+  font-size: clamp(8px, 0.9vw, 12px);
+
+  letter-spacing: 0.16em;
+
+  opacity: 0;
+
+  transform: translateY(-5px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.sakurama:hover + .sakuramaName,
+.sakuramaName:hover {
+  color: #ff77b7;
+
+  text-shadow:
+    0 0 15px rgba(255,79,163,0.8);
+}
+
+.sakuramaName:hover span,
+.sakurama:hover + .sakuramaName span {
+  opacity: 1;
+
+  transform: translateY(0);
 }
 
 /* COMING SOON CHARACTER POSITIONS */
@@ -519,6 +564,11 @@ html, body {
   .sakuramaName {
     top: 85%;
   }
+
+  .sakuramaName span {
+    font-size: 8px;
+    margin-top: 5px;
+  }
 }
 </style>
 </head>
@@ -588,6 +638,7 @@ function enterSite() {
 
         <div class="sakuramaName">
           SAKURAMA
+          <span>CHARACTERS &amp; WORLD LORE</span>
         </div>
 
         <!-- FUTURE CHARACTERS -->
