@@ -349,7 +349,9 @@ html, body {
     drop-shadow(0 0 55px rgba(255,79,163,0.3));
 }
 
-/* SAKURAMA NAME */
+/* =========================
+   SAKURAMA NAME
+========================= */
 
 .sakuramaName {
   position: absolute;
@@ -420,7 +422,26 @@ html, body {
   transform: translateY(0);
 }
 
-/* COMING SOON CHARACTER POSITIONS */
+/* =========================
+   CLICKABLE SAKURAMA
+========================= */
+
+.sakuramaLink {
+  display: block;
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 8;
+}
+
+/* =========================
+   COMING SOON CHARACTER POSITIONS
+========================= */
 
 .characterPlaceholder {
   position: absolute;
@@ -458,7 +479,9 @@ html, body {
   top: 30%;
 }
 
-/* SUBTLE PETALS ON HUB */
+/* =========================
+   SUBTLE PETALS ON HUB
+========================= */
 
 .hubPetal {
   position: absolute;
@@ -630,13 +653,22 @@ function enterSite() {
 
         <!-- SAKURAMA -->
 
+        <a
+          class="sakuramaLink"
+          href="characters.html"
+          aria-label="Characters & World Lore"
+        ></a>
+
         <img
           class="sakurama"
           src="./IMG_6692.PNG"
           alt="Sakurama"
         >
 
-        <div class="sakuramaName">
+        <div
+          class="sakuramaName"
+          onclick="window.location.href='characters.html'"
+        >
           SAKURAMA
           <span>CHARACTERS &amp; WORLD LORE</span>
         </div>
@@ -672,6 +704,7 @@ function enterSite() {
     `;
 
     /* SHOW THE CHARACTER HUB */
+
     landing.style.opacity = "1";
 
   }, 800);
