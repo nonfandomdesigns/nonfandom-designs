@@ -485,7 +485,8 @@ html, body {
     filter 0.4s ease;
 }
 
-.ikoka:hover {
+.ikoka:hover,
+.ikoka.mobileOpen {
   transform: scale(1.04);
 
   filter:
@@ -527,12 +528,18 @@ html, body {
 
   opacity: 0;
 
-  transition: opacity 0.3s ease;
+  transform: translateY(-5px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .ikoka:hover + .ikokaName span,
-.ikokaName:hover span {
+.ikokaName:hover span,
+.ikokaName.mobileOpen span {
   opacity: 1;
+  transform: translateY(0);
 }
 
 /* =========================
@@ -853,18 +860,15 @@ html, body {
 
   .ikoka {
     right: 2%;
-    top: 22%;
+    top: 18%;
 
     width: 32vw;
     max-height: 35vh;
   }
 
-  /* SAME WIDTH/POSITION AS IMAGE
-     SO BOTH TEXT LINES ARE CENTERED */
-
   .ikokaName {
     right: 2%;
-    top: 34%;
+    top: 30%;
 
     width: 32vw;
 
@@ -879,9 +883,20 @@ html, body {
 
     font-size: 7px;
 
-    opacity: 0.8;
+    opacity: 0;
+
+    transform: translateY(-5px);
 
     text-align: center;
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .ikokaName.mobileOpen span {
+    opacity: 0.8;
+    transform: translateY(0);
   }
 
   /* =========================
@@ -1086,6 +1101,43 @@ function openSakurama(event) {
 }
 
 /* =========================
+   IKA & IKO CLICK
+========================= */
+
+let ikokaMobileReady = false;
+
+function openIkoka(event) {
+
+  if (window.innerWidth <= 600) {
+
+    if (!ikokaMobileReady) {
+
+      event.preventDefault();
+
+      ikokaMobileReady = true;
+
+      const image =
+        document.querySelector(".ikoka");
+
+      const name =
+        document.querySelector(".ikokaName");
+
+      if (image) {
+        image.classList.add("mobileOpen");
+      }
+
+      if (name) {
+        name.classList.add("mobileOpen");
+      }
+
+      return;
+    }
+  }
+
+  window.location.href = "contact.html";
+}
+
+/* =========================
    ENTER YOMIZAKURA
 ========================= */
 
@@ -1147,12 +1199,12 @@ function enterSite() {
           class="ikoka"
           src="./IMG_6776.PNG"
           alt="Ika and Iko"
-          onclick="window.location.href='contact.html'"
+          onclick="openIkoka(event)"
         >
 
         <div
           class="ikokaName"
-          onclick="window.location.href='contact.html'"
+          onclick="openIkoka(event)"
         >
           IKA · IKO
           <span>INFO &amp; CONTACT</span>
