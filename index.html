@@ -472,25 +472,82 @@ html, body {
   top: 67%;
 }
 
+/* =========================
+   IKA & IKO
+========================= */
+
 .ikoka {
-  right: 16%;
-  top: 30%;
+  position: absolute;
+
+  right: 5%;
+  top: 28%;
+
+  width: min(30vw, 360px);
+  max-height: 52vh;
+
+  object-fit: contain;
+
+  z-index: 9;
 
   cursor: pointer;
 
+  filter:
+    drop-shadow(0 0 14px rgba(255,79,163,0.30))
+    drop-shadow(0 0 35px rgba(255,79,163,0.12));
+
   transition:
-    color 0.3s ease,
-    opacity 0.3s ease,
-    text-shadow 0.3s ease;
+    transform 0.4s ease,
+    filter 0.4s ease;
 }
 
 .ikoka:hover {
-  color: #ffffff;
+  transform: scale(1.04);
 
-  opacity: 1;
+  filter:
+    drop-shadow(0 0 20px rgba(255,79,163,0.65))
+    drop-shadow(0 0 50px rgba(255,79,163,0.25));
+}
+
+.ikokaName {
+  position: absolute;
+
+  right: 10%;
+  top: 78%;
+
+  z-index: 12;
+
+  color: #ff7ab8;
+
+  font-size: clamp(12px, 1.4vw, 18px);
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-align: center;
+
+  cursor: pointer;
 
   text-shadow:
-    0 0 12px rgba(255,79,163,0.8);
+    0 0 10px rgba(255,79,163,0.5);
+}
+
+.ikokaName span {
+  display: block;
+
+  margin-top: 6px;
+
+  font-size: clamp(7px, 0.8vw, 10px);
+
+  letter-spacing: 0.14em;
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.ikoka:hover + .ikokaName span,
+.ikokaName:hover span {
+  opacity: 1;
 }
 
 /* =========================
@@ -770,8 +827,8 @@ html, body {
   }
 
   .sakurama {
-    width: 72vw;
-    max-height: 62vh;
+    width: 62vw;
+    max-height: 58vh;
   }
 
   .hubTitle {
@@ -789,23 +846,33 @@ html, body {
   }
 
   .kurogi {
-    left: 7%;
-    top: 31%;
+    left: 5%;
+    top: 27%;
   }
 
   .sakuyo {
-    left: 8%;
-    top: 70%;
+    left: 7%;
+    top: 72%;
   }
 
   .aoma {
-    right: 8%;
-    top: 70%;
+    right: 7%;
+    top: 72%;
   }
 
   .ikoka {
-    right: 7%;
-    top: 31%;
+    right: 1%;
+    top: 29%;
+
+    width: 37vw;
+    max-height: 38vh;
+  }
+
+  .ikokaName {
+    right: 5%;
+    top: 62%;
+
+    font-size: 10px;
   }
 
   .sakuramaName {
@@ -1010,6 +1077,7 @@ function enterSite() {
           class="sakurama"
           src="./IMG_6692.PNG"
           alt="Sakurama"
+          onclick="window.location.href='characters.html'"
         >
 
         <div
@@ -1034,14 +1102,21 @@ function enterSite() {
           AOMA
         </div>
 
-        <div
-          class="characterPlaceholder ikoka"
+        <!-- IKA & IKO -->
+
+        <img
+          class="ikoka"
+          src="./IMG_6776.PNG"
+          alt="Ika and Iko"
           onclick="window.location.href='contact.html'"
-          role="link"
-          tabindex="0"
-          onkeydown="if(event.key === 'Enter') window.location.href='contact.html'"
         >
-          IKO / IKA
+
+        <div
+          class="ikokaName"
+          onclick="window.location.href='contact.html'"
+        >
+          IKA · IKO
+          <span>INFO &amp; CONTACT</span>
         </div>
 
         <!-- HUB PETALS -->
