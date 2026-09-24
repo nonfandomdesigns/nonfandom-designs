@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Info & Contact — NonFandomDesigns</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #090609;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f7dce9;
+}
+
+body {
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      #1d0b19 0%,
+      #100810 42%,
+      #090609 75%
+    );
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding:
+    55px
+    24px
+    80px;
+
+  overflow: hidden;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.pageTitle {
+  position: relative;
+  z-index: 10;
+
+  margin: 0;
+
+  color: #ff4fa3;
+
+  text-align: center;
+
+  font-size: clamp(34px, 5vw, 64px);
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-shadow:
+    0 0 10px rgba(255,79,163,0.7),
+    0 0 30px rgba(255,79,163,0.3);
+}
+
+.pageSubtitle {
+  position: relative;
+  z-index: 10;
+
+  margin-top: 10px;
+
+  color: #ff7ab8;
+
+  text-align: center;
+
+  font-size: clamp(10px, 1.2vw, 14px);
+
+  letter-spacing: 0.25em;
+}
+
+/* =========================
+   IKO & IKA
+========================= */
+
+.twins {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  justify-content: center;
+
+  margin:
+    30px
+    auto
+    0;
+
+  width: min(100%, 700px);
+}
+
+.twins img {
+  display: block;
+
+  width: min(90vw, 620px);
+  max-height: 470px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 14px rgba(255,79,163,0.25))
+    drop-shadow(0 0 40px rgba(255,79,163,0.12));
+}
+
+.twinNames {
+  position: relative;
+  z-index: 10;
+
+  margin-top: -10px;
+
+  text-align: center;
+
+  color: #ff7ab8;
+
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 700;
+
+  letter-spacing: 0.28em;
+
+  text-shadow:
+    0 0 10px rgba(255,79,163,0.45);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  position: relative;
+  z-index: 10;
+
+  width: min(100%, 820px);
+
+  margin:
+    45px
+    auto
+    0;
+}
+
+.card {
+  margin-bottom: 28px;
+
+  padding:
+    32px
+    34px;
+
+  border:
+    1px solid
+    rgba(255,79,163,0.28);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25,10,22,0.90),
+      rgba(8,6,9,0.92)
+    );
+
+  box-shadow:
+    0 0 30px rgba(255,79,163,0.08);
+}
+
+.sectionTitle {
+  margin:
+    0
+    0
+    22px;
+
+  color: #ff4fa3;
+
+  font-size: clamp(20px, 2.5vw, 28px);
+
+  letter-spacing: 0.12em;
+
+  text-shadow:
+    0 0 10px rgba(255,79,163,0.4);
+}
+
+.hello {
+  font-size: 21px;
+
+  color: #ff7ab8;
+
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+}
+
+.card p {
+  margin:
+    0
+    0
+    18px;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #ead8e2;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.highlight {
+  color: #ff7ab8;
+  font-weight: 700;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contactItem {
+  margin:
+    14px
+    0;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+.contactLabel {
+  color: #ff7ab8;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+.contactLink {
+  color: #ffffff;
+
+  text-decoration: none;
+
+  border-bottom:
+    1px solid
+    rgba(255,79,163,0.5);
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.contactLink:hover {
+  color: #ff7ab8;
+
+  text-shadow:
+    0 0 8px rgba(255,79,163,0.5);
+}
+
+.instagramButton {
+  display: inline-block;
+
+  margin-top: 18px;
+
+  padding:
+    13px
+    22px;
+
+  border:
+    1px solid
+    #ff4fa3;
+
+  border-radius: 5px;
+
+  background:
+    rgba(255,79,163,0.06);
+
+  color: #ff7ab8;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.instagramButton:hover {
+  background: #ff4fa3;
+
+  color: #090609;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 0 20px rgba(255,79,163,0.45);
+}
+
+.phoneNote {
+  margin-top: 22px !important;
+
+  color: #c9aebd !important;
+
+  font-size: 13px !important;
+
+  font-style: italic;
+}
+
+/* =========================
+   BACK TO YOMIZAKURA
+========================= */
+
+.backArea {
+  position: relative;
+  z-index: 10;
+
+  text-align: center;
+
+  margin-top: 42px;
+}
+
+.backButton {
+  display: inline-block;
+
+  padding:
+    13px
+    24px;
+
+  border:
+    1px solid
+    rgba(255,79,163,0.65);
+
+  border-radius: 5px;
+
+  color: #ff7ab8;
+
+  font-size: 11px;
+
+  letter-spacing: 0.18em;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.backButton:hover {
+  background: #ff4fa3;
+
+  color: #090609;
+
+  box-shadow:
+    0 0 20px rgba(255,79,163,0.4);
+}
+
+/* =========================
+   PETALS
+========================= */
+
+.petal {
+  position: fixed;
+
+  top: -30px;
+
+  width: 7px;
+  height: 10px;
+
+  background: #ff77b7;
+
+  border-radius:
+    70%
+    30%
+    70%
+    30%;
+
+  opacity: 0.55;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  animation:
+    fall
+    linear
+    infinite;
+}
+
+.p1 {
+  left: 7%;
+  animation-duration: 9s;
+}
+
+.p2 {
+  left: 20%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.p3 {
+  left: 35%;
+  animation-duration: 8s;
+  animation-delay: 4s;
+}
+
+.p4 {
+  left: 52%;
+  animation-duration: 11s;
+  animation-delay: 1s;
+}
+
+.p5 {
+  left: 67%;
+  animation-duration: 9s;
+  animation-delay: 5s;
+}
+
+.p6 {
+  left: 82%;
+  animation-duration: 13s;
+  animation-delay: 3s;
+}
+
+.p7 {
+  left: 94%;
+  animation-duration: 10s;
+  animation-delay: 6s;
+}
+
+@keyframes fall {
+
+  0% {
+    transform:
+      translate3d(0,-20px,0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translate3d(30px,25vh,0)
+      rotate(90deg);
+  }
+
+  50% {
+    transform:
+      translate3d(-20px,50vh,0)
+      rotate(180deg);
+  }
+
+  75% {
+    transform:
+      translate3d(30px,75vh,0)
+      rotate(270deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-10px,110vh,0)
+      rotate(360deg);
+  }
+}
+
+/* =========================
+   NONFANDOMDESIGNS MENU
+========================= */
+
+.quickMenu {
+  position: fixed;
+
+  top: 22px;
+  left: 22px;
+
+  z-index: 1000;
+}
+
+.logoButton {
+  width: 96px;
+  height: 96px;
+
+  padding: 4px;
+
+  border:
+    1px solid
+    rgba(255,79,163,0.45);
+
+  border-radius: 50%;
+
+  background:
+    rgba(9,6,9,0.82);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 12px
+    rgba(255,79,163,0.18);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.logoButton:hover {
+  transform: scale(1.06);
+
+  border-color: #ff4fa3;
+
+  box-shadow:
+    0 0 20px
+    rgba(255,79,163,0.45);
+}
+
+.logoButton img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 50%;
+}
+
+.quickMenuPanel {
+  position: absolute;
+
+  top: 108px;
+  left: 0;
+
+  width: 270px;
+
+  padding: 12px;
+
+  border:
+    1px solid
+    rgba(255,79,163,0.4);
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20,9,20,0.98),
+      rgba(7,5,8,0.98)
+    );
+
+  box-shadow:
+    0 0 25px
+    rgba(255,79,163,0.18);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    translateY(-8px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+}
+
+.quickMenu.open
+.quickMenuPanel {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateY(0);
+}
+
+.menuBrand {
+  padding:
+    7px
+    8px
+    13px;
+
+  color: #ff4fa3;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-align: center;
+
+  border-bottom:
+    1px solid
+    rgba(255,79,163,0.18);
+
+  margin-bottom: 6px;
+}
+
+.quickMenuPanel a,
+.quickMenuPanel button {
+  display: block;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding:
+    12px
+    10px;
+
+  border: 0;
+
+  border-bottom:
+    1px solid
+    rgba(255,79,163,0.12);
+
+  background: transparent;
+
+  color: #ff7ab8;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 11px;
+
+  letter-spacing: 0.12em;
+
+  text-align: left;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.quickMenuPanel a:hover,
+.quickMenuPanel button:hover {
+  color: #ffffff;
+
+  background:
+    rgba(255,79,163,0.12);
+}
+
+.quickMenuPanel a:last-child,
+.quickMenuPanel button:last-child {
+  border-bottom: 0;
+}
+
+/* =========================
+   COMING SOON
+========================= */
+
+.comingSoon {
+  position: fixed;
+
+  left: 50%;
+  bottom: 35px;
+
+  transform:
+    translateX(-50%)
+    translateY(15px);
+
+  z-index: 2000;
+
+  padding:
+    12px
+    20px;
+
+  border:
+    1px solid
+    rgba(255,79,163,0.5);
+
+  border-radius: 5px;
+
+  background:
+    rgba(9,6,9,0.96);
+
+  color: #ff7ab8;
+
+  font-size: 11px;
+
+  letter-spacing: 0.15em;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.comingSoon.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .page {
+    padding:
+      42px
+      16px
+      110px;
+  }
+
+  .pageTitle {
+    font-size: 32px;
+    letter-spacing: 0.12em;
+  }
+
+  .pageSubtitle {
+    font-size: 9px;
+  }
+
+  .twins {
+    margin-top: 25px;
+  }
+
+  .twins img {
+    width: 95vw;
+    max-height: 380px;
+  }
+
+  .twinNames {
+    font-size: 15px;
+    margin-top: -5px;
+  }
+
+  .content {
+    margin-top: 35px;
+  }
+
+  .card {
+    padding:
+      25px
+      20px;
+  }
+
+  .card p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hello {
+    font-size: 18px;
+  }
+
+  /* MOBILE MENU */
+
+  .quickMenu {
+    top: auto;
+    bottom: 18px;
+    left: 14px;
+  }
+
+  .logoButton {
+    width: 60px;
+    height: 60px;
+  }
+
+  .quickMenuPanel {
+    top: auto;
+    bottom: 72px;
+
+    width:
+      min(
+        260px,
+        calc(100vw - 40px)
+      );
+  }
+
+  .comingSoon {
+    max-width:
+      calc(100vw - 50px);
+
+    text-align: center;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NONFANDOMDESIGNS MENU
+========================= -->
+
+<div
+  class="quickMenu"
+  id="quickMenu"
+>
+
+  <button
+    class="logoButton"
+    onclick="toggleQuickMenu(event)"
+    aria-label="Open NonFandomDesigns quick menu"
+  >
+
+    <img
+      src="./IMG_6754.PNG"
+      alt="NonFandomDesigns"
+    >
+
+  </button>
+
+  <div class="quickMenuPanel">
+
+    <div class="menuBrand">
+      NONFANDOMDESIGNS
+    </div>
+
+    <a href="characters.html">
+      CHARACTERS &amp; WORLD LORE
+    </a>
+
+    <button
+      onclick="showComingSoon('CUSTOM RUG ORDERS')"
+    >
+      CUSTOM RUG ORDERS
+    </button>
+
+    <button
+      onclick="showComingSoon('AVAILABLE RUGS')"
+    >
+      AVAILABLE RUGS
+    </button>
+
+    <a href="contact.html">
+      INFO &amp; CONTACT
+    </a>
+
+    <button
+      onclick="showComingSoon('SOCIAL MEDIA')"
+    >
+      SOCIAL MEDIA
+    </button>
+
+  </div>
+
+</div>
+
+<div
+  class="comingSoon"
+  id="comingSoon"
+></div>
+
+<!-- PETALS -->
+
+<div class="petal p1"></div>
+<div class="petal p2"></div>
+<div class="petal p3"></div>
+<div class="petal p4"></div>
+<div class="petal p5"></div>
+<div class="petal p6"></div>
+<div class="petal p7"></div>
+
+<!-- =========================
+     PAGE
+========================= -->
+
+<main class="page">
+
+  <h1 class="pageTitle">
+    INFO &amp; CONTACT
+  </h1>
+
+  <div class="pageSubtitle">
+    NONFANDOMDESIGNS · YOMIZAKURA
+  </div>
+
+  <!-- IKO & IKA -->
+
+  <div class="twins">
+
+    <img
+      src="./IMG_6776.PNG"
+      alt="Ika and Iko"
+    >
+
+  </div>
+
+  <div class="twinNames">
+    IKA · IKO
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+    <!-- ABOUT -->
+
+    <section class="card">
+
+      <h2 class="sectionTitle">
+        ABOUT THE ARTIST
+      </h2>
+
+      <p class="hello">
+        こんにちは — Hello!
+      </p>
+
+      <p>
+        My name is Leo, and I'm the rug maker behind
+        <span class="highlight">
+          NonFandomDesigns.
+        </span>
+      </p>
+
+      <p>
+        I create custom handmade rugs through the bidding
+        of the
+        <span class="highlight">
+          Yomizakura Tree,
+        </span>
+        wearing the
+        <span class="highlight">
+          Sakuyo mask
+        </span>
+        as I bring each piece to life. I've been rug making
+        for close to six years, and for me, it has become
+        much more than a craft — it's my outlet for
+        expression and creativity.
+      </p>
+
+      <p>
+        Every rug is made by hand with care, personality,
+        and its own story.
+      </p>
+
+      <p>
+        Let's create a rug straight from the world of
+        <span class="highlight">
+          Yomizakura
+        </span>
+        and bring it into your home — something you or
+        someone you love can cherish for years to come.
+      </p>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="card">
+
+      <h2 class="sectionTitle">
+        CONTACT
+      </h2>
+
+      <div class="contactItem">
+
+        <span class="contactLabel">
+          EMAIL:
+        </span>
+
+        <a
+          class="contactLink"
+          href="mailto:Nonfandomdesigns@yahoo.com"
+        >
+          Nonfandomdesigns@yahoo.com
+        </a>
+
+      </div>
+
+      <div class="contactItem">
+
+        <span class="contactLabel">
+          INSTAGRAM:
+        </span>
+
+        <a
+          class="contactLink"
+          href="https://www.instagram.com/nonfandomdesigns?stkn=ZWN4Mzdsa2IyNHR5&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @nonfandomdesigns
+        </a>
+
+      </div>
+
+      <a
+        class="instagramButton"
+        href="https://www.instagram.com/nonfandomdesigns?stkn=ZWN4Mzdsa2IyNHR5&utm_source=qr"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        MESSAGE ON INSTAGRAM
+      </a>
+
+      <p class="phoneNote">
+        For more direct communication, a personal phone
+        number can be provided after contacting me through
+        Instagram.
+      </p>
+
+    </section>
+
+  </div>
+
+  <!-- BACK -->
+
+  <div class="backArea">
+
+    <a
+      class="backButton"
+      href="index.html"
+    >
+      ← RETURN TO YOMIZAKURA
+    </a>
+
+  </div>
+
+</main>
+
+<script>
+
+/* =========================
+   QUICK MENU
+========================= */
+
+function toggleQuickMenu(event) {
+
+  event.stopPropagation();
+
+  const menu =
+    document.getElementById("quickMenu");
+
+  menu.classList.toggle("open");
+}
+
+document.addEventListener(
+  "click",
+  function(event) {
+
+    const menu =
+      document.getElementById("quickMenu");
+
+    if (!menu.contains(event.target)) {
+      menu.classList.remove("open");
+    }
+  }
+);
+
+/* =========================
+   COMING SOON
+========================= */
+
+function showComingSoon(pageName) {
+
+  const message =
+    document.getElementById("comingSoon");
+
+  message.textContent =
+    pageName + " · COMING SOON";
+
+  message.classList.add("show");
+
+  document
+    .getElementById("quickMenu")
+    .classList.remove("open");
+
+  clearTimeout(
+    window.comingSoonTimer
+  );
+
+  window.comingSoonTimer =
+    setTimeout(() => {
+
+      message.classList.remove("show");
+
+    }, 2200);
+}
+
+</script>
+
+</body>
+</html>
