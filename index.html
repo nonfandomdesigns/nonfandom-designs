@@ -293,7 +293,6 @@ html, body {
   position: absolute;
 
   top: 13%;
-
   left: 50%;
 
   transform: translateX(-50%);
@@ -458,14 +457,14 @@ html, body {
 }
 
 /* =========================
-   IKA & IKO
+   IKA & IKO — DESKTOP
 ========================= */
 
 .ikoka {
   position: absolute;
 
   right: 5%;
-  top: 15%;
+  top: 11%;
 
   width: min(30vw, 360px);
   max-height: 52vh;
@@ -494,11 +493,16 @@ html, body {
     drop-shadow(0 0 50px rgba(255,79,163,0.25));
 }
 
+/* Same width/right position as artwork,
+   so text is centered directly beneath it */
+
 .ikokaName {
   position: absolute;
 
-  right: 10%;
-  top: 62%;
+  right: 5%;
+  top: 48%;
+
+  width: min(30vw, 360px);
 
   z-index: 12;
 
@@ -794,7 +798,7 @@ html, body {
 }
 
 /* =========================
-   MOBILE
+   MOBILE — UNCHANGED
 ========================= */
 
 @media (max-width: 600px) {
@@ -854,9 +858,7 @@ html, body {
     top: 72%;
   }
 
-  /* =========================
-     MOBILE IKA & IKO
-  ========================= */
+  /* PHONE IKA & IKO — KEEP EXACTLY AS FINISHED */
 
   .ikoka {
     right: 2%;
@@ -899,9 +901,7 @@ html, body {
     transform: translateY(0);
   }
 
-  /* =========================
-     MOBILE SAKURAMA
-  ========================= */
+  /* PHONE SAKURAMA — KEEP EXACTLY AS FINISHED */
 
   .sakuramaName {
     top: 78%;
@@ -912,9 +912,7 @@ html, body {
     margin-top: 5px;
   }
 
-  /* =========================
-     MOBILE QUICK MENU
-  ========================= */
+  /* PHONE QUICK MENU */
 
   .quickMenu {
     top: auto;
