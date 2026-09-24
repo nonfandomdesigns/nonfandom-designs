@@ -298,6 +298,8 @@ html, body {
 
   transform: translateX(-50%);
 
+  z-index: 10;
+
   color: #ff7ab8;
 
   font-size: clamp(10px, 1.2vw, 16px);
@@ -413,28 +415,11 @@ html, body {
     0 0 15px rgba(255,79,163,0.8);
 }
 
+.sakurama:hover + .sakuramaName span,
 .sakuramaName:hover span,
-.sakurama:hover + .sakuramaName span {
+.sakuramaName.mobileOpen span {
   opacity: 1;
-
   transform: translateY(0);
-}
-
-/* =========================
-   CLICKABLE SAKURAMA
-========================= */
-
-.sakuramaLink {
-  display: block;
-  position: absolute;
-
-  left: 0;
-  top: 0;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: 8;
 }
 
 /* =========================
@@ -752,7 +737,9 @@ html, body {
   border-bottom: 0;
 }
 
-/* COMING SOON MESSAGE */
+/* =========================
+   COMING SOON MESSAGE
+========================= */
 
 .comingSoon {
   position: fixed;
@@ -860,11 +847,13 @@ html, body {
     top: 72%;
   }
 
-  /* PHONE POSITION FOR IKA & IKO */
+  /* =========================
+     MOBILE IKA & IKO
+  ========================= */
 
   .ikoka {
     right: 2%;
-    top: 27%;
+    top: 22%;
 
     width: 32vw;
     max-height: 35vh;
@@ -872,10 +861,25 @@ html, body {
 
   .ikokaName {
     right: 4%;
-    top: 39%;
+    top: 34%;
 
     font-size: 10px;
   }
+
+  /* Keep INFO & CONTACT visible
+     directly under IKA · IKO */
+
+  .ikokaName span {
+    margin-top: 5px;
+
+    font-size: 7px;
+
+    opacity: 0.8;
+  }
+
+  /* =========================
+     MOBILE SAKURAMA
+  ========================= */
 
   .sakuramaName {
     top: 85%;
@@ -886,8 +890,7 @@ html, body {
     margin-top: 5px;
   }
 
-  /* MOBILE QUICK MENU:
-     lower-left so it does not cover YOMIZAKURA */
+  /* MOBILE QUICK MENU */
 
   .quickMenu {
     top: auto;
@@ -1044,12 +1047,43 @@ function showComingSoon(pageName) {
 }
 
 /* =========================
+   SAKURAMA CLICK
+========================= */
+
+let sakuramaMobileReady = false;
+
+function openSakurama(event) {
+
+  if (window.innerWidth <= 600) {
+
+    if (!sakuramaMobileReady) {
+
+      event.preventDefault();
+
+      sakuramaMobileReady = true;
+
+      const name =
+        document.querySelector(".sakuramaName");
+
+      if (name) {
+        name.classList.add("mobileOpen");
+      }
+
+      return;
+    }
+  }
+
+  window.location.href = "characters.html";
+}
+
+/* =========================
    ENTER YOMIZAKURA
 ========================= */
 
 function enterSite() {
 
-  const landing = document.querySelector(".landing");
+  const landing =
+    document.querySelector(".landing");
 
   landing.style.opacity = "0";
 
@@ -1069,22 +1103,16 @@ function enterSite() {
 
         <!-- SAKURAMA -->
 
-        <a
-          class="sakuramaLink"
-          href="characters.html"
-          aria-label="Characters & World Lore"
-        ></a>
-
         <img
           class="sakurama"
           src="./IMG_6692.PNG"
           alt="Sakurama"
-          onclick="window.location.href='characters.html'"
+          onclick="openSakurama(event)"
         >
 
         <div
           class="sakuramaName"
-          onclick="window.location.href='characters.html'"
+          onclick="openSakurama(event)"
         >
           SAKURAMA
           <span>CHARACTERS &amp; WORLD LORE</span>
