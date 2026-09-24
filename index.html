@@ -385,8 +385,6 @@ html, body {
     text-shadow 0.3s ease;
 }
 
-/* WORLD LORE HOVER TEXT */
-
 .sakuramaName span {
   display: block;
 
@@ -530,8 +528,8 @@ html, body {
 }
 
 .logoButton {
-  width: 82px;
-  height: 82px;
+  width: 96px;
+  height: 96px;
 
   padding: 4px;
 
@@ -576,7 +574,7 @@ html, body {
 .quickMenuPanel {
   position: absolute;
 
-  top: 94px;
+  top: 108px;
   left: 0;
 
   width: 270px;
@@ -803,9 +801,13 @@ html, body {
     margin-top: 5px;
   }
 
+  /* MOBILE QUICK MENU:
+     lower-left so it does not cover YOMIZAKURA */
+
   .quickMenu {
-    top: 12px;
-    left: 12px;
+    top: auto;
+    bottom: 18px;
+    left: 14px;
   }
 
   .logoButton {
@@ -814,7 +816,8 @@ html, body {
   }
 
   .quickMenuPanel {
-    top: 72px;
+    top: auto;
+    bottom: 72px;
     width: min(260px, calc(100vw - 40px));
   }
 
@@ -895,8 +898,6 @@ html, body {
     src="./IMG_6683.PNG"
     alt="Yomizakura"
   >
-
-  <!-- EXISTING CHERRY BLOSSOMS -->
 
   <div class="petal p1"></div>
   <div class="petal p2"></div>
@@ -1032,8 +1033,6 @@ function enterSite() {
       </div>
 
     `;
-
-    /* SHOW THE CHARACTER HUB */
 
     landing.style.opacity = "1";
 
