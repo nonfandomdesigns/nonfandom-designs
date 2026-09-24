@@ -438,7 +438,7 @@ html, body {
 }
 
 /* =========================
-   COMING SOON CHARACTER POSITIONS
+   CHARACTER POSITIONS
 ========================= */
 
 .characterPlaceholder {
@@ -475,6 +475,22 @@ html, body {
 .ikoka {
   right: 16%;
   top: 30%;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.ikoka:hover {
+  color: #ffffff;
+
+  opacity: 1;
+
+  text-shadow:
+    0 0 12px rgba(255,79,163,0.8);
 }
 
 /* =========================
@@ -867,9 +883,9 @@ html, body {
       AVAILABLE RUGS
     </button>
 
-    <button onclick="showComingSoon('INFO & CONTACT')">
+    <a href="contact.html">
       INFO &amp; CONTACT
-    </button>
+    </a>
 
     <button onclick="showComingSoon('SOCIAL MEDIA')">
       SOCIAL MEDIA
@@ -1018,7 +1034,13 @@ function enterSite() {
           AOMA
         </div>
 
-        <div class="characterPlaceholder ikoka">
+        <div
+          class="characterPlaceholder ikoka"
+          onclick="window.location.href='contact.html'"
+          role="link"
+          tabindex="0"
+          onkeydown="if(event.key === 'Enter') window.location.href='contact.html'"
+        >
           IKO / IKA
         </div>
 
