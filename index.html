@@ -519,6 +519,216 @@ html, body {
 }
 
 /* =========================
+   NONFANDOMDESIGNS QUICK MENU
+========================= */
+
+.quickMenu {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  z-index: 1000;
+}
+
+.logoButton {
+  width: 82px;
+  height: 82px;
+
+  padding: 4px;
+
+  border: 1px solid rgba(255,79,163,0.45);
+  border-radius: 50%;
+
+  background: rgba(9,6,9,0.78);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 12px rgba(255,79,163,0.18);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.logoButton:hover {
+  transform: scale(1.06);
+
+  border-color: #ff4fa3;
+
+  box-shadow:
+    0 0 20px rgba(255,79,163,0.45);
+}
+
+.logoButton img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 50%;
+}
+
+.quickMenuPanel {
+  position: absolute;
+
+  top: 94px;
+  left: 0;
+
+  width: 270px;
+
+  padding: 12px;
+
+  border: 1px solid rgba(255,79,163,0.4);
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20,9,20,0.97),
+      rgba(7,5,8,0.97)
+    );
+
+  box-shadow:
+    0 0 25px rgba(255,79,163,0.18);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-8px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+}
+
+.quickMenu.open .quickMenuPanel {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+.menuBrand {
+  padding: 7px 8px 13px;
+
+  color: #ff4fa3;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-align: center;
+
+  border-bottom:
+    1px solid rgba(255,79,163,0.18);
+
+  margin-bottom: 6px;
+}
+
+.quickMenuPanel a,
+.quickMenuPanel button {
+  display: block;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 10px;
+
+  border: 0;
+  border-bottom:
+    1px solid rgba(255,79,163,0.12);
+
+  background: transparent;
+
+  color: #ff7ab8;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+
+  letter-spacing: 0.12em;
+
+  text-align: left;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.quickMenuPanel a:hover,
+.quickMenuPanel button:hover {
+  color: #ffffff;
+
+  background: rgba(255,79,163,0.12);
+
+  padding-left: 16px;
+}
+
+.quickMenuPanel a:last-child,
+.quickMenuPanel button:last-child {
+  border-bottom: 0;
+}
+
+/* COMING SOON MESSAGE */
+
+.comingSoon {
+  position: fixed;
+
+  left: 50%;
+  bottom: 35px;
+
+  transform:
+    translateX(-50%)
+    translateY(15px);
+
+  z-index: 2000;
+
+  padding: 12px 20px;
+
+  border: 1px solid rgba(255,79,163,0.5);
+  border-radius: 5px;
+
+  background: rgba(9,6,9,0.95);
+
+  color: #ff7ab8;
+
+  font-size: 11px;
+
+  letter-spacing: 0.15em;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s ease;
+
+  white-space: nowrap;
+}
+
+.comingSoon.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+/* =========================
    MOBILE
 ========================= */
 
@@ -592,11 +802,85 @@ html, body {
     font-size: 8px;
     margin-top: 5px;
   }
+
+  .quickMenu {
+    top: 12px;
+    left: 12px;
+  }
+
+  .logoButton {
+    width: 60px;
+    height: 60px;
+  }
+
+  .quickMenuPanel {
+    top: 72px;
+    width: min(260px, calc(100vw - 40px));
+  }
+
+  .comingSoon {
+    max-width: calc(100vw - 50px);
+    text-align: center;
+    white-space: normal;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- =========================
+     NONFANDOMDESIGNS QUICK MENU
+========================= -->
+
+<div class="quickMenu" id="quickMenu">
+
+  <button
+    class="logoButton"
+    onclick="toggleQuickMenu(event)"
+    aria-label="Open NonFandomDesigns quick menu"
+  >
+    <img
+      src="./IMG_6754.PNG"
+      alt="NonFandomDesigns"
+    >
+  </button>
+
+  <div class="quickMenuPanel">
+
+    <div class="menuBrand">
+      NONFANDOMDESIGNS
+    </div>
+
+    <a href="characters.html">
+      CHARACTERS &amp; WORLD LORE
+    </a>
+
+    <button onclick="showComingSoon('CUSTOM RUG ORDERS')">
+      CUSTOM RUG ORDERS
+    </button>
+
+    <button onclick="showComingSoon('AVAILABLE RUGS')">
+      AVAILABLE RUGS
+    </button>
+
+    <button onclick="showComingSoon('INFO & CONTACT')">
+      INFO &amp; CONTACT
+    </button>
+
+    <button onclick="showComingSoon('SOCIAL MEDIA')">
+      SOCIAL MEDIA
+    </button>
+
+  </div>
+
+</div>
+
+<div class="comingSoon" id="comingSoon"></div>
+
+<!-- =========================
+     LANDING PAGE
+========================= -->
 
 <div class="landing">
 
@@ -630,6 +914,52 @@ html, body {
 </div>
 
 <script>
+
+/* =========================
+   QUICK MENU
+========================= */
+
+function toggleQuickMenu(event) {
+
+  event.stopPropagation();
+
+  const menu = document.getElementById("quickMenu");
+
+  menu.classList.toggle("open");
+}
+
+document.addEventListener("click", function(event) {
+
+  const menu = document.getElementById("quickMenu");
+
+  if (!menu.contains(event.target)) {
+    menu.classList.remove("open");
+  }
+});
+
+function showComingSoon(pageName) {
+
+  const message = document.getElementById("comingSoon");
+
+  message.textContent =
+    pageName + " · COMING SOON";
+
+  message.classList.add("show");
+
+  document
+    .getElementById("quickMenu")
+    .classList.remove("open");
+
+  clearTimeout(window.comingSoonTimer);
+
+  window.comingSoonTimer = setTimeout(() => {
+    message.classList.remove("show");
+  }, 2200);
+}
+
+/* =========================
+   ENTER YOMIZAKURA
+========================= */
 
 function enterSite() {
 
