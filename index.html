@@ -859,22 +859,29 @@ html, body {
     max-height: 35vh;
   }
 
+  /* SAME WIDTH/POSITION AS IMAGE
+     SO BOTH TEXT LINES ARE CENTERED */
+
   .ikokaName {
-    right: 4%;
+    right: 2%;
     top: 34%;
 
+    width: 32vw;
+
     font-size: 10px;
+    text-align: center;
   }
 
-  /* Keep INFO & CONTACT visible
-     directly under IKA · IKO */
-
   .ikokaName span {
+    display: block;
+
     margin-top: 5px;
 
     font-size: 7px;
 
     opacity: 0.8;
+
+    text-align: center;
   }
 
   /* =========================
@@ -882,7 +889,7 @@ html, body {
   ========================= */
 
   .sakuramaName {
-    top: 85%;
+    top: 78%;
   }
 
   .sakuramaName span {
@@ -890,7 +897,9 @@ html, body {
     margin-top: 5px;
   }
 
-  /* MOBILE QUICK MENU */
+  /* =========================
+     MOBILE QUICK MENU
+  ========================= */
 
   .quickMenu {
     top: auto;
