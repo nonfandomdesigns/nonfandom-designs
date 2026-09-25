@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Social Media — NonFandomDesigns</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(0, 115, 255, 0.15),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 20% 60%,
+          rgba(0, 65, 255, 0.08),
+          transparent 35%
+        ),
+        #050509;
+
+      color: white;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      overflow-x: hidden;
+    }
+
+
+    /* PAGE */
+
+    .page {
+      position: relative;
+
+      width: 100%;
+
+      min-height: 100vh;
+
+      padding:
+        55px
+        20px
+        100px;
+
+      text-align: center;
+
+      z-index: 2;
+    }
+
+
+    /* TITLE */
+
+    .title {
+      margin: 0;
+
+      color: #5eb8ff;
+
+      font-size:
+        clamp(34px, 6vw, 68px);
+
+      font-weight: 800;
+
+      letter-spacing: 0.10em;
+
+      text-shadow:
+        0 0 12px rgba(40, 150, 255, 0.75),
+        0 0 35px rgba(0, 90, 255, 0.35);
+    }
+
+    .subtitle {
+      margin-top: 10px;
+
+      color: rgba(255,255,255,0.72);
+
+      font-size:
+        clamp(9px, 1.2vw, 13px);
+
+      letter-spacing: 0.28em;
+    }
+
+
+    /* AOMA */
+
+    .aomaArea {
+      position: relative;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      margin:
+        35px
+        auto
+        15px;
+
+      max-width: 650px;
+    }
+
+    .aomaGlow {
+      position: absolute;
+
+      top: 20%;
+      left: 50%;
+
+      width: 420px;
+      height: 420px;
+
+      transform:
+        translateX(-50%);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0, 120, 255, 0.22),
+          rgba(0, 70, 255, 0.08) 45%,
+          transparent 70%
+        );
+
+      filter: blur(18px);
+
+      pointer-events: none;
+    }
+
+    .aoma {
+      position: relative;
+
+      width:
+        min(82vw, 500px);
+
+      max-height: 570px;
+
+      object-fit: contain;
+
+      z-index: 2;
+
+      filter:
+        drop-shadow(
+          0 0 15px
+          rgba(0, 125, 255, 0.45)
+        )
+        drop-shadow(
+          0 0 40px
+          rgba(0, 80, 255, 0.20)
+        );
+
+      animation:
+        aomaFloat
+        5s
+        ease-in-out
+        infinite;
+    }
+
+    @keyframes aomaFloat {
+
+      0%,
+      100% {
+        transform:
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          translateY(-7px);
+      }
+
+    }
+
+    .aomaName {
+      position: relative;
+
+      margin-top: -5px;
+
+      color: #63baff;
+
+      font-size: 18px;
+
+      font-weight: 700;
+
+      letter-spacing: 0.30em;
+
+      z-index: 3;
+
+      text-shadow:
+        0 0 12px
+        rgba(0, 130, 255, 0.65);
+    }
+
+    .aomaRole {
+      margin-top: 7px;
+
+      color:
+        rgba(255,255,255,0.50);
+
+      font-size: 9px;
+
+      letter-spacing: 0.22em;
+    }
+
+
+    /* INTRO */
+
+    .intro {
+      max-width: 650px;
+
+      margin:
+        35px
+        auto
+        30px;
+
+      color:
+        rgba(255,255,255,0.78);
+
+      font-size:
+        clamp(14px, 2vw, 17px);
+
+      line-height: 1.7;
+    }
+
+    .intro strong {
+      color: #72c3ff;
+    }
+
+
+    /* SOCIAL BUTTONS */
+
+    .socialLinks {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 14px;
+
+      margin:
+        30px
+        auto
+        70px;
+    }
+
+    .socialButton {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-width: 220px;
+
+      padding:
+        15px
+        24px;
+
+      border:
+        1px solid
+        rgba(80, 180, 255, 0.55);
+
+      border-radius: 8px;
+
+      background:
+        rgba(0, 75, 145, 0.16);
+
+      color: white;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: 0.15em;
+
+      text-decoration: none;
+
+      box-shadow:
+        0 0 18px
+        rgba(0, 105, 255, 0.12);
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .socialButton:hover {
+      transform:
+        translateY(-3px);
+
+      background:
+        rgba(0, 100, 200, 0.28);
+
+      box-shadow:
+        0 0 25px
+        rgba(0, 125, 255, 0.30);
+    }
+
+
+    /* POSTS SECTION */
+
+    .postsSection {
+      position: relative;
+
+      max-width: 1100px;
+
+      margin:
+        0
+        auto
+        70px;
+
+      z-index: 3;
+    }
+
+    .sectionTitle {
+      color: #69bdff;
+
+      font-size:
+        clamp(22px, 4vw, 36px);
+
+      font-weight: 800;
+
+      letter-spacing: 0.12em;
+
+      text-shadow:
+        0 0 16px
+        rgba(0, 120, 255, 0.35);
+    }
+
+    .sectionSubtitle {
+      margin:
+        10px
+        0
+        35px;
+
+      color:
+        rgba(255,255,255,0.45);
+
+      font-size: 10px;
+
+      letter-spacing: 0.20em;
+    }
+
+    .instagramGrid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          minmax(0, 1fr)
+        );
+
+      gap: 22px;
+
+      align-items: start;
+    }
+
+    .postCard {
+      min-width: 0;
+
+      padding: 8px;
+
+      border:
+        1px solid
+        rgba(65, 165, 255, 0.20);
+
+      border-radius: 12px;
+
+      background:
+        rgba(5, 20, 40, 0.40);
+
+      box-shadow:
+        0 0 25px
+        rgba(0, 90, 255, 0.08);
+
+      overflow: hidden;
+    }
+
+    .postCard .instagram-media {
+      min-width: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+
+      margin:
+        0 auto !important;
+    }
+
+
+    /* RETURN BUTTON */
+
+    .returnButton {
+      display: inline-block;
+
+      margin-top: 25px;
+
+      padding:
+        13px
+        22px;
+
+      border:
+        1px solid
+        rgba(70, 170, 255, 0.40);
+
+      border-radius: 7px;
+
+      color:
+        rgba(255,255,255,0.78);
+
+      background:
+        rgba(0, 60, 120, 0.15);
+
+      text-decoration: none;
+
+      font-size: 10px;
+
+      letter-spacing: 0.18em;
+
+      transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .returnButton:hover {
+      background:
+        rgba(0, 100, 200, 0.25);
+
+      box-shadow:
+        0 0 20px
+        rgba(0, 110, 255, 0.20);
+    }
+
+
+    /* BLUE PETALS */
+
+    .petal {
+      position: fixed;
+
+      top: -30px;
+
+      width: 11px;
+      height: 8px;
+
+      border-radius:
+        70% 30%
+        70% 30%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #9cddff,
+          #187cff
+        );
+
+      box-shadow:
+        0 0 10px
+        rgba(40, 150, 255, 0.55);
+
+      opacity: 0.75;
+
+      pointer-events: none;
+
+      z-index: 1;
+
+      animation:
+        fall
+        linear
+        infinite;
+    }
+
+    @keyframes fall {
+
+      0% {
+        transform:
+          translateY(-40px)
+          translateX(0)
+          rotate(0deg);
+
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform:
+          translateY(110vh)
+          translateX(70px)
+          rotate(520deg);
+
+        opacity: 0;
+      }
+
+    }
+
+    .p1 {
+      left: 8%;
+      animation-duration: 9s;
+      animation-delay: -2s;
+    }
+
+    .p2 {
+      left: 20%;
+      animation-duration: 12s;
+      animation-delay: -7s;
+    }
+
+    .p3 {
+      left: 33%;
+      animation-duration: 10s;
+      animation-delay: -4s;
+    }
+
+    .p4 {
+      left: 46%;
+      animation-duration: 13s;
+      animation-delay: -9s;
+    }
+
+    .p5 {
+      left: 58%;
+      animation-duration: 9s;
+      animation-delay: -5s;
+    }
+
+    .p6 {
+      left: 69%;
+      animation-duration: 12s;
+      animation-delay: -1s;
+    }
+
+    .p7 {
+      left: 82%;
+      animation-duration: 10s;
+      animation-delay: -8s;
+    }
+
+    .p8 {
+      left: 93%;
+      animation-duration: 14s;
+      animation-delay: -6s;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 750px) {
+
+      .page {
+        padding:
+          38px
+          14px
+          80px;
+      }
+
+      .title {
+        font-size: 34px;
+      }
+
+      .subtitle {
+        font-size: 8px;
+        letter-spacing: 0.20em;
+      }
+
+      .aomaArea {
+        margin-top: 25px;
+      }
+
+      .aoma {
+        width: 90vw;
+        max-height: 500px;
+      }
+
+      .aomaGlow {
+        width: 300px;
+        height: 300px;
+      }
+
+      .aomaName {
+        font-size: 15px;
+      }
+
+      .intro {
+        margin-top: 30px;
+
+        padding:
+          0
+          8px;
+      }
+
+      .socialLinks {
+        flex-direction: column;
+
+        align-items: center;
+
+        margin-bottom: 55px;
+      }
+
+      .socialButton {
+        width: min(90vw, 330px);
+      }
+
+      .instagramGrid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+      }
+
+      .postCard {
+        width: min(100%, 540px);
+
+        margin:
+          0
+          auto;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- BLUE AOMA PETALS -->
+
+  <div class="petal p1"></div>
+  <div class="petal p2"></div>
+  <div class="petal p3"></div>
+  <div class="petal p4"></div>
+  <div class="petal p5"></div>
+  <div class="petal p6"></div>
+  <div class="petal p7"></div>
+  <div class="petal p8"></div>
+
+
+  <main class="page">
+
+
+    <h1 class="title">
+      SOCIAL MEDIA
+    </h1>
+
+    <div class="subtitle">
+      NONFANDOMDESIGNS · YOMIZAKURA
+    </div>
+
+
+    <!-- AOMA -->
+
+    <section class="aomaArea">
+
+      <div class="aomaGlow"></div>
+
+      <img
+        class="aoma"
+        src="./IMG_8962.PNG"
+        alt="Aoma"
+      >
+
+      <div class="aomaName">
+        AOMA
+      </div>
+
+      <div class="aomaRole">
+        FOLLOW THE WORLD OF YOMIZAKURA
+      </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+
+    <div class="intro">
+
+      Follow <strong>NonFandomDesigns</strong>
+      for new rugs, behind-the-scenes creation,
+      Yomizakura artwork, convention updates,
+      and everything happening within the world.
+
+    </div>
+
+
+    <!-- SOCIAL LINKS -->
+
+    <div class="socialLinks">
+
+      <a
+        class="socialButton"
+        href="https://www.instagram.com/nonfandomdesigns"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        INSTAGRAM · @NONFANDOMDESIGNS
+      </a>
+
+      <a
+        class="socialButton"
+        href="https://www.tiktok.com/@nonfandomdesigns?_r=1&_t=ZP-9A10PYupPBe"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        TIKTOK · @NONFANDOMDESIGNS
+      </a>
+
+    </div>
+
+
+    <!-- INSTAGRAM POSTS -->
+
+    <section class="postsSection">
+
+      <div class="sectionTitle">
+        FEATURED POSTS
+      </div>
+
+      <div class="sectionSubtitle">
+        FROM NONFANDOMDESIGNS
+      </div>
+
+
+      <div class="instagramGrid">
+
+
+        <!-- POST 1 -->
+
+        <div class="postCard">
+
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DZtHnXWiUBj/"
+            data-instgrm-version="14"
+          >
+          </blockquote>
+
+        </div>
+
+
+        <!-- POST 2 -->
+
+        <div class="postCard">
+
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DOGyc1FkTCO/"
+            data-instgrm-version="14"
+          >
+          </blockquote>
+
+        </div>
+
+
+        <!-- POST 3 -->
+
+        <div class="postCard">
+
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DcRaXAHicyY/"
+            data-instgrm-version="14"
+          >
+          </blockquote>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <a
+      class="returnButton"
+      href="index.html"
+    >
+      RETURN TO YOMIZAKURA
+    </a>
+
+
+  </main>
+
+
+  <!-- INSTAGRAM EMBED SCRIPT -->
+
+  <script
+    async
+    src="https://www.instagram.com/embed.js">
+  </script>
+
+
+</body>
+
+</html>
