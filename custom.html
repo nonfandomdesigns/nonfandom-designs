@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Custom Rugs — NonFandomDesigns</title>
+
+<style>
+
+/* =========================
+   BASE
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, #29101e 0%, #120912 42%, #080608 100%);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 70px 25px 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.heroTitle {
+  position: relative;
+  z-index: 10;
+
+  margin: 0;
+
+  color: #ff5ca8;
+
+  font-size: clamp(42px, 7vw, 82px);
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+  text-align: center;
+
+  text-shadow:
+    0 0 10px rgba(255,92,168,0.75),
+    0 0 35px rgba(255,92,168,0.30);
+}
+
+.heroSubtitle {
+  position: relative;
+  z-index: 10;
+
+  margin-top: 10px;
+
+  color: #ff9bc8;
+
+  font-size: clamp(10px, 1.3vw, 15px);
+
+  letter-spacing: 0.28em;
+  text-align: center;
+}
+
+/* =========================
+   SAKUYO
+========================= */
+
+.sakuyoWrap {
+  position: relative;
+  z-index: 5;
+
+  width: min(850px, 95vw);
+
+  margin-top: 15px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.sakuyo {
+  width: min(780px, 92vw);
+  max-height: 57vh;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 18px rgba(255,92,168,0.35))
+    drop-shadow(0 0 55px rgba(255,92,168,0.15));
+
+  animation: sakuyoFloat 5s ease-in-out infinite;
+}
+
+@keyframes sakuyoFloat {
+
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.sakuyoLabel {
+  margin-top: -12px;
+
+  position: relative;
+  z-index: 10;
+
+  color: #ff75b7;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 0.25em;
+
+  text-align: center;
+}
+
+/* =========================
+   STARTING PRICE
+========================= */
+
+.startingPrice {
+  position: relative;
+  z-index: 10;
+
+  margin-top: 14px;
+
+  color: #ffffff;
+
+  font-size: clamp(21px, 3vw, 30px);
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-align: center;
+}
+
+.startingPrice span {
+  color: #ff5ca8;
+
+  text-shadow:
+    0 0 12px rgba(255,92,168,0.5);
+}
+
+/* =========================
+   SIMPLE PROCESS
+========================= */
+
+.process {
+  position: relative;
+  z-index: 10;
+
+  width: min(850px, 92vw);
+
+  margin-top: 25px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 10px;
+}
+
+.step {
+  padding: 16px 10px;
+
+  border: 1px solid rgba(255,92,168,0.25);
+  border-radius: 8px;
+
+  background: rgba(17,8,16,0.75);
+
+  text-align: center;
+
+  box-shadow:
+    0 0 18px rgba(255,92,168,0.06);
+}
+
+.stepNumber {
+  color: #ff5ca8;
+
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.stepText {
+  margin-top: 6px;
+
+  color: #ffd4e7;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.10em;
+}
+
+/* =========================
+   MAIN CTA
+========================= */
+
+.mainCTA {
+  position: relative;
+  z-index: 10;
+
+  display: inline-block;
+
+  margin-top: 25px;
+
+  padding: 16px 30px;
+
+  border: 1px solid #ff5ca8;
+  border-radius: 5px;
+
+  background: #ff5ca8;
+
+  color: #100810;
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 0.17em;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 22px rgba(255,92,168,0.35);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.mainCTA:hover {
+  transform: scale(1.04);
+
+  box-shadow:
+    0 0 35px rgba(255,92,168,0.60);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+  position: relative;
+
+  width: min(1050px, 92vw);
+
+  margin: 0 auto;
+
+  padding: 75px 0;
+}
+
+.sectionTitle {
+  margin: 0 0 10px;
+
+  color: #ff5ca8;
+
+  font-size: clamp(27px, 4vw, 44px);
+  font-weight: 900;
+
+  letter-spacing: 0.10em;
+
+  text-align: center;
+
+  text-shadow:
+    0 0 18px rgba(255,92,168,0.25);
+}
+
+.sectionIntro {
+  max-width: 650px;
+
+  margin: 0 auto 35px;
+
+  color: #d9b7c8;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  text-align: center;
+}
+
+/* =========================
+   REQUEST OPTIONS
+========================= */
+
+.requestChoices {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+.choice {
+  padding: 35px 25px;
+
+  border: 1px solid rgba(255,92,168,0.32);
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(38,13,29,0.95),
+      rgba(12,7,12,0.95)
+    );
+
+  text-align: center;
+
+  box-shadow:
+    0 0 25px rgba(255,92,168,0.08);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.choice:hover {
+  transform: translateY(-5px);
+
+  border-color: #ff5ca8;
+
+  box-shadow:
+    0 0 30px rgba(255,92,168,0.18);
+}
+
+.choiceIcon {
+  font-size: 34px;
+}
+
+.choice h3 {
+  margin: 15px 0 10px;
+
+  color: #ff75b7;
+
+  font-size: 20px;
+
+  letter-spacing: 0.08em;
+}
+
+.choice p {
+  margin: 0;
+
+  color: #d8b9c8;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+/* =========================
+   QUOTE NOTICE
+========================= */
+
+.quoteNotice {
+  width: min(780px, 92vw);
+
+  margin: 35px auto 0;
+
+  padding: 18px 20px;
+
+  border-left: 3px solid #ff5ca8;
+
+  background: rgba(255,92,168,0.07);
+
+  color: #e5c9d6;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+  text-align: left;
+}
+
+/* =========================
+   FORM PREVIEW
+========================= */
+
+.formBox {
+  margin-top: 35px;
+
+  padding: 30px;
+
+  border: 1px solid rgba(255,92,168,0.25);
+  border-radius: 10px;
+
+  background: rgba(10,6,10,0.88);
+}
+
+.formTitle {
+  margin: 0 0 25px;
+
+  color: #ff75b7;
+
+  font-size: 22px;
+
+  letter-spacing: 0.10em;
+
+  text-align: center;
+}
+
+.formGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.formGroup.full {
+  grid-column: 1 / -1;
+}
+
+.formGroup label {
+  color: #ff9bc8;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.10em;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+
+  padding: 13px;
+
+  border: 1px solid rgba(255,92,168,0.25);
+  border-radius: 5px;
+
+  background: #110a10;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  outline: none;
+}
+
+.formGroup textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  border-color: #ff5ca8;
+
+  box-shadow:
+    0 0 12px rgba(255,92,168,0.15);
+}
+
+.uploadBox {
+  padding: 20px;
+
+  border: 1px dashed rgba(255,92,168,0.5);
+  border-radius: 6px;
+
+  color: #cba9ba;
+
+  font-size: 12px;
+
+  text-align: center;
+}
+
+.formNote {
+  margin-top: 18px;
+
+  color: #a98c9a;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+.formButton {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 15px;
+
+  border: 1px solid rgba(255,92,168,0.35);
+  border-radius: 5px;
+
+  background: rgba(255,92,168,0.12);
+
+  color: #ff8ec4;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+
+  cursor: not-allowed;
+}
+
+/* =========================
+   PRICING
+========================= */
+
+.pricingGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-top: 35px;
+}
+
+.priceCard {
+  padding: 28px 20px;
+
+  border: 1px solid rgba(255,92,168,0.25);
+  border-radius: 8px;
+
+  background: rgba(20,9,17,0.8);
+
+  text-align: center;
+}
+
+.priceType {
+  color: #ff9bc8;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.10em;
+}
+
+.price {
+  margin: 10px 0;
+
+  color: #ffffff;
+
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.priceDescription {
+  color: #bca0ae;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+/* =========================
+   POLICIES
+========================= */
+
+.policyBox {
+  margin-top: 35px;
+
+  padding: 30px;
+
+  border: 1px solid rgba(255,92,168,0.20);
+  border-radius: 8px;
+
+  background: rgba(12,7,11,0.75);
+}
+
+.policy {
+  position: relative;
+
+  padding: 14px 10px 14px 28px;
+
+  border-bottom:
+    1px solid rgba(255,92,168,0.10);
+
+  color: #d7bdca;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.policy:last-child {
+  border-bottom: 0;
+}
+
+.policy::before {
+  content: "✦";
+
+  position: absolute;
+
+  left: 4px;
+
+  color: #ff5ca8;
+}
+
+/* =========================
+   RETURN BUTTON
+========================= */
+
+.returnWrap {
+  padding: 10px 20px 70px;
+
+  text-align: center;
+}
+
+.returnButton {
+  display: inline-block;
+
+  padding: 13px 23px;
+
+  border: 1px solid rgba(255,92,168,0.45);
+  border-radius: 5px;
+
+  color: #ff75b7;
+
+  font-size: 11px;
+
+  letter-spacing: 0.16em;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.returnButton:hover {
+  background: #ff5ca8;
+  color: #100810;
+
+  box-shadow:
+    0 0 20px rgba(255,92,168,0.35);
+}
+
+/* =========================
+   PETALS
+========================= */
+
+.petal {
+  position: fixed;
+
+  top: -30px;
+
+  width: 7px;
+  height: 10px;
+
+  background: #ff79b8;
+
+  border-radius: 70% 30% 70% 30%;
+
+  opacity: 0.5;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  animation:
+    petalFall linear infinite;
+}
+
+.p1 {
+  left: 8%;
+  animation-duration: 10s;
+}
+
+.p2 {
+  left: 24%;
+  animation-duration: 13s;
+  animation-delay: 2s;
+}
+
+.p3 {
+  left: 45%;
+  animation-duration: 9s;
+  animation-delay: 4s;
+}
+
+.p4 {
+  left: 68%;
+  animation-duration: 12s;
+  animation-delay: 1s;
+}
+
+.p5 {
+  left: 88%;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+
+@keyframes petalFall {
+
+  0% {
+    transform:
+      translate(0, -30px)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translate(35px, 50vh)
+      rotate(180deg);
+  }
+
+  100% {
+    transform:
+      translate(-20px, 110vh)
+      rotate(360deg);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+    min-height: auto;
+
+    padding:
+      50px 18px
+      55px;
+  }
+
+  .heroTitle {
+    font-size: 38px;
+
+    letter-spacing: 0.08em;
+  }
+
+  .heroSubtitle {
+    font-size: 8px;
+
+    letter-spacing: 0.20em;
+  }
+
+  .sakuyoWrap {
+    margin-top: 22px;
+  }
+
+  .sakuyo {
+    width: 100%;
+
+    max-height: 42vh;
+  }
+
+  .sakuyoLabel {
+    margin-top: 0;
+
+    font-size: 10px;
+  }
+
+  .startingPrice {
+    font-size: 21px;
+  }
+
+  .process {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    width: 100%;
+  }
+
+  .step {
+    padding: 13px 6px;
+  }
+
+  .stepText {
+    font-size: 8px;
+  }
+
+  .mainCTA {
+    width: 100%;
+
+    padding:
+      15px 10px;
+
+    text-align: center;
+  }
+
+  .section {
+    width: 90vw;
+
+    padding:
+      55px 0;
+  }
+
+  .sectionIntro {
+    font-size: 12px;
+  }
+
+  .requestChoices {
+    grid-template-columns: 1fr;
+  }
+
+  .choice {
+    padding:
+      27px 18px;
+  }
+
+  .formBox {
+    padding:
+      22px 16px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formGroup.full {
+    grid-column: auto;
+  }
+
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .policyBox {
+    padding:
+      18px 12px;
+  }
+
+  .policy {
+    font-size: 12px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FALLING PETALS -->
+
+<div class="petal p1"></div>
+<div class="petal p2"></div>
+<div class="petal p3"></div>
+<div class="petal p4"></div>
+<div class="petal p5"></div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <h1 class="heroTitle">
+    CUSTOM RUGS
+  </h1>
+
+  <div class="heroSubtitle">
+    HANDCRAFTED BY NONFANDOMDESIGNS
+  </div>
+
+  <div class="sakuyoWrap">
+
+    <img
+      class="sakuyo"
+      src="./IMG_8961.PNG"
+      alt="Sakuyo"
+    >
+
+  </div>
+
+  <div class="sakuyoLabel">
+    SAKUYO · THE NIGHT BLOSSOM
+  </div>
+
+  <div class="startingPrice">
+    STARTING AT
+    <span>$250</span>
+  </div>
+
+
+  <!-- EASY 4 STEP PROCESS -->
+
+  <div class="process">
+
+    <div class="step">
+      <div class="stepNumber">01</div>
+      <div class="stepText">
+        CHOOSE YOUR RUG
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="stepNumber">02</div>
+      <div class="stepText">
+        SEND YOUR DESIGN
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="stepNumber">03</div>
+      <div class="stepText">
+        RECEIVE YOUR QUOTE
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="stepNumber">04</div>
+      <div class="stepText">
+        DEPOSIT &amp; CREATE
+      </div>
+    </div>
+
+  </div>
+
+
+  <a
+    class="mainCTA"
+    href="#request"
+  >
+    START A CUSTOM RUG REQUEST
+  </a>
+
+</section>
+
+
+<!-- =========================
+     REQUEST
+========================= -->
+
+<section
+  class="section"
+  id="request"
+>
+
+  <h2 class="sectionTitle">
+    CREATE YOUR RUG
+  </h2>
+
+  <p class="sectionIntro">
+    Choose the option that best fits your idea.
+    You do not need to know every detail yet.
+  </p>
+
+
+  <div class="requestChoices">
+
+    <div class="choice">
+
+      <div class="choiceIcon">
+        🖼️
+      </div>
+
+      <h3>
+        I HAVE A DESIGN
+      </h3>
+
+      <p>
+        Already have an image or reference?
+        Send it with your request and tell me
+        approximately how large you want the rug.
+      </p>
+
+    </div>
+
+
+    <div class="choice">
+
+      <div class="choiceIcon">
+        ✦
+      </div>
+
+      <h3>
+        I NEED A CUSTOM DESIGN
+      </h3>
+
+      <p>
+        Have an idea but no finished artwork?
+        Describe what you want and include
+        inspiration or references if you have them.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="quoteNotice">
+
+    <strong>
+      REQUESTING A QUOTE DOES NOT PLACE AN ORDER.
+    </strong>
+
+    <br><br>
+
+    Your design will be reviewed first.
+    Final pricing is based on the complexity,
+    size, colors, and requirements of your rug.
+
+  </div>
+
+
+  <!-- FORM LAYOUT -->
+
+  <div class="formBox">
+
+    <h3 class="formTitle">
+      CUSTOM RUG REQUEST
+    </h3>
+
+    <div class="formGrid">
+
+
+      <div class="formGroup">
+
+        <label>
+          NAME
+        </label>
+
+        <input
+          type="text"
+          placeholder="Your name"
+        >
+
+      </div>
+
+
+      <div class="formGroup">
+
+        <label>
+          EMAIL
+        </label>
+
+        <input
+          type="email"
+          placeholder="Your email"
+        >
+
+      </div>
+
+
+      <div class="formGroup">
+
+        <label>
+          REQUEST TYPE
+        </label>
+
+        <select>
+
+          <option>
+            I have a design
+          </option>
+
+          <option>
+            I need a custom design
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="formGroup">
+
+        <label>
+          APPROXIMATE SIZE
+        </label>
+
+        <input
+          type="text"
+          placeholder="Example: 3 ft or 3 x 4 ft"
+        >
+
+      </div>
+
+
+      <div class="formGroup full">
+
+        <label>
+          TELL ME ABOUT YOUR RUG
+        </label>
+
+        <textarea
+          placeholder="Describe your idea, colors, design, size, or anything else I should know..."
+        ></textarea>
+
+      </div>
+
+
+      <div class="formGroup full">
+
+        <label>
+          DESIGN / REFERENCE IMAGE
+        </label>
+
+        <div class="uploadBox">
+
+          IMAGE UPLOAD WILL BE ENABLED
+          WHEN THE PRIVATE REQUEST SYSTEM
+          IS CONNECTED.
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="formButton"
+      type="button"
+      disabled
+    >
+      REQUEST A QUOTE · FORM COMING NEXT
+    </button>
+
+
+    <div class="formNote">
+
+      Maximum rug size is 5' × 7'.
+      Submitting a request will not require payment.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PRICING
+========================= -->
+
+<section class="section">
+
+  <h2 class="sectionTitle">
+    PRICING GUIDE
+  </h2>
+
+  <p class="sectionIntro">
+
+    Every rug is individually priced.
+    Complexity is the biggest factor,
+    including the amount of detail,
+    number of colors, and overall size.
+
+  </p>
+
+
+  <div class="pricingGrid">
+
+
+    <div class="priceCard">
+
+      <div class="priceType">
+        SIMPLER DESIGNS · 2–4 FT
+      </div>
+
+      <div class="price">
+        $250–$350
+      </div>
+
+      <div class="priceDescription">
+
+        General range for simpler designs
+        between approximately two and four feet.
+
+      </div>
+
+    </div>
+
+
+    <div class="priceCard">
+
+      <div class="priceType">
+        COMPLEX DESIGNS · 10+ COLORS
+      </div>
+
+      <div class="price">
+        $400+
+      </div>
+
+      <div class="priceDescription">
+
+        Detailed designs or rugs requiring
+        more than ten colors generally begin here.
+
+      </div>
+
+    </div>
+
+
+    <div class="priceCard">
+
+      <div class="priceType">
+        FULL-FRAME · 5' × 7'
+      </div>
+
+      <div class="price">
+        $700+
+      </div>
+
+      <div class="priceDescription">
+
+        Full-frame designs at the maximum
+        5' × 7' rug size start at $700.
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="quoteNotice">
+
+    These prices are general estimates.
+    Your final quote will depend on the
+    specific complexity and requirements
+    of your design.
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ORDER POLICIES
+========================= -->
+
+<section class="section">
+
+  <h2 class="sectionTitle">
+    ORDER DETAILS
+  </h2>
+
+  <p class="sectionIntro">
+
+    The important stuff before your rug
+    enters production.
+
+  </p>
+
+
+  <div class="policyBox">
+
+
+    <div class="policy">
+
+      Pricing varies based primarily on
+      the complexity of the design.
+
+    </div>
+
+
+    <div class="policy">
+
+      Turnaround time varies based on the
+      current order backlog and cannot
+      be guaranteed.
+
+    </div>
+
+
+    <div class="policy">
+
+      A <strong>50% nonrefundable deposit</strong>
+      is required to begin production and
+      secure your place in the order queue.
+
+    </div>
+
+
+    <div class="policy">
+
+      Receive a <strong>3% discount</strong>
+      when your order is paid in full upfront.
+
+    </div>
+
+
+    <div class="policy">
+
+      A <strong>$100 expedite fee</strong>
+      is available for rush orders and moves
+      your rug to the front of the current
+      order queue.
+
+    </div>
+
+
+    <div class="policy">
+
+      Discounts are available for
+      returning customers and
+      multiple-rug purchases.
+
+    </div>
+
+
+    <div class="policy">
+
+      Maximum rug size is
+      <strong>5' × 7'</strong>.
+
+    </div>
+
+
+    <div class="policy">
+
+      Domestic and international shipping
+      is available. Shipping costs are
+      calculated into the final amount.
+
+    </div>
+
+
+    <div class="policy">
+
+      Final payment is required within
+      <strong>5 days of completion</strong>.
+      If payment is not received within that
+      period, the rug will be forfeited
+      and made available for sale.
+
+    </div>
+
+
+    <div class="policy">
+
+      Rugs are nonrefundable
+      once picked up.
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     RETURN
+========================= -->
+
+<div class="returnWrap">
+
+  <a
+    class="returnButton"
+    href="index.html"
+  >
+    ← RETURN TO YOMIZAKURA
+  </a>
+
+</div>
+
+
+</body>
+</html>
