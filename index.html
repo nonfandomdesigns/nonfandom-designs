@@ -422,7 +422,7 @@ html, body {
 }
 
 /* =========================
-   FUTURE CHARACTER POSITIONS
+   KUROGI PLACEHOLDER
 ========================= */
 
 .characterPlaceholder {
@@ -446,9 +446,93 @@ html, body {
   top: 30%;
 }
 
-.sakuyo {
-  left: 18%;
-  top: 67%;
+/* =========================
+   SAKUYO — CUSTOM RUG ORDERS
+========================= */
+
+.sakuyoCharacter {
+  position: absolute;
+
+  left: 5%;
+  bottom: 4%;
+
+  width: min(27vw, 340px);
+  max-height: 44vh;
+
+  object-fit: contain;
+
+  z-index: 9;
+
+  cursor: pointer;
+
+  filter:
+    drop-shadow(0 0 14px rgba(255,79,163,0.32))
+    drop-shadow(0 0 38px rgba(255,79,163,0.14));
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.sakuyoCharacter:hover,
+.sakuyoCharacter.mobileOpen {
+  transform: scale(1.04);
+
+  filter:
+    drop-shadow(0 0 21px rgba(255,105,180,0.72))
+    drop-shadow(0 0 50px rgba(255,79,163,0.28));
+}
+
+.sakuyoName {
+  position: absolute;
+
+  left: 5%;
+  bottom: 2%;
+
+  width: min(27vw, 340px);
+
+  z-index: 12;
+
+  color: #ff75b7;
+
+  font-size: clamp(12px, 1.4vw, 18px);
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  text-shadow:
+    0 0 10px rgba(255,79,163,0.60);
+}
+
+.sakuyoName span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #ff9bca;
+
+  font-size: clamp(7px, 0.8vw, 10px);
+
+  letter-spacing: 0.14em;
+
+  opacity: 0;
+
+  transform: translateY(-5px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.sakuyoCharacter:hover + .sakuyoName span,
+.sakuyoName:hover span,
+.sakuyoName.mobileOpen span {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* =========================
@@ -929,11 +1013,6 @@ html, body {
     top: 27%;
   }
 
-  .sakuyo {
-    left: 7%;
-    top: 72%;
-  }
-
   /* PHONE IKA & IKO — UNCHANGED */
 
   .ikoka {
@@ -988,7 +1067,40 @@ html, body {
     margin-top: 5px;
   }
 
-  /* PHONE AOMA — MOVED UP ONLY */
+  /* PHONE SAKUYO */
+
+  .sakuyoCharacter {
+    left: 2%;
+    bottom: 10%;
+
+    width: 34vw;
+    max-height: 30vh;
+  }
+
+  .sakuyoName {
+    left: 2%;
+    bottom: 7%;
+
+    width: 34vw;
+
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .sakuyoName span {
+    margin-top: 5px;
+
+    font-size: 7px;
+
+    text-align: center;
+  }
+
+  .sakuyoName.mobileOpen span {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+
+  /* PHONE AOMA — KEEP CURRENT POSITION */
 
   .aomaCharacter {
     right: 3%;
@@ -1046,6 +1158,7 @@ html, body {
     white-space: normal;
   }
 }
+
 </style>
 </head>
 
@@ -1078,9 +1191,9 @@ html, body {
       CHARACTERS &amp; WORLD LORE
     </a>
 
-    <button onclick="showComingSoon('CUSTOM RUG ORDERS')">
+    <a href="custom.html">
       CUSTOM RUG ORDERS
-    </button>
+    </a>
 
     <button onclick="showComingSoon('AVAILABLE RUGS')">
       AVAILABLE RUGS
@@ -1208,6 +1321,43 @@ function openSakurama(event) {
 }
 
 /* =========================
+   SAKUYO CLICK
+========================= */
+
+let sakuyoMobileReady = false;
+
+function openSakuyo(event) {
+
+  if (window.innerWidth <= 600) {
+
+    if (!sakuyoMobileReady) {
+
+      event.preventDefault();
+
+      sakuyoMobileReady = true;
+
+      const image =
+        document.querySelector(".sakuyoCharacter");
+
+      const name =
+        document.querySelector(".sakuyoName");
+
+      if (image) {
+        image.classList.add("mobileOpen");
+      }
+
+      if (name) {
+        name.classList.add("mobileOpen");
+      }
+
+      return;
+    }
+  }
+
+  window.location.href = "custom.html";
+}
+
+/* =========================
    IKA & IKO CLICK
 ========================= */
 
@@ -1323,14 +1473,27 @@ function enterSite() {
           <span>CHARACTERS &amp; WORLD LORE</span>
         </div>
 
-        <!-- FUTURE CHARACTERS -->
+        <!-- KUROGI PLACEHOLDER -->
 
         <div class="characterPlaceholder kurogi">
           KUROGI
         </div>
 
-        <div class="characterPlaceholder sakuyo">
+        <!-- SAKUYO -->
+
+        <img
+          class="sakuyoCharacter"
+          src="./IMG_8961.PNG"
+          alt="Sakuyo"
+          onclick="openSakuyo(event)"
+        >
+
+        <div
+          class="sakuyoName"
+          onclick="openSakuyo(event)"
+        >
           SAKUYO
+          <span>CUSTOM RUG ORDERS</span>
         </div>
 
         <!-- IKA & IKO -->
