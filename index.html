@@ -422,7 +422,7 @@ html, body {
 }
 
 /* =========================
-   CHARACTER POSITIONS
+   FUTURE CHARACTER POSITIONS
 ========================= */
 
 .characterPlaceholder {
@@ -449,11 +449,6 @@ html, body {
 .sakuyo {
   left: 18%;
   top: 67%;
-}
-
-.aoma {
-  right: 12%;
-  top: 76%;
 }
 
 /* =========================
@@ -539,6 +534,95 @@ html, body {
 .ikoka:hover + .ikokaName span,
 .ikokaName:hover span,
 .ikokaName.mobileOpen span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   AOMA — SOCIAL MEDIA
+========================= */
+
+.aomaCharacter {
+  position: absolute;
+
+  right: 8%;
+  bottom: 4%;
+
+  width: min(24vw, 300px);
+  max-height: 43vh;
+
+  object-fit: contain;
+
+  z-index: 9;
+
+  cursor: pointer;
+
+  filter:
+    drop-shadow(0 0 14px rgba(45,145,255,0.35))
+    drop-shadow(0 0 35px rgba(0,90,255,0.14));
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.aomaCharacter:hover,
+.aomaCharacter.mobileOpen {
+  transform: scale(1.04);
+
+  filter:
+    drop-shadow(0 0 20px rgba(70,170,255,0.72))
+    drop-shadow(0 0 50px rgba(0,100,255,0.30));
+}
+
+.aomaName {
+  position: absolute;
+
+  right: 8%;
+  bottom: 2%;
+
+  width: min(24vw, 300px);
+
+  z-index: 12;
+
+  color: #62baff;
+
+  font-size: clamp(12px, 1.4vw, 18px);
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  text-shadow:
+    0 0 10px rgba(40,145,255,0.60);
+}
+
+.aomaName span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #8fd0ff;
+
+  font-size: clamp(7px, 0.8vw, 10px);
+
+  letter-spacing: 0.14em;
+
+  opacity: 0;
+
+  transform: translateY(-5px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.aomaCharacter:hover + .aomaName span,
+.aomaName:hover span,
+.aomaName.mobileOpen span {
   opacity: 1;
   transform: translateY(0);
 }
@@ -795,7 +879,7 @@ html, body {
 }
 
 /* =========================
-   MOBILE — UNCHANGED
+   MOBILE
 ========================= */
 
 @media (max-width: 600px) {
@@ -847,11 +931,6 @@ html, body {
 
   .sakuyo {
     left: 7%;
-    top: 72%;
-  }
-
-  .aoma {
-    right: 5%;
     top: 72%;
   }
 
@@ -907,6 +986,39 @@ html, body {
   .sakuramaName span {
     font-size: 8px;
     margin-top: 5px;
+  }
+
+  /* PHONE AOMA */
+
+  .aomaCharacter {
+    right: 3%;
+    bottom: 5%;
+
+    width: 30vw;
+    max-height: 30vh;
+  }
+
+  .aomaName {
+    right: 3%;
+    bottom: 2%;
+
+    width: 30vw;
+
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .aomaName span {
+    margin-top: 5px;
+
+    font-size: 7px;
+
+    text-align: center;
+  }
+
+  .aomaName.mobileOpen span {
+    opacity: 0.8;
+    transform: translateY(0);
   }
 
   /* PHONE QUICK MENU */
@@ -978,9 +1090,9 @@ html, body {
       INFO &amp; CONTACT
     </a>
 
-    <button onclick="showComingSoon('SOCIAL MEDIA')">
+    <a href="social.html">
       SOCIAL MEDIA
-    </button>
+    </a>
 
   </div>
 
@@ -1133,6 +1245,43 @@ function openIkoka(event) {
 }
 
 /* =========================
+   AOMA CLICK
+========================= */
+
+let aomaMobileReady = false;
+
+function openAoma(event) {
+
+  if (window.innerWidth <= 600) {
+
+    if (!aomaMobileReady) {
+
+      event.preventDefault();
+
+      aomaMobileReady = true;
+
+      const image =
+        document.querySelector(".aomaCharacter");
+
+      const name =
+        document.querySelector(".aomaName");
+
+      if (image) {
+        image.classList.add("mobileOpen");
+      }
+
+      if (name) {
+        name.classList.add("mobileOpen");
+      }
+
+      return;
+    }
+  }
+
+  window.location.href = "social.html";
+}
+
+/* =========================
    ENTER YOMIZAKURA
 ========================= */
 
@@ -1184,10 +1333,6 @@ function enterSite() {
           SAKUYO
         </div>
 
-        <div class="characterPlaceholder aoma">
-          AOMA
-        </div>
-
         <!-- IKA & IKO -->
 
         <img
@@ -1203,6 +1348,23 @@ function enterSite() {
         >
           IKA · IKO
           <span>INFO &amp; CONTACT</span>
+        </div>
+
+        <!-- AOMA -->
+
+        <img
+          class="aomaCharacter"
+          src="./IMG_8962.PNG"
+          alt="Aoma"
+          onclick="openAoma(event)"
+        >
+
+        <div
+          class="aomaName"
+          onclick="openAoma(event)"
+        >
+          AOMA
+          <span>SOCIAL MEDIA</span>
         </div>
 
         <!-- HUB PETALS -->
