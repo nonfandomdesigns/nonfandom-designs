@@ -58,7 +58,7 @@ html, body {
 
 .subtitle {
   position: absolute;
-  top: 15%;
+  top: max(18%, calc(6% + clamp(38px, 6vw, 82px) + 24px));
   left: 50%;
   transform: translateX(-50%);
 
@@ -1126,7 +1126,7 @@ html, body {
   }
 
   .subtitle {
-    top: 13%;
+    top: max(15%, calc(5% + 56px));
     font-size: 9px;
   }
 
@@ -1325,6 +1325,8 @@ html, body {
     display: block;
 
     width: auto;
+    box-sizing: border-box;
+    padding: 0 8px;
 
     margin-top: 4px;
 
