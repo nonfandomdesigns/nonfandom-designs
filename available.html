@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Available Rugs — NonFandomDesigns</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  background: #050505;
+
+  color: #eeeeee;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 18%,
+      #210707 0%,
+      #0d0505 35%,
+      #050505 72%
+    );
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding:
+    55px
+    24px
+    90px;
+
+  overflow: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.pageTitle {
+  position: relative;
+  z-index: 10;
+
+  margin: 0;
+
+  color: #e33b3b;
+
+  text-align: center;
+
+  font-size:
+    clamp(
+      36px,
+      5vw,
+      68px
+    );
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-shadow:
+    0 0 10px rgba(255,40,40,0.65),
+    0 0 30px rgba(150,0,0,0.35);
+}
+
+.pageSubtitle {
+  position: relative;
+  z-index: 10;
+
+  margin-top: 10px;
+
+  color: #b9b9b9;
+
+  text-align: center;
+
+  font-size:
+    clamp(
+      9px,
+      1.2vw,
+      14px
+    );
+
+  letter-spacing: 0.25em;
+}
+
+/* =========================
+   KUROGI
+========================= */
+
+.kurogiArea {
+  position: relative;
+  z-index: 6;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  width:
+    min(
+      100%,
+      720px
+    );
+
+  margin:
+    25px
+    auto
+    0;
+}
+
+.kurogi {
+  display: block;
+
+  width:
+    min(
+      78vw,
+      520px
+    );
+
+  max-height: 570px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0 14px
+      rgba(255,35,35,0.30)
+    )
+    drop-shadow(
+      0 0 42px
+      rgba(120,0,0,0.18)
+    );
+
+  animation:
+    kurogiFloat
+    5s
+    ease-in-out
+    infinite;
+}
+
+@keyframes kurogiFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-8px);
+  }
+}
+
+.kurogiName {
+  margin-top: -8px;
+
+  color: #e34b4b;
+
+  font-size:
+    clamp(
+      17px,
+      2vw,
+      23px
+    );
+
+  font-weight: 700;
+
+  letter-spacing: 0.28em;
+
+  text-align: center;
+
+  text-shadow:
+    0 0 10px
+    rgba(255,40,40,0.45);
+}
+
+.kurogiRole {
+  margin-top: 8px;
+
+  color: #8e8e8e;
+
+  font-size:
+    clamp(
+      8px,
+      1vw,
+      11px
+    );
+
+  letter-spacing: 0.22em;
+
+  text-align: center;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+  position: relative;
+  z-index: 10;
+
+  width:
+    min(
+      100%,
+      820px
+    );
+
+  margin:
+    45px
+    auto
+    0;
+
+  text-align: center;
+}
+
+.introTitle {
+  margin: 0;
+
+  color: #e33b3b;
+
+  font-size:
+    clamp(
+      25px,
+      3vw,
+      38px
+    );
+
+  letter-spacing: 0.16em;
+
+  text-shadow:
+    0 0 12px
+    rgba(255,40,40,0.4);
+}
+
+.introLine {
+  width: 90px;
+  height: 1px;
+
+  margin:
+    18px
+    auto
+    22px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #d43838,
+      transparent
+    );
+}
+
+.introText {
+  width:
+    min(
+      100%,
+      680px
+    );
+
+  margin:
+    0
+    auto;
+
+  color: #d4caca;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.introText strong {
+  color: #ef5555;
+}
+
+/* =========================
+   INVENTORY
+========================= */
+
+.inventory {
+  position: relative;
+  z-index: 10;
+
+  width:
+    min(
+      100%,
+      1120px
+    );
+
+  margin:
+    55px
+    auto
+    0;
+}
+
+.inventoryHeading {
+  margin-bottom: 28px;
+
+  color: #bfbfbf;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.24em;
+
+  text-align: center;
+}
+
+.rugGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+
+  gap: 22px;
+}
+
+/* =========================
+   RUG CARD
+========================= */
+
+.rugCard {
+  position: relative;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(210,55,55,0.28);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22,9,9,0.94),
+      rgba(7,7,7,0.96)
+    );
+
+  box-shadow:
+    0 0 28px
+    rgba(150,0,0,0.08);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.rugCard:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(235,70,70,0.60);
+
+  box-shadow:
+    0 0 30px
+    rgba(190,20,20,0.16);
+}
+
+/* TEMPORARY IMAGE AREA */
+
+.rugImagePlaceholder {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #1c1010,
+      #080808 72%
+    );
+
+  border-bottom:
+    1px solid
+    rgba(210,55,55,0.20);
+
+  color: #676767;
+
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+
+  text-align: center;
+}
+
+.rugImagePlaceholder::before {
+  content: "";
+
+  position: absolute;
+
+  width: 55%;
+  height: 55%;
+
+  border:
+    1px dashed
+    rgba(200,70,70,0.20);
+
+  border-radius: 8px;
+}
+
+.rugImagePlaceholder span {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  z-index: 5;
+
+  padding:
+    7px
+    10px;
+
+  border:
+    1px solid
+    rgba(255,75,75,0.55);
+
+  border-radius: 3px;
+
+  background:
+    rgba(8,5,5,0.88);
+
+  color: #ef5555;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+/* =========================
+   RUG DETAILS
+========================= */
+
+.rugInfo {
+  padding:
+    22px
+    20px
+    24px;
+}
+
+.rugName {
+  margin: 0;
+
+  color: #eeeeee;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+.rugDetails {
+  margin-top: 14px;
+
+  color: #9f9292;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+
+  letter-spacing: 0.05em;
+}
+
+.rugDetails strong {
+  color: #c8bcbc;
+}
+
+.rugPrice {
+  margin-top: 17px;
+
+  color: #ef5555;
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   CLAIM BUTTON
+========================= */
+
+.claimButton {
+  display: block;
+
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding:
+    12px
+    14px;
+
+  border:
+    1px solid
+    rgba(225,55,55,0.55);
+
+  border-radius: 4px;
+
+  background:
+    rgba(180,25,25,0.05);
+
+  color: #df4b4b;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.claimButton:hover {
+  background: #cf3636;
+
+  color: #080808;
+
+  box-shadow:
+    0 0 18px
+    rgba(220,45,45,0.35);
+}
+
+/* =========================
+   AVAILABILITY NOTE
+========================= */
+
+.availabilityNote {
+  position: relative;
+  z-index: 10;
+
+  width:
+    min(
+      100%,
+      820px
+    );
+
+  margin:
+    48px
+    auto
+    0;
+
+  padding:
+    25px
+    28px;
+
+  border:
+    1px solid
+    rgba(210,55,55,0.22);
+
+  border-radius: 8px;
+
+  background:
+    rgba(14,7,7,0.72);
+
+  text-align: center;
+}
+
+.availabilityNote h2 {
+  margin:
+    0
+    0
+    12px;
+
+  color: #d94444;
+
+  font-size: 15px;
+
+  letter-spacing: 0.16em;
+}
+
+.availabilityNote p {
+  margin: 0;
+
+  color: #bcaeae;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   BACK
+========================= */
+
+.backArea {
+  position: relative;
+  z-index: 10;
+
+  margin-top: 50px;
+
+  text-align: center;
+}
+
+.backButton {
+  display: inline-block;
+
+  padding:
+    13px
+    24px;
+
+  border:
+    1px solid
+    rgba(220,60,60,0.58);
+
+  border-radius: 5px;
+
+  color: #db4a4a;
+
+  font-size: 11px;
+
+  letter-spacing: 0.18em;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.backButton:hover {
+  background: #d53d3d;
+
+  color: #080808;
+
+  box-shadow:
+    0 0 20px
+    rgba(220,45,45,0.35);
+}
+
+/* =========================
+   FALLING PETALS
+========================= */
+
+.petal {
+  position: fixed;
+
+  top: -30px;
+
+  width: 7px;
+  height: 10px;
+
+  background: #761b1b;
+
+  border-radius:
+    70%
+    30%
+    70%
+    30%;
+
+  opacity: 0.55;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  animation:
+    fall
+    linear
+    infinite;
+}
+
+.p1 {
+  left: 6%;
+  animation-duration: 9s;
+}
+
+.p2 {
+  left: 18%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.p3 {
+  left: 32%;
+  animation-duration: 8s;
+  animation-delay: 4s;
+}
+
+.p4 {
+  left: 47%;
+  animation-duration: 11s;
+  animation-delay: 1s;
+}
+
+.p5 {
+  left: 62%;
+  animation-duration: 9s;
+  animation-delay: 5s;
+}
+
+.p6 {
+  left: 76%;
+  animation-duration: 13s;
+  animation-delay: 3s;
+}
+
+.p7 {
+  left: 90%;
+  animation-duration: 10s;
+  animation-delay: 6s;
+}
+
+@keyframes fall {
+
+  0% {
+    transform:
+      translate3d(
+        0,
+        -20px,
+        0
+      )
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translate3d(
+        30px,
+        25vh,
+        0
+      )
+      rotate(90deg);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -20px,
+        50vh,
+        0
+      )
+      rotate(180deg);
+  }
+
+  75% {
+    transform:
+      translate3d(
+        30px,
+        75vh,
+        0
+      )
+      rotate(270deg);
+  }
+
+  100% {
+    transform:
+      translate3d(
+        -10px,
+        110vh,
+        0
+      )
+      rotate(360deg);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  .rugGrid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0,1fr)
+      );
+  }
+}
+
+@media (max-width: 600px) {
+
+  .page {
+    padding:
+      40px
+      16px
+      80px;
+  }
+
+  .pageTitle {
+    font-size: 32px;
+
+    letter-spacing: 0.11em;
+  }
+
+  .pageSubtitle {
+    font-size: 8px;
+
+    letter-spacing: 0.20em;
+  }
+
+  .kurogiArea {
+    margin-top: 25px;
+  }
+
+  .kurogi {
+    width: 88vw;
+
+    max-height: 430px;
+  }
+
+  .kurogiName {
+    margin-top: -5px;
+
+    font-size: 16px;
+  }
+
+  .kurogiRole {
+    font-size: 8px;
+  }
+
+  .intro {
+    margin-top: 38px;
+  }
+
+  .introTitle {
+    font-size: 26px;
+  }
+
+  .introText {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  .inventory {
+    margin-top: 42px;
+  }
+
+  .rugGrid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .rugCard {
+    width: 100%;
+  }
+
+  .rugInfo {
+    padding:
+      20px
+      18px
+      22px;
+  }
+
+  .availabilityNote {
+    margin-top: 40px;
+
+    padding:
+      22px
+      18px;
+  }
+
+  .backArea {
+    margin-top: 42px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FALLING PETALS -->
+
+<div class="petal p1"></div>
+<div class="petal p2"></div>
+<div class="petal p3"></div>
+<div class="petal p4"></div>
+<div class="petal p5"></div>
+<div class="petal p6"></div>
+<div class="petal p7"></div>
+
+<main class="page">
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <h1 class="pageTitle">
+    AVAILABLE RUGS
+  </h1>
+
+  <div class="pageSubtitle">
+    NONFANDOMDESIGNS · YOMIZAKURA
+  </div>
+
+  <!-- =========================
+       KUROGI
+  ========================= -->
+
+  <section class="kurogiArea">
+
+    <img
+      class="kurogi"
+      src="./IMG_6693.PNG"
+      alt="Kurogi"
+    >
+
+    <div class="kurogiName">
+      KUROGI
+    </div>
+
+    <div class="kurogiRole">
+      FIRST SEED OF YOMIZAKURA
+    </div>
+
+  </section>
+
+  <!-- =========================
+       INTRO
+  ========================= -->
+
+  <section class="intro">
+
+    <h2 class="introTitle">
+      READY TO CLAIM
+    </h2>
+
+    <div class="introLine"></div>
+
+    <p class="introText">
+      These rugs have already been handcrafted by
+      <strong>NonFandomDesigns</strong>
+      and are ready to find their new home.
+      Browse the pieces currently available below.
+      Each rug is handmade and availability is limited.
+    </p>
+
+  </section>
+
+  <!-- =========================
+       AVAILABLE INVENTORY
+  ========================= -->
+
+  <section class="inventory">
+
+    <div class="inventoryHeading">
+      CURRENTLY AVAILABLE
+    </div>
+
+    <div class="rugGrid">
+
+      <!-- RUG 1 -->
+
+      <article class="rugCard">
+
+        <div class="rugImagePlaceholder">
+
+          <span>
+            RUG IMAGE<br>
+            COMING SOON
+          </span>
+
+          <div class="status">
+            AVAILABLE
+          </div>
+
+        </div>
+
+        <div class="rugInfo">
+
+          <h3 class="rugName">
+            AVAILABLE RUG #1
+          </h3>
+
+          <div class="rugDetails">
+            <strong>SIZE:</strong>
+            To be added
+            <br>
+
+            <strong>HANDMADE:</strong>
+            NonFandomDesigns
+          </div>
+
+          <div class="rugPrice">
+            PRICE COMING SOON
+          </div>
+
+          <a
+            class="claimButton"
+            href="contact.html"
+          >
+            INQUIRE ABOUT THIS RUG
+          </a>
+
+        </div>
+
+      </article>
+
+      <!-- RUG 2 -->
+
+      <article class="rugCard">
+
+        <div class="rugImagePlaceholder">
+
+          <span>
+            RUG IMAGE<br>
+            COMING SOON
+          </span>
+
+          <div class="status">
+            AVAILABLE
+          </div>
+
+        </div>
+
+        <div class="rugInfo">
+
+          <h3 class="rugName">
+            AVAILABLE RUG #2
+          </h3>
+
+          <div class="rugDetails">
+            <strong>SIZE:</strong>
+            To be added
+            <br>
+
+            <strong>HANDMADE:</strong>
+            NonFandomDesigns
+          </div>
+
+          <div class="rugPrice">
+            PRICE COMING SOON
+          </div>
+
+          <a
+            class="claimButton"
+            href="contact.html"
+          >
+            INQUIRE ABOUT THIS RUG
+          </a>
+
+        </div>
+
+      </article>
+
+      <!-- RUG 3 -->
+
+      <article class="rugCard">
+
+        <div class="rugImagePlaceholder">
+
+          <span>
+            RUG IMAGE<br>
+            COMING SOON
+          </span>
+
+          <div class="status">
+            AVAILABLE
+          </div>
+
+        </div>
+
+        <div class="rugInfo">
+
+          <h3 class="rugName">
+            AVAILABLE RUG #3
+          </h3>
+
+          <div class="rugDetails">
+            <strong>SIZE:</strong>
+            To be added
+            <br>
+
+            <strong>HANDMADE:</strong>
+            NonFandomDesigns
+          </div>
+
+          <div class="rugPrice">
+            PRICE COMING SOON
+          </div>
+
+          <a
+            class="claimButton"
+            href="contact.html"
+          >
+            INQUIRE ABOUT THIS RUG
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       AVAILABILITY NOTE
+  ========================= -->
+
+  <section class="availabilityNote">
+
+    <h2>
+      ONE-OF-A-KIND AVAILABILITY
+    </h2>
+
+    <p>
+      Available rugs are sold on a first-come basis.
+      Because each piece is handmade, once a rug is sold
+      it may not become available again.
+    </p>
+
+  </section>
+
+  <!-- =========================
+       RETURN
+  ========================= -->
+
+  <div class="backArea">
+
+    <a
+      class="backButton"
+      href="index.html"
+    >
+      ← RETURN TO YOMIZAKURA
+    </a>
+
+  </div>
+
+</main>
+
+</body>
+</html>
