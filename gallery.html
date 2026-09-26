@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Gallery — NonFandomDesigns</title>
+
+<style>
+
+/* =========================
+   BASE
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  background: #210d22;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: white;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* =========================
+   GALLERY WORLD
+========================= */
+
+.galleryWorld {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      #59214f 0%,
+      #35132f 28%,
+      #210d22 58%,
+      #170a18 100%
+    );
+}
+
+/* =========================
+   MOVING COLOR LIGHTS
+========================= */
+
+.glow {
+  position: fixed;
+
+  border-radius: 50%;
+
+  filter: blur(85px);
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  opacity: 0.45;
+}
+
+/* PINK LIGHT */
+
+.glowPinkOne {
+  width: 420px;
+  height: 420px;
+
+  left: -100px;
+  top: 15%;
+
+  background:
+    rgba(255, 39, 146, 0.58);
+
+  animation:
+    pinkMoveOne 12s ease-in-out infinite;
+}
+
+/* YELLOW LIGHT */
+
+.glowYellowOne {
+  width: 360px;
+  height: 360px;
+
+  right: -80px;
+  top: 8%;
+
+  background:
+    rgba(255, 218, 40, 0.50);
+
+  animation:
+    yellowMoveOne 14s ease-in-out infinite;
+}
+
+/* SECOND PINK LIGHT */
+
+.glowPinkTwo {
+  width: 520px;
+  height: 520px;
+
+  right: 10%;
+  bottom: -180px;
+
+  background:
+    rgba(255, 70, 168, 0.34);
+
+  animation:
+    pinkMoveTwo 16s ease-in-out infinite;
+}
+
+/* SECOND YELLOW LIGHT */
+
+.glowYellowTwo {
+  width: 300px;
+  height: 300px;
+
+  left: 20%;
+  bottom: 5%;
+
+  background:
+    rgba(255, 213, 44, 0.25);
+
+  animation:
+    yellowMoveTwo 13s ease-in-out infinite;
+}
+
+@keyframes pinkMoveOne {
+
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(170px, 100px)
+      scale(1.2);
+  }
+}
+
+@keyframes yellowMoveOne {
+
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-180px, 130px)
+      scale(1.18);
+  }
+}
+
+@keyframes pinkMoveTwo {
+
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-130px, -100px)
+      scale(1.15);
+  }
+}
+
+@keyframes yellowMoveTwo {
+
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(120px, -120px)
+      scale(1.25);
+  }
+}
+
+/* =========================
+   FAINT FOURTH-WALL GRID
+========================= */
+
+.gridOverlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  opacity: 0.10;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.10) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.10) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    75px 75px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.7),
+      transparent 90%
+    );
+}
+
+/* =========================
+   RANDOM LIGHT FLASH
+========================= */
+
+.lightFlash {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  background:
+    radial-gradient(
+      circle at 70% 30%,
+      rgba(255,223,50,0.20),
+      transparent 35%
+    );
+
+  animation:
+    lightFlash 9s infinite;
+}
+
+@keyframes lightFlash {
+
+  0%,
+  88%,
+  92%,
+  100% {
+    opacity: 0;
+  }
+
+  89% {
+    opacity: 0.55;
+  }
+
+  90% {
+    opacity: 0.08;
+  }
+
+  91% {
+    opacity: 0.35;
+  }
+}
+
+/* =========================
+   PAGE CONTENT
+========================= */
+
+.content {
+  position: relative;
+
+  z-index: 10;
+
+  width: min(1180px, 92%);
+
+  margin: 0 auto;
+
+  padding:
+    50px 0
+    80px;
+
+  box-sizing: border-box;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logoArea {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+
+  margin-bottom: 10px;
+}
+
+.galleryLogo {
+  width: min(620px, 75vw);
+
+  max-height: 250px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0 15px
+      rgba(255,255,255,0.15)
+    )
+    drop-shadow(
+      0 0 28px
+      rgba(255,57,154,0.22)
+    );
+
+  animation:
+    logoFloat 6s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-7px);
+  }
+}
+
+/* =========================
+   GALLERY TITLE
+========================= */
+
+.galleryTitle {
+  position: relative;
+
+  margin:
+    5px auto
+    0;
+
+  text-align: center;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      36px,
+      6vw,
+      78px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    3px 3px 0 #ff3f9c,
+    -2px -2px 0 rgba(255,215,45,0.75),
+    0 0 25px rgba(255,59,157,0.40);
+
+  animation:
+    titleGlitch 8s infinite;
+}
+
+.gallerySubtitle {
+  margin-top: 12px;
+
+  text-align: center;
+
+  color: #ffd83d;
+
+  font-size:
+    clamp(
+      9px,
+      1.1vw,
+      13px
+    );
+
+  font-weight: 700;
+
+  letter-spacing: 0.30em;
+
+  text-shadow:
+    0 0 12px
+    rgba(255,216,61,0.45);
+}
+
+/* =========================
+   TITLE GLITCH
+========================= */
+
+@keyframes titleGlitch {
+
+  0%,
+  91%,
+  94%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  92% {
+    transform:
+      translate(3px, -1px);
+  }
+
+  93% {
+    transform:
+      translate(-2px, 1px);
+  }
+}
+
+/* =========================
+   TORAI ENTRANCE
+========================= */
+
+.toraiStage {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 510px;
+
+  margin-top: 20px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* GLOW BEHIND TORAI */
+
+.toraiHalo {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 440px;
+  height: 440px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,220,45,0.24) 0%,
+      rgba(255,55,155,0.16) 38%,
+      transparent 70%
+    );
+
+  filter:
+    blur(10px);
+
+  animation:
+    haloPulse 5s ease-in-out infinite;
+}
+
+@keyframes haloPulse {
+
+  0%,
+  100% {
+    opacity: 0.55;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.10);
+  }
+}
+
+/* TORAI */
+
+.torai {
+  position: relative;
+
+  z-index: 4;
+
+  width:
+    min(
+      410px,
+      68vw
+    );
+
+  max-height:
+    500px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0 18px
+      rgba(255,219,40,0.30)
+    )
+    drop-shadow(
+      0 0 35px
+      rgba(255,52,151,0.28)
+    );
+
+  animation:
+    toraiFloat 5s ease-in-out infinite;
+}
+
+@keyframes toraiFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-0.3deg);
+  }
+
+  50% {
+    transform:
+      translateY(-11px)
+      rotate(0.4deg);
+  }
+}
+
+/* =========================
+   FOURTH WALL MESSAGE
+========================= */
+
+.fourthWall {
+  position: relative;
+
+  width:
+    min(
+      760px,
+      90%
+    );
+
+  margin:
+    -15px auto
+    0;
+
+  padding:
+    25px 20px;
+
+  box-sizing:
+    border-box;
+
+  text-align:
+    center;
+
+  border-top:
+    1px solid
+    rgba(255,216,61,0.32);
+
+  border-bottom:
+    1px solid
+    rgba(255,62,157,0.35);
+}
+
+.fourthWallText {
+  min-height:
+    28px;
+
+  color:
+    #ffffff;
+
+  font-size:
+    clamp(
+      14px,
+      1.6vw,
+      19px
+    );
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    0.18em;
+
+  text-shadow:
+    2px 0
+    rgba(255,55,155,0.65),
+    -2px 0
+    rgba(255,217,48,0.45);
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.galleryIntro {
+  width:
+    min(
+      720px,
+      90%
+    );
+
+  margin:
+    35px auto
+    0;
+
+  text-align:
+    center;
+
+  color:
+    rgba(255,255,255,0.78);
+
+  font-size:
+    14px;
+
+  line-height:
+    1.8;
+
+  letter-spacing:
+    0.04em;
+}
+
+/* =========================
+   GALLERY SECTION
+========================= */
+
+.workSection {
+  position:
+    relative;
+
+  margin-top:
+    80px;
+
+  padding-top:
+    55px;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,0.12);
+}
+
+.workTitle {
+  text-align:
+    center;
+
+  color:
+    #ff55aa;
+
+  font-size:
+    clamp(
+      26px,
+      4vw,
+      44px
+    );
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    0.16em;
+
+  text-shadow:
+    0 0 18px
+    rgba(255,69,163,0.35);
+}
+
+.workSubtitle {
+  margin-top:
+    10px;
+
+  text-align:
+    center;
+
+  color:
+    #ffd83d;
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.24em;
+}
+
+/* =========================
+   PLACEHOLDER GALLERY
+========================= */
+
+.galleryGrid {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap:
+    24px;
+
+  margin-top:
+    45px;
+}
+
+.galleryPlaceholder {
+  position:
+    relative;
+
+  min-height:
+    300px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.14);
+
+  border-radius:
+    10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,57,157,0.09),
+      rgba(255,215,48,0.05)
+    );
+
+  box-shadow:
+    0 10px 35px
+    rgba(0,0,0,0.22);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.galleryPlaceholder:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(255,216,61,0.45);
+
+  box-shadow:
+    0 15px 40px
+    rgba(0,0,0,0.30),
+    0 0 22px
+    rgba(255,62,157,0.12);
+}
+
+.placeholderText {
+  padding:
+    30px;
+
+  text-align:
+    center;
+
+  color:
+    rgba(255,255,255,0.42);
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.18em;
+
+  line-height:
+    1.7;
+}
+
+/* =========================
+   SMALL TORAI MARK
+========================= */
+
+.toraiMark {
+  margin:
+    65px auto
+    0;
+
+  text-align:
+    center;
+
+  color:
+    rgba(255,216,61,0.60);
+
+  font-size:
+    9px;
+
+  letter-spacing:
+    0.24em;
+}
+
+/* =========================
+   RETURN BUTTON
+========================= */
+
+.returnArea {
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  margin-top:
+    35px;
+}
+
+.returnButton {
+  display:
+    inline-block;
+
+  padding:
+    14px 25px;
+
+  border:
+    1px solid
+    rgba(255,216,61,0.55);
+
+  border-radius:
+    4px;
+
+  background:
+    rgba(28,10,27,0.70);
+
+  color:
+    #ffd83d;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.17em;
+
+  text-decoration:
+    none;
+
+  box-shadow:
+    0 0 15px
+    rgba(255,215,45,0.08);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.returnButton:hover {
+  transform:
+    translateY(-2px);
+
+  background:
+    #ffd83d;
+
+  color:
+    #271022;
+
+  border-color:
+    #ffd83d;
+
+  box-shadow:
+    0 0 25px
+    rgba(255,216,61,0.30);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media
+(max-width: 900px) {
+
+  .galleryGrid {
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
+  }
+
+  .toraiStage {
+    min-height:
+      460px;
+  }
+
+  .torai {
+    width:
+      min(
+        380px,
+        70vw
+      );
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media
+(max-width: 600px) {
+
+  .content {
+    width:
+      94%;
+
+    padding-top:
+      30px;
+
+    padding-bottom:
+      60px;
+  }
+
+  .galleryLogo {
+    width:
+      88vw;
+
+    max-height:
+      180px;
+  }
+
+  .galleryTitle {
+    margin-top:
+      0;
+
+    font-size:
+      37px;
+
+    letter-spacing:
+      0.11em;
+  }
+
+  .gallerySubtitle {
+    padding:
+      0 12px;
+
+    font-size:
+      8px;
+
+    line-height:
+      1.8;
+
+    letter-spacing:
+      0.20em;
+  }
+
+  .toraiStage {
+    min-height:
+      400px;
+
+    margin-top:
+      5px;
+  }
+
+  .torai {
+    width:
+      72vw;
+
+    max-height:
+      390px;
+  }
+
+  .toraiHalo {
+    width:
+      320px;
+
+    height:
+      320px;
+  }
+
+  .fourthWall {
+    margin-top:
+      -10px;
+
+    padding:
+      20px 10px;
+  }
+
+  .fourthWallText {
+    font-size:
+      12px;
+
+    line-height:
+      1.7;
+
+    letter-spacing:
+      0.12em;
+  }
+
+  .galleryIntro {
+    margin-top:
+      28px;
+
+    font-size:
+      12px;
+
+    line-height:
+      1.75;
+  }
+
+  .workSection {
+    margin-top:
+      60px;
+
+    padding-top:
+      45px;
+  }
+
+  .workTitle {
+    font-size:
+      27px;
+
+    letter-spacing:
+      0.12em;
+  }
+
+  .workSubtitle {
+    font-size:
+      8px;
+
+    line-height:
+      1.7;
+
+    letter-spacing:
+      0.18em;
+  }
+
+  .galleryGrid {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      20px;
+
+    margin-top:
+      35px;
+  }
+
+  .galleryPlaceholder {
+    min-height:
+      360px;
+  }
+
+  .glow {
+    filter:
+      blur(70px);
+  }
+
+  .glowPinkOne {
+    width:
+      300px;
+
+    height:
+      300px;
+  }
+
+  .glowYellowOne {
+    width:
+      260px;
+
+    height:
+      260px;
+  }
+
+  .glowPinkTwo {
+    width:
+      350px;
+
+    height:
+      350px;
+  }
+
+  .glowYellowTwo {
+    width:
+      240px;
+
+    height:
+      240px;
+  }
+
+  .gridOverlay {
+    background-size:
+      48px 48px;
+
+    opacity:
+      0.08;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media
+(prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    scroll-behavior:
+      auto !important;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="galleryWorld">
+
+  <!-- MOVING BACKGROUND LIGHTS -->
+
+  <div class="glow glowPinkOne"></div>
+
+  <div class="glow glowYellowOne"></div>
+
+  <div class="glow glowPinkTwo"></div>
+
+  <div class="glow glowYellowTwo"></div>
+
+  <!-- FOURTH-WALL BACKGROUND -->
+
+  <div class="gridOverlay"></div>
+
+  <div class="lightFlash"></div>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================= -->
+
+  <main class="content">
+
+
+    <!-- NONFANDOMDESIGNS LOGO -->
+
+    <div class="logoArea">
+
+      <img
+        class="galleryLogo"
+        src="./IMG_4154.PNG"
+        alt="NonFandomDesigns"
+      >
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <h1 class="galleryTitle">
+      THE GALLERY
+    </h1>
+
+    <div class="gallerySubtitle">
+      HANDCRAFTED WORKS · NONFANDOMDESIGNS
+    </div>
+
+
+    <!-- =========================
+         TORAI
+    ========================= -->
+
+    <section class="toraiStage">
+
+      <div class="toraiHalo"></div>
+
+      <img
+        class="torai"
+        src="./IMG_6896.PNG"
+        alt="Torai"
+      >
+
+    </section>
+
+
+    <!-- FOURTH-WALL MESSAGE -->
+
+    <section class="fourthWall">
+
+      <div
+        class="fourthWallText"
+        id="fourthWallText"
+      >
+        YOU WEREN'T SUPPOSED TO FIND THIS.
+      </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+
+    <div class="galleryIntro">
+
+      A collection of handcrafted works from
+      NonFandomDesigns.
+
+      <br><br>
+
+      Step beyond Yomizakura and explore
+      the rugs, designs, and creations that
+      have been brought into the real world.
+
+    </div>
+
+
+    <!-- =========================
+         RUG GALLERY
+    ========================= -->
+
+    <section class="workSection">
+
+      <div class="workTitle">
+        THE COLLECTION
+      </div>
+
+      <div class="workSubtitle">
+        SELECTED HANDCRAFTED WORKS
+      </div>
+
+
+      <!-- TEMPORARY PLACEHOLDERS -->
+
+      <div class="galleryGrid">
+
+        <div class="galleryPlaceholder">
+
+          <div class="placeholderText">
+            GALLERY PIECE
+            <br>
+            COMING SOON
+          </div>
+
+        </div>
+
+
+        <div class="galleryPlaceholder">
+
+          <div class="placeholderText">
+            GALLERY PIECE
+            <br>
+            COMING SOON
+          </div>
+
+        </div>
+
+
+        <div class="galleryPlaceholder">
+
+          <div class="placeholderText">
+            GALLERY PIECE
+            <br>
+            COMING SOON
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TORAI SIGNATURE -->
+
+    <div class="toraiMark">
+      TORAI WAS HERE.
+    </div>
+
+
+    <!-- RETURN -->
+
+    <div class="returnArea">
+
+      <a
+        class="returnButton"
+        href="index.html"
+      >
+        RETURN TO YOMIZAKURA
+      </a>
+
+    </div>
+
+  </main>
+
+</div>
+
+
+<script>
+
+/* =========================
+   TORAI FOURTH-WALL MESSAGE
+========================= */
+
+const fourthWallText =
+  document.getElementById(
+    "fourthWallText"
+  );
+
+const firstMessage =
+  "YOU WEREN'T SUPPOSED TO FIND THIS.";
+
+const secondMessage =
+  "WELCOME TO THE GALLERY.";
+
+function glitchMessage() {
+
+  fourthWallText.textContent =
+    "Y0U WEREN'T SUPP0SED T0—";
+
+  fourthWallText.style.color =
+    "#ffd83d";
+
+  fourthWallText.style.transform =
+    "translateX(3px)";
+
+  setTimeout(() => {
+
+    fourthWallText.textContent =
+      "///// ERROR /////";
+
+    fourthWallText.style.color =
+      "#ff4fa3";
+
+    fourthWallText.style.transform =
+      "translateX(-3px)";
+
+  }, 110);
+
+
+  setTimeout(() => {
+
+    fourthWallText.textContent =
+      secondMessage;
+
+    fourthWallText.style.color =
+      "#ffffff";
+
+    fourthWallText.style.transform =
+      "translateX(0)";
+
+  }, 230);
+}
+
+
+/* WAIT BEFORE TORAI BREAKS THE PAGE */
+
+setTimeout(
+  glitchMessage,
+  2200
+);
+
+
+/* =========================
+   OCCASIONAL SMALL GLITCH
+========================= */
+
+function randomGlitch() {
+
+  const title =
+    document.querySelector(
+      ".galleryTitle"
+    );
+
+  title.style.filter =
+    "brightness(1.4)";
+
+  title.style.letterSpacing =
+    "0.20em";
+
+  setTimeout(() => {
+
+    title.style.filter =
+      "";
+
+    title.style.letterSpacing =
+      "";
+
+  }, 90);
+}
+
+
+/* TORAI GLITCHES THE TITLE
+   EVERY 8 SECONDS */
+
+setInterval(
+  randomGlitch,
+  8000
+);
+
+</script>
+
+</body>
+</html>
