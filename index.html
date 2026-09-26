@@ -782,11 +782,11 @@ html, body {
 .toraiCharacter {
   position: absolute;
 
-  right: 10%;
-  top: 1%;
+  right: 13%;
+  top: 2%;
 
-  width: min(13.5vw, 165px);
-  max-height: 23vh;
+  width: min(11vw, 135px);
+  max-height: 19vh;
 
   object-fit: contain;
 
@@ -818,23 +818,23 @@ html, body {
   }
 
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-7px);
   }
 }
 
 .toraiName {
   position: absolute;
 
-  right: 10%;
-  top: 22%;
+  right: 13%;
+  top: 19.5%;
 
-  width: min(13.5vw, 165px);
+  width: min(11vw, 135px);
 
   z-index: 13;
 
   color: #ffd83d;
 
-  font-size: clamp(10px, 1.1vw, 15px);
+  font-size: clamp(9px, 1vw, 14px);
   font-weight: 800;
 
   letter-spacing: 0.16em;
@@ -848,10 +848,19 @@ html, body {
     0 0 10px rgba(255,216,61,0.35);
 }
 
-.toraiName span {
-  display: block;
+/* Hover message now appears ABOVE Torai */
 
-  margin-top: 6px;
+.toraiName span {
+  position: absolute;
+
+  bottom: 195%;
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    translateY(5px);
+
+  width: 190px;
 
   color: #ff7ab8;
 
@@ -859,9 +868,9 @@ html, body {
 
   letter-spacing: 0.13em;
 
-  opacity: 0;
+  white-space: nowrap;
 
-  transform: translateY(-5px);
+  opacity: 0;
 
   transition:
     opacity 0.3s ease,
@@ -872,7 +881,10 @@ html, body {
 .toraiName:hover span,
 .toraiName.mobileOpen span {
   opacity: 1;
-  transform: translateY(0);
+
+  transform:
+    translateX(-50%)
+    translateY(0);
 }
 
 /* TORAI GLITCH */
@@ -1319,8 +1331,21 @@ html, body {
   }
 
   .toraiName span {
+    position: static;
+
+    display: block;
+
+    width: auto;
+
     margin-top: 4px;
+
     font-size: 6px;
+
+    white-space: normal;
+
+    opacity: 0;
+
+    transform: translateY(-5px);
   }
 
   .toraiName.mobileOpen span {
