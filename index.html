@@ -776,7 +776,7 @@ html, body {
 }
 
 /* =========================
-   SUBTLE PETALS ON HUB
+   HUB PETALS
 ========================= */
 
 .hubPetal {
@@ -1041,9 +1041,7 @@ html, body {
 
   .kurogiName span {
     margin-top: 5px;
-
     font-size: 7px;
-
     text-align: center;
   }
 
@@ -1052,21 +1050,21 @@ html, body {
     transform: translateY(0);
   }
 
-  /* PHONE IKA & IKO — LARGER */
+  /* PHONE IKA & IKO — BIGGER + HIGHER */
 
   .ikoka {
     right: 1%;
-    top: 17%;
+    top: 15%;
 
-    width: 40vw;
-    max-height: 35vh;
+    width: 47vw;
+    max-height: 36vh;
   }
 
   .ikokaName {
     right: 1%;
-    top: 31%;
+    top: 27%;
 
-    width: 40vw;
+    width: 47vw;
 
     font-size: 10px;
     text-align: center;
@@ -1106,7 +1104,7 @@ html, body {
     margin-top: 5px;
   }
 
-  /* PHONE SAKUYO — SLIGHTLY LOWER */
+  /* PHONE SAKUYO — LOCKED */
 
   .sakuyoCharacter {
     left: 2%;
@@ -1128,9 +1126,7 @@ html, body {
 
   .sakuyoName span {
     margin-top: 5px;
-
     font-size: 7px;
-
     text-align: center;
   }
 
@@ -1139,7 +1135,7 @@ html, body {
     transform: translateY(0);
   }
 
-  /* PHONE AOMA — UNTOUCHED */
+  /* PHONE AOMA — LOCKED */
 
   .aomaCharacter {
     right: 3%;
@@ -1161,9 +1157,7 @@ html, body {
 
   .aomaName span {
     margin-top: 5px;
-
     font-size: 7px;
-
     text-align: center;
   }
 
@@ -1172,10 +1166,10 @@ html, body {
     transform: translateY(0);
   }
 
-  /* PHONE QUICK MENU — MOVED UP */
+  /* PHONE QUICK MENU — HIGHER */
 
   .quickMenu {
-    top: 15%;
+    top: 11%;
     bottom: auto;
     left: 14px;
   }
@@ -1250,7 +1244,9 @@ html, body {
 
 <div class="landing">
 
-  <div class="title">YOMIZAKURA</div>
+  <div class="title">
+    YOMIZAKURA
+  </div>
 
   <div class="subtitle">
     HANDCRAFTED RUGS · NONFANDOMDESIGNS
@@ -1271,7 +1267,10 @@ html, body {
   <div class="petal p7"></div>
   <div class="petal p8"></div>
 
-  <button class="enter" onclick="enterSite()">
+  <button
+    class="enter"
+    onclick="enterSite()"
+  >
     ENTER YOMIZAKURA
   </button>
 
@@ -1287,19 +1286,24 @@ function toggleQuickMenu(event) {
 
   event.stopPropagation();
 
-  const menu = document.getElementById("quickMenu");
+  const menu =
+    document.getElementById("quickMenu");
 
   menu.classList.toggle("open");
 }
 
-document.addEventListener("click", function(event) {
+document.addEventListener(
+  "click",
+  function(event) {
 
-  const menu = document.getElementById("quickMenu");
+    const menu =
+      document.getElementById("quickMenu");
 
-  if (!menu.contains(event.target)) {
-    menu.classList.remove("open");
+    if (!menu.contains(event.target)) {
+      menu.classList.remove("open");
+    }
   }
-});
+);
 
 /* =========================
    SAKURAMA CLICK
@@ -1328,7 +1332,8 @@ function openSakurama(event) {
     }
   }
 
-  window.location.href = "characters.html";
+  window.location.href =
+    "characters.html";
 }
 
 /* =========================
@@ -1348,10 +1353,14 @@ function openKurogi(event) {
       kurogiMobileReady = true;
 
       const image =
-        document.querySelector(".kurogiCharacter");
+        document.querySelector(
+          ".kurogiCharacter"
+        );
 
       const name =
-        document.querySelector(".kurogiName");
+        document.querySelector(
+          ".kurogiName"
+        );
 
       if (image) {
         image.classList.add("mobileOpen");
@@ -1365,7 +1374,8 @@ function openKurogi(event) {
     }
   }
 
-  window.location.href = "available.html";
+  window.location.href =
+    "available.html";
 }
 
 /* =========================
@@ -1385,10 +1395,14 @@ function openSakuyo(event) {
       sakuyoMobileReady = true;
 
       const image =
-        document.querySelector(".sakuyoCharacter");
+        document.querySelector(
+          ".sakuyoCharacter"
+        );
 
       const name =
-        document.querySelector(".sakuyoName");
+        document.querySelector(
+          ".sakuyoName"
+        );
 
       if (image) {
         image.classList.add("mobileOpen");
@@ -1402,7 +1416,8 @@ function openSakuyo(event) {
     }
   }
 
-  window.location.href = "custom.html";
+  window.location.href =
+    "custom.html";
 }
 
 /* =========================
@@ -1425,7 +1440,9 @@ function openIkoka(event) {
         document.querySelector(".ikoka");
 
       const name =
-        document.querySelector(".ikokaName");
+        document.querySelector(
+          ".ikokaName"
+        );
 
       if (image) {
         image.classList.add("mobileOpen");
@@ -1439,7 +1456,8 @@ function openIkoka(event) {
     }
   }
 
-  window.location.href = "contact.html";
+  window.location.href =
+    "contact.html";
 }
 
 /* =========================
@@ -1459,10 +1477,14 @@ function openAoma(event) {
       aomaMobileReady = true;
 
       const image =
-        document.querySelector(".aomaCharacter");
+        document.querySelector(
+          ".aomaCharacter"
+        );
 
       const name =
-        document.querySelector(".aomaName");
+        document.querySelector(
+          ".aomaName"
+        );
 
       if (image) {
         image.classList.add("mobileOpen");
@@ -1476,7 +1498,8 @@ function openAoma(event) {
     }
   }
 
-  window.location.href = "social.html";
+  window.location.href =
+    "social.html";
 }
 
 /* =========================
@@ -1518,7 +1541,9 @@ function enterSite() {
           onclick="openSakurama(event)"
         >
           SAKURAMA
-          <span>CHARACTERS &amp; WORLD LORE</span>
+          <span>
+            CHARACTERS &amp; WORLD LORE
+          </span>
         </div>
 
         <!-- KUROGI -->
@@ -1535,7 +1560,9 @@ function enterSite() {
           onclick="openKurogi(event)"
         >
           KUROGI
-          <span>AVAILABLE RUGS</span>
+          <span>
+            AVAILABLE RUGS
+          </span>
         </div>
 
         <!-- SAKUYO -->
@@ -1552,7 +1579,9 @@ function enterSite() {
           onclick="openSakuyo(event)"
         >
           SAKUYO
-          <span>CUSTOM RUG ORDERS</span>
+          <span>
+            CUSTOM RUG ORDERS
+          </span>
         </div>
 
         <!-- IKA & IKO -->
@@ -1569,7 +1598,9 @@ function enterSite() {
           onclick="openIkoka(event)"
         >
           IKA · IKO
-          <span>INFO &amp; CONTACT</span>
+          <span>
+            INFO &amp; CONTACT
+          </span>
         </div>
 
         <!-- AOMA -->
@@ -1586,7 +1617,9 @@ function enterSite() {
           onclick="openAoma(event)"
         >
           AOMA
-          <span>SOCIAL MEDIA</span>
+          <span>
+            SOCIAL MEDIA
+          </span>
         </div>
 
         <!-- HUB PETALS -->
