@@ -776,6 +776,139 @@ html, body {
 }
 
 /* =========================
+   TORAI — GALLERY / FOURTH WALL
+========================= */
+
+.toraiCharacter {
+  position: absolute;
+
+  right: -5%;
+  top: 14%;
+
+  width: min(18vw, 220px);
+  max-height: 31vh;
+
+  object-fit: contain;
+
+  z-index: 11;
+
+  cursor: pointer;
+
+  filter:
+    drop-shadow(0 0 14px rgba(255,79,163,0.30))
+    drop-shadow(0 0 24px rgba(255,216,61,0.18));
+
+  animation:
+    toraiHubBob 4.8s ease-in-out infinite;
+
+  transition:
+    filter 0.3s ease;
+}
+
+.toraiCharacter:hover,
+.toraiCharacter.mobileOpen {
+  filter:
+    drop-shadow(0 0 20px rgba(255,79,163,0.65))
+    drop-shadow(0 0 34px rgba(255,216,61,0.38));
+}
+
+@keyframes toraiHubBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.toraiName {
+  position: absolute;
+
+  right: 1%;
+  top: 43%;
+
+  width: min(16vw, 190px);
+
+  z-index: 13;
+
+  color: #ffd83d;
+
+  font-size: clamp(10px, 1.1vw, 15px);
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  text-shadow:
+    2px 0 rgba(255,79,163,0.55),
+    0 0 10px rgba(255,216,61,0.35);
+}
+
+.toraiName span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #ff7ab8;
+
+  font-size: clamp(7px, 0.7vw, 9px);
+
+  letter-spacing: 0.13em;
+
+  opacity: 0;
+
+  transform: translateY(-5px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.toraiCharacter:hover + .toraiName span,
+.toraiName:hover span,
+.toraiName.mobileOpen span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TORAI GLITCH */
+
+.toraiGlitch {
+  animation:
+    toraiHubGlitch 0.18s steps(2, end) 2 !important;
+}
+
+@keyframes toraiHubGlitch {
+  0% {
+    transform: translate(0, 0);
+
+    filter:
+      drop-shadow(5px 0 rgba(255,79,163,0.75))
+      drop-shadow(-5px 0 rgba(255,216,61,0.65));
+  }
+
+  50% {
+    transform: translate(-6px, 2px);
+
+    filter:
+      drop-shadow(-6px 0 rgba(255,79,163,0.75))
+      drop-shadow(6px 0 rgba(255,216,61,0.65));
+  }
+
+  100% {
+    transform: translate(4px, -2px);
+
+    filter:
+      drop-shadow(5px 0 rgba(255,79,163,0.75))
+      drop-shadow(-5px 0 rgba(255,216,61,0.65));
+  }
+}
+
+/* =========================
    HUB PETALS
 ========================= */
 
@@ -1050,7 +1183,7 @@ html, body {
     transform: translateY(0);
   }
 
-  /* PHONE IKA & IKO — IMAGE LOCKED / NAME LOWER */
+  /* PHONE IKA & IKO — LOCKED */
 
   .ikoka {
     right: 1%;
@@ -1166,6 +1299,35 @@ html, body {
     transform: translateY(0);
   }
 
+  /* PHONE TORAI — SEPARATE POSITION */
+
+  .toraiCharacter {
+    right: -12%;
+    top: 39%;
+
+    width: 32vw;
+    max-height: 25vh;
+  }
+
+  .toraiName {
+    right: 0%;
+    top: 55%;
+
+    width: 25vw;
+
+    font-size: 9px;
+  }
+
+  .toraiName span {
+    margin-top: 4px;
+    font-size: 6px;
+  }
+
+  .toraiName.mobileOpen span {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+
   /* PHONE QUICK MENU — LOCKED */
 
   .quickMenu {
@@ -1232,6 +1394,10 @@ html, body {
 
     <a href="social.html">
       SOCIAL MEDIA
+    </a>
+
+    <a href="gallery.html">
+      GALLERY
     </a>
 
   </div>
@@ -1503,6 +1669,81 @@ function openAoma(event) {
 }
 
 /* =========================
+   TORAI CLICK
+========================= */
+
+let toraiMobileReady = false;
+
+function openTorai(event) {
+
+  if (window.innerWidth <= 600) {
+
+    if (!toraiMobileReady) {
+
+      event.preventDefault();
+
+      toraiMobileReady = true;
+
+      const image =
+        document.querySelector(
+          ".toraiCharacter"
+        );
+
+      const name =
+        document.querySelector(
+          ".toraiName"
+        );
+
+      if (image) {
+        image.classList.add("mobileOpen");
+      }
+
+      if (name) {
+        name.classList.add("mobileOpen");
+      }
+
+      return;
+    }
+  }
+
+  window.location.href =
+    "gallery.html";
+}
+
+/* =========================
+   TORAI GLITCH
+========================= */
+
+function glitchTorai() {
+
+  const torai =
+    document.querySelector(
+      ".toraiCharacter"
+    );
+
+  if (!torai) {
+    return;
+  }
+
+  torai.classList.add(
+    "toraiGlitch"
+  );
+
+  setTimeout(() => {
+
+    torai.classList.remove(
+      "toraiGlitch"
+    );
+
+  }, 380);
+}
+
+setInterval(
+  glitchTorai,
+  8500
+);
+
+/* =========================
    ENTER YOMIZAKURA
 ========================= */
 
@@ -1619,6 +1860,25 @@ function enterSite() {
           AOMA
           <span>
             SOCIAL MEDIA
+          </span>
+        </div>
+
+        <!-- TORAI — FOURTH-WALL GALLERY ENTRANCE -->
+
+        <img
+          class="toraiCharacter"
+          src="./IMG_6896.PNG"
+          alt="Torai"
+          onclick="openTorai(event)"
+        >
+
+        <div
+          class="toraiName"
+          onclick="openTorai(event)"
+        >
+          TORAI
+          <span>
+            BREAK INTO THE GALLERY
           </span>
         </div>
 
