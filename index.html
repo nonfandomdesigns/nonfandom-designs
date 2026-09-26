@@ -600,7 +600,7 @@ html, body {
 }
 
 /* =========================
-   IKA & IKO — DESKTOP
+   IKA & IKO
 ========================= */
 
 .ikoka {
@@ -848,29 +848,24 @@ html, body {
     0 0 10px rgba(255,216,61,0.35);
 }
 
-/* Hover message now appears ABOVE Torai */
+/* GALLERY WORDING DIRECTLY BELOW TORAI */
 
 .toraiName span {
-  position: absolute;
+  display: block;
 
-  bottom: 195%;
-  left: 50%;
-
-  transform:
-    translateX(-50%)
-    translateY(5px);
-
-  width: 190px;
+  margin-top: 5px;
 
   color: #ff7ab8;
 
-  font-size: clamp(7px, 0.7vw, 9px);
+  font-size: clamp(6px, 0.65vw, 8px);
 
-  letter-spacing: 0.13em;
+  letter-spacing: 0.10em;
 
   white-space: nowrap;
 
   opacity: 0;
+
+  transform: translateY(-3px);
 
   transition:
     opacity 0.3s ease,
@@ -881,10 +876,7 @@ html, body {
 .toraiName:hover span,
 .toraiName.mobileOpen span {
   opacity: 1;
-
-  transform:
-    translateX(-50%)
-    translateY(0);
+  transform: translateY(0);
 }
 
 /* TORAI GLITCH */
@@ -1195,7 +1187,7 @@ html, body {
     transform: translateY(0);
   }
 
-  /* PHONE IKA & IKO — LOCKED */
+  /* PHONE IKA & IKO */
 
   .ikoka {
     right: 1%;
@@ -1238,7 +1230,7 @@ html, body {
     transform: translateY(0);
   }
 
-  /* PHONE SAKURAMA — LOCKED */
+  /* PHONE SAKURAMA */
 
   .sakuramaName {
     top: 69%;
@@ -1249,7 +1241,7 @@ html, body {
     margin-top: 5px;
   }
 
-  /* PHONE SAKUYO — LOCKED */
+  /* PHONE SAKUYO */
 
   .sakuyoCharacter {
     left: 2%;
@@ -1280,7 +1272,7 @@ html, body {
     transform: translateY(0);
   }
 
-  /* PHONE AOMA — LOCKED */
+  /* PHONE AOMA */
 
   .aomaCharacter {
     right: 3%;
@@ -1311,7 +1303,7 @@ html, body {
     transform: translateY(0);
   }
 
-  /* PHONE TORAI — UNCHANGED FOR NOW */
+  /* PHONE TORAI — STILL UNCHANGED */
 
   .toraiCharacter {
     right: -12%;
@@ -1331,8 +1323,6 @@ html, body {
   }
 
   .toraiName span {
-    position: static;
-
     display: block;
 
     width: auto;
@@ -1353,7 +1343,7 @@ html, body {
     transform: translateY(0);
   }
 
-  /* PHONE QUICK MENU — LOCKED */
+  /* PHONE QUICK MENU */
 
   .quickMenu {
     top: 11%;
@@ -1888,7 +1878,7 @@ function enterSite() {
           </span>
         </div>
 
-        <!-- TORAI — FOURTH-WALL GALLERY ENTRANCE -->
+        <!-- TORAI -->
 
         <img
           class="toraiCharacter"
