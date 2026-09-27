@@ -795,89 +795,23 @@ body {
   letter-spacing: 0.24em;
 }
 
-/* =========================
-   PLACEHOLDER GALLERY
-========================= */
-
-.galleryGrid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      1fr
-    );
-
-  gap: 24px;
-
-  margin-top: 45px;
-}
-
-.galleryPlaceholder {
-  position: relative;
-
-  min-height: 300px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  overflow: hidden;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.14);
-
-  border-radius: 10px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,57,157,0.09),
-      rgba(255,215,48,0.05)
-    );
-
-  box-shadow:
-    0 10px 35px
-    rgba(0,0,0,0.22);
-
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.galleryPlaceholder:hover {
-  transform:
-    translateY(-5px);
-
-  border-color:
-    rgba(255,216,61,0.45);
-
-  box-shadow:
-    0 15px 40px
-    rgba(0,0,0,0.30),
-    0 0 22px
-    rgba(255,62,157,0.12);
-}
-
-.placeholderText {
-  padding: 30px;
-
-  text-align: center;
-
-  color:
-    rgba(255,255,255,0.42);
-
-  font-size: 11px;
-
-  font-weight: 700;
-
-  letter-spacing: 0.18em;
-
-  line-height: 1.7;
+/* CREATOR PHOTO AND VIDEO PAIRS */
+.creatorCollection { display: grid; gap: 36px; margin-top: 45px; }
+.creatorCard { min-width: 0; overflow: hidden; border: 1px solid rgba(255,216,61,.25); border-radius: 12px; background: rgba(23,10,24,.7); box-shadow: 0 10px 35px rgba(0,0,0,.22); }
+.creatorMedia { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; padding: 16px; }
+.creatorMedia figure { min-width: 0; margin: 0; }
+.creatorMedia img, .creatorMedia video { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: contain; background: #100911; border-radius: 7px; }
+.creatorMedia figcaption { padding: 10px 4px 0; text-align: center; color: rgba(255,255,255,.75); font-size: 12px; line-height: 1.5; }
+.creatorInfo { padding: 8px 20px 24px; text-align: center; }
+.creatorInfo h3 { margin: 0 0 14px; color: #ff7abb; font-size: clamp(19px,3vw,26px); line-height: 1.4; overflow-wrap: anywhere; }
+.creatorLinks { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.creatorLinks a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; box-sizing: border-box; border: 1px solid rgba(255,216,61,.5); border-radius: 5px; color: #ffd83d; text-decoration: none; font-size: 13px; }
+.creatorLinks a:hover { color: #271022; background: #ffd83d; }
+.creatorLinks a:focus-visible, .creatorMedia video:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+@media (max-width: 600px) {
+  .creatorCollection { gap: 24px; margin-top: 35px; }
+  .creatorMedia { grid-template-columns: 1fr; padding: 12px; gap: 18px; }
+  .creatorInfo { padding: 8px 12px 22px; }
 }
 
 /* =========================
@@ -970,13 +904,6 @@ body {
 @media
 (max-width: 900px) {
 
-  .galleryGrid {
-    grid-template-columns:
-      repeat(
-        2,
-        1fr
-      );
-  }
 
   .toraiStage {
     min-height: 460px;
@@ -1118,17 +1045,7 @@ body {
     letter-spacing: 0.18em;
   }
 
-  .galleryGrid {
-    grid-template-columns: 1fr;
 
-    gap: 20px;
-
-    margin-top: 35px;
-  }
-
-  .galleryPlaceholder {
-    min-height: 360px;
-  }
 
   .glow {
     filter: blur(70px);
@@ -1318,41 +1235,75 @@ body {
       </div>
 
 
-      <!-- TEMPORARY PLACEHOLDERS -->
+      <div class="creatorCollection">
 
-      <div class="galleryGrid">
-
-        <div class="galleryPlaceholder">
-
-          <div class="placeholderText">
-            GALLERY PIECE
-            <br>
-            COMING SOON
+        <article class="creatorCard" aria-labelledby="leonhart-title">
+          <div class="creatorMedia">
+            <figure>
+              <img src="./leonhart-photo.jpg" alt="Handcrafted rug made for Leonhart" loading="lazy" decoding="async">
+              <figcaption>The rug · Made for Leonhart</figcaption>
+            </figure>
+            <figure>
+              <video controls playsinline preload="none" poster="./leonhart-poster.jpg" aria-label="Video featuring the rug made for Leonhart">
+                <source src="./leonhart-video.mp4" type="video/mp4">
+                Your browser cannot play this video. <a href="./leonhart-video.mp4">Open the video</a>.
+              </video>
+              <figcaption>Watch the video · Leonhart</figcaption>
+            </figure>
           </div>
-
-        </div>
-
-
-        <div class="galleryPlaceholder">
-
-          <div class="placeholderText">
-            GALLERY PIECE
-            <br>
-            COMING SOON
+          <div class="creatorInfo">
+            <h3 id="leonhart-title">Made for Leonhart</h3>
+            <div class="creatorLinks">
+              <a href="https://www.instagram.com/leonhart/" target="_blank" rel="noopener noreferrer" aria-label="Leonhart on Instagram (opens in a new tab)">Instagram</a>
+              <a href="https://www.youtube.com/@leonhart" target="_blank" rel="noopener noreferrer" aria-label="Leonhart on YouTube (opens in a new tab)">YouTube</a>
+            </div>
           </div>
+        </article>
 
-        </div>
-
-
-        <div class="galleryPlaceholder">
-
-          <div class="placeholderText">
-            GALLERY PIECE
-            <br>
-            COMING SOON
+        <article class="creatorCard" aria-labelledby="stephosaurawr-title">
+          <div class="creatorMedia">
+            <figure>
+              <img src="./stephosaurawr-photo.jpg" alt="Handcrafted rug made for Stephosaurawr" loading="lazy" decoding="async">
+              <figcaption>The rug · Made for Stephosaurawr</figcaption>
+            </figure>
+            <figure>
+              <video controls playsinline preload="none" poster="./stephosaurawr-poster.jpg" aria-label="Video featuring the rug made for Stephosaurawr">
+                <source src="./stephosaurawr-video.mp4" type="video/mp4">
+                Your browser cannot play this video. <a href="./stephosaurawr-video.mp4">Open the video</a>.
+              </video>
+              <figcaption>Watch the video · Stephosaurawr</figcaption>
+            </figure>
           </div>
+          <div class="creatorInfo">
+            <h3 id="stephosaurawr-title">Made for Stephosaurawr</h3>
+            <div class="creatorLinks">
+              <a href="https://www.instagram.com/stephosaurawr/" target="_blank" rel="noopener noreferrer" aria-label="Stephosaurawr on Instagram (opens in a new tab)">Instagram</a>
+              <a href="https://www.tiktok.com/@stephosaurawr" target="_blank" rel="noopener noreferrer" aria-label="Stephosaurawr on TikTok (opens in a new tab)">TikTok</a>
+            </div>
+          </div>
+        </article>
 
-        </div>
+        <article class="creatorCard" aria-labelledby="allycatastrophe-title">
+          <div class="creatorMedia">
+            <figure>
+              <img src="./allycatastrophe-photo.jpg" alt="Handcrafted rug made for Allycatastrophe" loading="lazy" decoding="async">
+              <figcaption>The rug · Made for Allycatastrophe</figcaption>
+            </figure>
+            <figure>
+              <video controls playsinline preload="none" poster="./allycatastrophe-poster.jpg" aria-label="Video featuring the rug made for Allycatastrophe">
+                <source src="./allycatastrophe-video.mp4" type="video/mp4">
+                Your browser cannot play this video. <a href="./allycatastrophe-video.mp4">Open the video</a>.
+              </video>
+              <figcaption>Watch the video · Allycatastrophe</figcaption>
+            </figure>
+          </div>
+          <div class="creatorInfo">
+            <h3 id="allycatastrophe-title">Made for Allycatastrophe</h3>
+            <div class="creatorLinks">
+              <a href="https://www.instagram.com/allycatastrophe/" target="_blank" rel="noopener noreferrer" aria-label="Allycatastrophe on Instagram (opens in a new tab)">Instagram</a>
+            </div>
+          </div>
+        </article>
 
       </div>
 
