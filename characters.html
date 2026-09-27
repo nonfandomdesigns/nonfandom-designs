@@ -235,26 +235,38 @@ body {
   border-top: 1px solid rgba(255,79,163,0.12);
 }
 
-.imagePlaceholder {
-  width: min(420px, 100%);
-  height: 230px;
-
-  margin: 25px auto;
-
+.characterPortrait {
+  width: min(480px, 100%);
+  margin: 24px auto 28px;
+  padding: 12px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border: 1px dashed rgba(255,79,163,0.3);
-
-  color: rgba(255,122,184,0.5);
-
-  font-size: 11px;
-
-  letter-spacing: 0.18em;
-
-  background: rgba(0,0,0,0.18);
 }
+.characterArt {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 460px;
+  object-fit: contain;
+  transform-origin: center 75%;
+  filter: drop-shadow(0 0 10px var(--art-glow));
+  animation-duration: var(--art-duration, 7s);
+  animation-delay: var(--art-delay, 0s);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+.character[open] .characterArt { animation-play-state: running; }
+.twinPortrait { width: min(680px, 100%); gap: 8px; }
+.twinPortrait .characterArt { width: calc(50% - 4px); min-width: 0; }
+.motion-float { animation-name: loreFloat; }
+.motion-sway { animation-name: loreSway; }
+.motion-breathe { animation-name: loreBreathe; }
+@keyframes loreFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes loreSway { 0%,100% { transform: rotate(-.6deg); } 50% { transform: rotate(.6deg) translateY(-3px); } }
+@keyframes loreBreathe { 0%,100% { transform: scale(.99); } 50% { transform: scale(1.01); } }
+.character summary:focus-visible { outline: 2px solid #ff7ab8; outline-offset: -3px; }
 
 .description {
   max-width: 800px;
@@ -386,7 +398,7 @@ body {
   }
 
   .section {
-    width: 94vw;
+    width: 100%;
 
     margin-bottom: 55px;
   }
@@ -406,8 +418,8 @@ body {
       0 16px 20px;
   }
 
-  .imagePlaceholder {
-    height: 180px;
+  .characterArt {
+    max-height: 340px;
   }
 
   .description {
@@ -422,6 +434,10 @@ body {
 
     font-size: 9px;
   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .characterArt, .petal { animation: none !important; }
+  .petal { display: none; }
 }
 </style>
 </head>
@@ -473,8 +489,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-sway" src="./lore-yomizakura.png" alt="Yomizakura Tree" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ff7ab8; --art-duration: 6s; --art-delay: -0s;">
         </div>
 
         <div class="description">
@@ -497,8 +513,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-float" src="./lore-sakurama.png" alt="Sakurama" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #adff35; --art-duration: 7s; --art-delay: -1s;">
         </div>
 
         <div class="description">
@@ -521,8 +537,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-breathe" src="./lore-kurogi.png" alt="Kurogi" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ed4055; --art-duration: 8s; --art-delay: -2s;">
         </div>
 
         <div class="description">
@@ -544,8 +560,9 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait twinPortrait">
+          <img class="characterArt motion-float" src="./lore-iko.png" alt="Iko" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ff7ab8; --art-duration: 9s; --art-delay: -3s;">
+          <img class="characterArt motion-float" src="./lore-ika.png" alt="Ika" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ff514a; --art-duration: 6s; --art-delay: -4s;">
         </div>
 
         <div class="description">
@@ -568,8 +585,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-breathe" src="./lore-aoma.png" alt="Aoma" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #35baff; --art-duration: 7s; --art-delay: -0s;">
         </div>
 
         <div class="description">
@@ -593,8 +610,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-sway" src="./lore-sakuyo.png" alt="Sakuyo" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ff99c4; --art-duration: 8s; --art-delay: -1s;">
         </div>
 
         <div class="description">
@@ -618,8 +635,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-float" src="./lore-saku.png" alt="Saku" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ff7ab8; --art-duration: 9s; --art-delay: -2s;">
         </div>
 
         <div class="description">
@@ -643,8 +660,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-breathe" src="./lore-kurogumo-ryuu.png" alt="Kurogumo Ryuu" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #aa5cff; --art-duration: 6s; --art-delay: -3s;">
         </div>
 
         <div class="description">
@@ -681,8 +698,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-float" src="./lore-tenzaru.png" alt="Tenzaru" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ffd35b; --art-duration: 7s; --art-delay: -4s;">
         </div>
 
         <div class="description">
@@ -705,8 +722,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-sway" src="./lore-shikayomi.png" alt="Shikayomi" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #b4a4d0; --art-duration: 8s; --art-delay: -0s;">
         </div>
 
         <div class="description">
@@ -730,8 +747,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-sway" src="./lore-torai.png" alt="Torai" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ffce45; --art-duration: 9s; --art-delay: -1s;">
         </div>
 
         <div class="description">
@@ -756,8 +773,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-breathe" src="./lore-ankyu.png" alt="Ankyu" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #428aff; --art-duration: 6s; --art-delay: -2s;">
         </div>
 
         <div class="description">
@@ -794,8 +811,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-sway" src="./lore-koji-kiri.png" alt="Koji &amp; Kiri" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #d99344; --art-duration: 7s; --art-delay: -3s;">
         </div>
 
         <div class="description">
@@ -818,8 +835,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-breathe" src="./lore-kinhoshi.png" alt="Kinhoshi" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #d99e48; --art-duration: 8s; --art-delay: -4s;">
         </div>
 
         <div class="description">
@@ -843,8 +860,8 @@ body {
 
       <div class="characterContent">
 
-        <div class="imagePlaceholder">
-          IMAGE COMING SOON
+        <div class="characterPortrait">
+          <img class="characterArt motion-breathe" src="./lore-jorobana.png" alt="Jorobana" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #dbbc42; --art-duration: 9s; --art-delay: -0s;">
         </div>
 
         <div class="description">
