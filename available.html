@@ -648,8 +648,7 @@ body{
 </p>
 
 <p class="shipping">
-  <strong>$20 U.S. SHIPPING</strong> · Tracking included.<br>
-  International shipping is calculated separately.
+  <strong>$20 SHIPPING</strong>
 </p>
 
 </section>
@@ -685,7 +684,7 @@ body{
 
     <div class="mysteryPrice">$70</div>
 
-    <p>$20 U.S. shipping</p>
+    <p>$20 shipping</p>
 
     <a class="claimButton" href="contact.html">
       CLAIM A MYSTERY RUG
@@ -706,7 +705,7 @@ body{
 
     <div class="mysteryPrice">$125</div>
 
-    <p>$20 U.S. shipping</p>
+    <p>$20 shipping</p>
 
     <a class="claimButton" href="contact.html">
       CLAIM A MYSTERY RUG
@@ -786,103 +785,10 @@ body{
 const availableRugs = [
 
   {
-    name: "Torch Kimono",
-    size: "Approx. 3.8 ft",
-    price: "$250",
-    image: "72771E95-07CA-4BA4-B25C-8982A76D9C2B.jpeg"
-  },
-
-  {
-    name: "Halloween Pooh",
-    size: "Approx. 3 ft",
-    price: "$215",
-    image: "FullSizeRender.jpg"
-  },
-
-  {
-    name: "Pool Kimono",
-    size: "Approx. 2.9 ft",
-    price: "$185",
-    image: "IMG_0782.jpg",
-    note: "Bundle Pool Kimono + Wolver Kimono together for $350."
-  },
-
-  {
-    name: "Wolver Kimono",
-    size: "Approx. 2.9 ft",
-    price: "$185",
-    image: "IMG_0877.jpg",
-    note: "Bundle Pool Kimono + Wolver Kimono together for $350."
-  },
-
-  {
-    name: "Reindeer Venom",
-    size: "Approx. 3.9 ft",
-    price: "$175",
-    image: "IMG_1322.jpg"
-  },
-
-  {
-    name: "Snake Mic Mouse",
-    size: "Approx. 3 ft",
-    price: "$150",
-    image: "IMG_1582.jpg"
-  },
-
-  {
-    name: "Kimono Mickee",
-    size: "Approx. 2.5 ft",
-    price: "$115",
-    image: "IMG_1681.jpg"
-  },
-
-  {
-    name: "Donald-Psy",
-    size: "Approx. 2.5 ft",
-    price: "$135",
-    image: "IMG_2503.jpg"
-  },
-
-  {
     name: "Halloween Bulby",
     size: "Approx. 2 ft",
     price: "$105",
-    image: "IMG_3270.jpeg"
-  },
-
-  {
-    name: "Pink Domo",
-    size: "Approx. 2 ft",
-    price: "$65",
-    image: "IMG_4901.jpg"
-  },
-
-  {
-    name: "Dorae Kimono",
-    size: "Approx. 2 ft",
-    price: "$70",
-    image: "IMG_5631.jpg"
-  },
-
-  {
-    name: "Buu Kimono",
-    size: "Approx. 2 ft",
-    price: "$60",
-    image: "IMG_5837.jpg"
-  },
-
-  {
-    name: "StichyPOOh",
-    size: "Approx. 3 ft",
-    price: "$95",
-    image: "IMG_6276.jpg"
-  },
-
-  {
-    name: "Japan Cherryblossom",
-    size: "Approx. 2.5 ft",
-    price: "$55",
-    image: "IMG_6370.jpeg"
+    image: "IMG_1681.jpg"
   },
 
   {
@@ -890,20 +796,148 @@ const availableRugs = [
     size: "Approx. 4 ft",
     oldPrice: "$200",
     price: "$150",
-    image: "IMG_6682.jpg",
-    secondImage: "IMG_7028.jpg",
+    image: "IMG_9060.jpg",
+    secondImage: "IMG_9086.jpg",
     sale: true,
     note: "SALE · Includes normal-light and UV / blacklight view."
   },
 
   {
-    name: "Error Hallowen Baymxx",
+    name: "Buu Kimono",
+    size: "Approx. 2 ft",
+    price: "$60",
+    image: "72771E95-07CA-4BA4-B25C-8982A76D9C2B.jpeg"
+  },
+
+  {
+    name: "Dear Venom",
+    size: "Approx. 3.9 ft",
+    price: "$175",
+    image: "IMG_2503.jpg"
+  },
+
+  {
+    name: "Ultra Homer",
+    size: "Approx. 4 ft",
+    price: "$200",
+    image: "FullSizeRender.jpg"
+  },
+
+  {
+    name: "Error Halloween Baymxx",
     size: "Approx. 3 ft",
     oldPrice: "$125",
     price: "$60",
-    image: "IMG_7359.jpg",
+    image: "IMG_9587.jpg",
     sale: true,
     note: "Discounted due to a white color error in the finished rug."
+  },
+
+  {
+    name: "Halloween Pooh",
+    size: "Approx. 3 ft",
+    price: "$215",
+    image: "IMG_9556.jpg"
+  },
+
+  {
+    name: "Pink Domo",
+    size: "Approx. 2 ft",
+    price: "$65",
+    image: "IMG_1582.jpg"
+  },
+
+  {
+    name: "Dorae Kimono",
+    size: "Approx. 2 ft",
+    price: "$70",
+    image: "IMG_1322.jpg"
+  },
+
+  {
+    name: "Pool Kimono",
+    size: "Approx. 2.9 ft",
+    price: "$185",
+    image: "IMG_6682.jpg",
+    note: "Bundle Pool Kimono + Wolver Kimono together for $350."
+  },
+
+  {
+    name: "Wolver Kimono",
+    size: "Approx. 2.9 ft",
+    price: "$185",
+    image: "IMG_5837.jpg",
+    note: "Bundle Pool Kimono + Wolver Kimono together for $350."
+  },
+
+  {
+    name: "Stitchy Poo",
+    size: "Approx. 3 ft",
+    price: "$95",
+    image: "IMG_5631.jpg"
+  },
+
+  {
+    name: "Sumo Gorgon",
+    size: "Approx. 3 ft",
+    price: "$215",
+    image: "IMG_4901.jpg"
+  },
+
+  {
+    name: "Mewtwo Noir",
+    size: "Approx. 3.5 ft",
+    price: "$225",
+    image: "IMG_0877.jpg"
+  },
+
+  {
+    name: "Snake Mickey",
+    size: "Approx. 3 ft",
+    price: "$150",
+    image: "IMG_9630.jpg"
+  },
+
+  {
+    name: "Kimono Mickey",
+    size: "Approx. 2.5 ft",
+    price: "$115",
+    image: "IMG_3270.jpeg"
+  },
+
+  {
+    name: "Donald Sai",
+    size: "Approx. 2.5 ft",
+    price: "$135",
+    image: "IMG_6276.jpg"
+  },
+
+  {
+    name: "Hannya Genga Sword",
+    size: "Approx. 3.5 ft",
+    price: "$175",
+    image: "IMG_7359.jpg"
+  },
+
+  {
+    name: "Karate Groot",
+    size: "Approx. 3.5 ft",
+    price: "$250",
+    image: "IMG_6370.jpeg"
+  },
+
+  {
+    name: "Torch Kimono",
+    size: "Approx. 3.8 ft",
+    price: "$250",
+    image: "IMG_7028.jpg"
+  },
+
+  {
+    name: "Japan Cherryblossom",
+    size: "Approx. 2.5 ft",
+    price: "$55",
+    image: "IMG_0782.jpg"
   }
 
 ];
@@ -916,46 +950,11 @@ const availableRugs = [
 const oneOfOneDesigns = [
 
   {
-    name: "Mew2 Samurai",
-    size: "Approx. 3.5 ft",
-    price: "$300",
-    image: "IMG_0442.PNG"
-  },
-
-  {
-    name: "Mew-Samurai",
-    size: "Approx. 3 ft",
-    price: "$250",
-    image: "IMG_0650.JPG"
-  },
-
-  {
     name: "Punk Spido Samurai",
     size: "Approx. 4 ft",
     price: "$350",
-    image: "IMG_1693.PNG",
+    image: "IMG_0442.PNG",
     note: "Highly detailed original design."
-  },
-
-  {
-    name: "Diddy Samurai",
-    size: "Approx. 3.5 ft",
-    price: "$300",
-    image: "IMG_2534.PNG"
-  },
-
-  {
-    name: "Genga-Sumo",
-    size: "Approx. 3 ft",
-    price: "$250",
-    image: "IMG_4516.JPG"
-  },
-
-  {
-    name: "TangaSword",
-    size: "Approx. 3 ft",
-    price: "$250",
-    image: "IMG_4617.jpg"
   },
 
   {
@@ -966,6 +965,21 @@ const oneOfOneDesigns = [
   },
 
   {
+    name: "Genga Kimono UV",
+    size: "Approx. 3.5 ft",
+    price: "$300",
+    image: "IMG_8317.JPG",
+    note: "UV reflective / blacklight-reactive design."
+  },
+
+  {
+    name: "Sumo Genga",
+    size: "Approx. 3 ft",
+    price: "$250",
+    image: "IMG_0650.JPG"
+  },
+
+  {
     name: "Ninja Genga",
     size: "Approx. 3 ft",
     price: "$250",
@@ -973,17 +987,38 @@ const oneOfOneDesigns = [
   },
 
   {
-    name: "Maro Cherry Bone",
+    name: "Samurai Diddy",
+    size: "Approx. 3.5 ft",
+    price: "$300",
+    image: "IMG_1693.PNG"
+  },
+
+  {
+    name: "Maro Bone",
     size: "Approx. 3 ft",
     price: "$250",
     image: "IMG_4695.JPG"
   },
 
   {
-    name: "Grow Foo Dog",
+    name: "Mewtwo Samurai",
+    size: "Approx. 3.5 ft",
+    price: "$300",
+    image: "IMG_2534.PNG"
+  },
+
+  {
+    name: "Growlithe Fu Dog",
     size: "Approx. 3.5 ft",
     price: "$350",
     image: "IMG_5682.PNG"
+  },
+
+  {
+    name: "Samurai Mew",
+    size: "Approx. 3 ft",
+    price: "$250",
+    image: "IMG_4516.JPG"
   },
 
   {
@@ -994,18 +1029,17 @@ const oneOfOneDesigns = [
   },
 
   {
+    name: "Tanja Sword",
+    size: "Approx. 3 ft",
+    price: "$250",
+    image: "IMG_4617.jpg"
+  },
+
+  {
     name: "Genga Noir",
     size: "Approx. 3.5 ft",
     price: "$300",
     image: "IMG_7287.jpg"
-  },
-
-  {
-    name: "Pink UV GengaSword",
-    size: "Approx. 3.5 ft",
-    price: "$300",
-    image: "IMG_8317.JPG",
-    note: "UV reflective / blacklight-reactive design."
   }
 
 ];
@@ -1065,7 +1099,7 @@ availableRugs.forEach(rug => {
       <div class="rugDetails">
         <strong>SIZE:</strong> ${rug.size}<br>
         <strong>HANDMADE:</strong> NonFandomDesigns<br>
-        <strong>SHIPPING:</strong> $20 U.S.
+        <strong>SHIPPING:</strong> $20
       </div>
 
       <div class="rugPrice">
