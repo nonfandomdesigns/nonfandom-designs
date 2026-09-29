@@ -1382,6 +1382,143 @@ html, body {
   }
 }
 
+
+/* iPad/tablet touch layout only. Existing phone and laptop rules stay intact. */
+@media (min-width: 601px) and (min-device-width: 744px) and (min-device-height: 744px) and (max-device-width: 1366px) and (max-device-height: 1366px) and (pointer: coarse) {
+  .world {
+    height: 100dvh;
+  }
+
+  .world .hubTitle {
+    top: 4%;
+    font-size: clamp(28px, 4vw, 44px);
+  }
+
+  .world .hubSubtitle {
+    top: 13%;
+    font-size: clamp(10px, 1.2vw, 13px);
+  }
+
+  /* Feet align to these baselines; PNG transparency is included in the offsets. */
+  .world .sakurama, .world .sakuramaName {
+    --art-center: 50%;
+    --art-size: min(40vw, 65dvh);
+    --feet: 86dvh;
+    --image-bottom: 0.97265625;
+  }
+  .world .kurogiCharacter, .world .kurogiName {
+    --art-center: 18.5%;
+    --art-size: min(27vw, 35dvh);
+    --feet: 48dvh;
+    --image-bottom: 0.92890625;
+  }
+  .world .ikoka, .world .ikokaName {
+    --art-center: 81.5%;
+    --art-size: min(27vw, 48dvh);
+    --feet: 45dvh;
+    --image-bottom: 0.71640625;
+  }
+  .world .sakuyoCharacter, .world .sakuyoName {
+    --art-center: 18.5%;
+    --art-size: min(28vw, 36dvh);
+    --feet: 86dvh;
+    --image-bottom: 0.7875;
+  }
+  .world .aomaCharacter, .world .aomaName {
+    --art-center: 81.5%;
+    --art-size: min(25vw, 33dvh);
+    --feet: 86dvh;
+    --image-bottom: 0.93984375;
+  }
+  .world .toraiCharacter, .world .toraiName {
+    --art-center: 81.5%;
+    --art-size: min(12vw, 16dvh);
+    --feet: 26dvh;
+    --image-bottom: 0.965625;
+  }
+
+  .world > :is(.sakurama, .kurogiCharacter, .ikoka, .sakuyoCharacter, .aomaCharacter, .toraiCharacter) {
+    left: calc(var(--art-center) - var(--art-size) / 2);
+    right: auto;
+    top: calc(var(--feet) - var(--art-size) * var(--image-bottom));
+    bottom: auto;
+    width: var(--art-size);
+    height: var(--art-size);
+    max-height: none;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .world .sakurama:hover {
+    transform: scale(1.04);
+  }
+  .world > :is(.kurogiCharacter, .ikoka, .sakuyoCharacter, .aomaCharacter):is(:hover, .mobileOpen) {
+    transform: scale(1.04);
+  }
+
+  .world > :is(.sakuramaName, .kurogiName, .ikokaName, .sakuyoName, .aomaName, .toraiName) {
+    left: var(--art-center);
+    right: auto;
+    top: calc(var(--feet) + 12px);
+    bottom: auto;
+    width: 30vw;
+    transform: translateX(-50%);
+    font-size: clamp(12px, 1.5vw, 17px);
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .world > :is(.sakuramaName, .kurogiName, .ikokaName, .sakuyoName, .aomaName, .toraiName) span {
+    margin-top: 7px;
+    font-size: clamp(8px, 0.95vw, 11px);
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  /* Torai's name and description sit above the bobbing artwork. */
+  .world .toraiName {
+    top: calc(var(--feet) - var(--art-size) * var(--image-bottom) - 45px);
+    width: 24vw;
+    font-size: clamp(11px, 1.2vw, 14px);
+  }
+
+  @media (orientation: portrait) {
+    .world .hubTitle {
+      top: 5%;
+      font-size: clamp(28px, 4.2vw, 38px);
+      letter-spacing: 0.14em;
+    }
+    .world .hubSubtitle {
+      top: 12%;
+      font-size: 10px;
+    }
+    .world .sakurama, .world .sakuramaName {
+      --art-size: min(48vw, 36dvh);
+      --feet: 69dvh;
+    }
+    .world .kurogiCharacter, .world .kurogiName {
+      --art-size: 31vw;
+      --feet: 37dvh;
+    }
+    .world .ikoka, .world .ikokaName {
+      --art-size: 34vw;
+      --feet: 36dvh;
+    }
+    .world .sakuyoCharacter, .world .sakuyoName {
+      --art-size: 34vw;
+      --feet: 88dvh;
+    }
+    .world .aomaCharacter, .world .aomaName {
+      --art-size: 28vw;
+      --feet: 88dvh;
+    }
+    .world .toraiCharacter, .world .toraiName {
+      --art-size: min(17vw, 14dvh);
+      --feet: 22dvh;
+    }
+  }
+}
+
 </style>
 </head>
 
