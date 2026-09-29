@@ -1385,6 +1385,12 @@ html, body {
 
 /* iPad/tablet touch layout only. Existing phone and laptop rules stay intact. */
 @media (min-width: 601px) and (min-device-width: 744px) and (min-device-height: 744px) and (max-device-width: 1366px) and (max-device-height: 1366px) and (pointer: coarse) {
+  /* Keep the landing button above the iPad home bar in both orientations. */
+  .landing > .enter {
+    position: fixed;
+    bottom: max(40px, 7dvh, calc(env(safe-area-inset-bottom, 0px) + 24px));
+  }
+
   .world {
     height: 100dvh;
   }
@@ -1433,7 +1439,7 @@ html, body {
   .world .toraiCharacter, .world .toraiName {
     --art-center: 81.5%;
     --art-size: min(12vw, 16dvh);
-    --feet: 26dvh;
+    --feet: 18dvh;
     --image-bottom: 0.965625;
   }
 
@@ -1475,9 +1481,9 @@ html, body {
     white-space: normal;
   }
 
-  /* Torai's name and description sit above the bobbing artwork. */
+  /* Torai's name and description sit below the artwork, clear of the twins. */
   .world .toraiName {
-    top: calc(var(--feet) - var(--art-size) * var(--image-bottom) - 45px);
+    top: calc(var(--feet) + 12px);
     width: 24vw;
     font-size: clamp(11px, 1.2vw, 14px);
   }
@@ -1514,7 +1520,7 @@ html, body {
     }
     .world .toraiCharacter, .world .toraiName {
       --art-size: min(17vw, 14dvh);
-      --feet: 22dvh;
+      --feet: 19dvh;
     }
   }
 }
