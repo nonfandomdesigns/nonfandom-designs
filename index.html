@@ -1006,6 +1006,24 @@ html, body {
   border-radius: 50%;
 }
 
+.quickMenuLabel {
+  position: absolute;
+  top: calc(100% + 7px);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.6);
+  pointer-events: none;
+}
+
+.quickMenu.open .quickMenuLabel,
+.quickMenu.entered .quickMenuLabel {
+  visibility: hidden;
+}
+
 .quickMenuPanel {
   position: absolute;
 
@@ -1386,6 +1404,8 @@ html, body {
     >
   </button>
 
+  <div class="quickMenuLabel" aria-hidden="true">MENU</div>
+
   <div class="quickMenuPanel">
 
     <div class="menuBrand">
@@ -1764,6 +1784,8 @@ setInterval(
 ========================= */
 
 function enterSite() {
+
+  document.getElementById("quickMenu").classList.add("entered");
 
   const landing =
     document.querySelector(".landing");
