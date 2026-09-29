@@ -1458,6 +1458,12 @@ html, body {
   .world .sakurama:hover {
     transform: scale(1.04);
   }
+  .world .sakurama.mobileOpen {
+    transform: scale(1.04);
+    filter:
+      drop-shadow(0 0 20px rgba(255,79,163,0.65))
+      drop-shadow(0 0 55px rgba(255,79,163,0.3));
+  }
   .world > :is(.kurogiCharacter, .ikoka, .sakuyoCharacter, .aomaCharacter):is(:hover, .mobileOpen) {
     transform: scale(1.04);
   }
@@ -1654,17 +1660,28 @@ document.addEventListener(
    SAKURAMA CLICK
 ========================= */
 
+function isTabletHub() {
+  return window.matchMedia(
+    "(min-width: 601px) and (min-device-width: 744px) and (min-device-height: 744px) and (max-device-width: 1366px) and (max-device-height: 1366px) and (pointer: coarse)"
+  ).matches;
+}
+
 let sakuramaMobileReady = false;
 
 function openSakurama(event) {
 
-  if (window.innerWidth <= 600) {
+  if (window.innerWidth <= 600 || isTabletHub()) {
 
     if (!sakuramaMobileReady) {
 
       event.preventDefault();
 
       sakuramaMobileReady = true;
+
+      if (isTabletHub()) {
+        const image = document.querySelector(".sakurama");
+        if (image) image.classList.add("mobileOpen");
+      }
 
       const name =
         document.querySelector(".sakuramaName");
@@ -1689,7 +1706,7 @@ let kurogiMobileReady = false;
 
 function openKurogi(event) {
 
-  if (window.innerWidth <= 600) {
+  if (window.innerWidth <= 600 || isTabletHub()) {
 
     if (!kurogiMobileReady) {
 
@@ -1731,7 +1748,7 @@ let sakuyoMobileReady = false;
 
 function openSakuyo(event) {
 
-  if (window.innerWidth <= 600) {
+  if (window.innerWidth <= 600 || isTabletHub()) {
 
     if (!sakuyoMobileReady) {
 
@@ -1773,7 +1790,7 @@ let ikokaMobileReady = false;
 
 function openIkoka(event) {
 
-  if (window.innerWidth <= 600) {
+  if (window.innerWidth <= 600 || isTabletHub()) {
 
     if (!ikokaMobileReady) {
 
@@ -1813,7 +1830,7 @@ let aomaMobileReady = false;
 
 function openAoma(event) {
 
-  if (window.innerWidth <= 600) {
+  if (window.innerWidth <= 600 || isTabletHub()) {
 
     if (!aomaMobileReady) {
 
@@ -1855,7 +1872,7 @@ let toraiMobileReady = false;
 
 function openTorai(event) {
 
-  if (window.innerWidth <= 600) {
+  if (window.innerWidth <= 600 || isTabletHub()) {
 
     if (!toraiMobileReady) {
 
