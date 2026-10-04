@@ -108,7 +108,9 @@ html, body {
   left: 50%;
   top: 55%;
 
+  /* Reserve the square PNG box before loading so animated centering is stable. */
   width: min(72vw, 760px);
+  height: min(72vw, 760px, calc(var(--app-height) * 72 / 100));
   max-height: calc(var(--app-height) * 72 / 100);
 
   object-fit: contain;
@@ -1174,6 +1176,7 @@ html, body {
   }
 
   .tree {
+    height: min(95vw, calc(var(--app-height) * 72 / 100));
     width: 95vw;
     top: 53%;
   }
@@ -1686,6 +1689,7 @@ html, body {
   .tree {
     top: 55%;
     width: min(42vw, calc(var(--app-height) * 66 / 100));
+    height: min(42vw, calc(var(--app-height) * 66 / 100));
     max-height: none;
   }
   .landing > .enter {
@@ -1782,6 +1786,8 @@ html, body {
   <img
     class="tree"
     src="./IMG_6683.PNG"
+    width="1280"
+    height="1280"
     alt="Yomizakura"
   >
 
