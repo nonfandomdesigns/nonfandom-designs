@@ -1141,8 +1141,8 @@ availableRugs.forEach(rug => {
         : ""
       }
 
-      <a class="claimButton" href="contact.html">
-        INQUIRE ABOUT THIS RUG
+      <a class="claimButton" href="${rug.name === "Mewtwo Noir" ? "https://buy.stripe.com/fZu00icDO9F0cGo0F2bV600" : "contact.html"}">
+        ${rug.name === "Mewtwo Noir" ? "BUY NOW" : "INQUIRE ABOUT THIS RUG"}
       </a>
 
     </div>
