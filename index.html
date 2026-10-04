@@ -4,9 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="preload" as="image" href="./IMG_6754.PNG">
+<link rel="preload" as="image" href="./IMG_6683.PNG">
+<link rel="preload" as="image" href="./IMG_6692.PNG">
+<link rel="preload" as="image" href="./IMG_6693.PNG">
+<link rel="preload" as="image" href="./IMG_8961.PNG">
+<link rel="preload" as="image" href="./IMG_6776.PNG">
+<link rel="preload" as="image" href="./IMG_8962.PNG">
+<link rel="preload" as="image" href="./IMG_6896.PNG">
+
 <title>Yomizakura — NonFandomDesigns</title>
 
 <style>
+:root {
+  --app-height: 100vh;
+}
+
+/* Stable viewport height prevents Safari first-load layout jumps. */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -24,7 +39,7 @@ html, body {
 .landing {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: var(--app-height);
   overflow: hidden;
 
   background:
@@ -84,7 +99,7 @@ html, body {
   top: 55%;
 
   width: min(72vw, 760px);
-  max-height: 72vh;
+  max-height: calc(var(--app-height) * 72 / 100);
 
   object-fit: contain;
 
@@ -207,25 +222,25 @@ html, body {
 
   25% {
     transform:
-      translate3d(35px, 25vh, 0)
+      translate3d(35px, calc(var(--app-height) * 25 / 100), 0)
       rotate(90deg);
   }
 
   50% {
     transform:
-      translate3d(-25px, 50vh, 0)
+      translate3d(-25px, calc(var(--app-height) * 50 / 100), 0)
       rotate(180deg);
   }
 
   75% {
     transform:
-      translate3d(40px, 75vh, 0)
+      translate3d(40px, calc(var(--app-height) * 75 / 100), 0)
       rotate(270deg);
   }
 
   100% {
     transform:
-      translate3d(-10px, 110vh, 0)
+      translate3d(-10px, calc(var(--app-height) * 110 / 100), 0)
       rotate(360deg);
   }
 }
@@ -238,7 +253,7 @@ html, body {
   position: relative;
 
   width: 100vw;
-  height: 100vh;
+  height: var(--app-height);
 
   overflow: hidden;
 
@@ -323,7 +338,7 @@ html, body {
     scale(1);
 
   width: min(42vw, 500px);
-  max-height: 68vh;
+  max-height: calc(var(--app-height) * 68 / 100);
 
   object-fit: contain;
 
@@ -432,7 +447,7 @@ html, body {
   top: 12%;
 
   width: min(27vw, 340px);
-  max-height: 43vh;
+  max-height: calc(var(--app-height) * 43 / 100);
 
   object-fit: contain;
 
@@ -521,7 +536,7 @@ html, body {
   bottom: 4%;
 
   width: min(27vw, 340px);
-  max-height: 44vh;
+  max-height: calc(var(--app-height) * 44 / 100);
 
   object-fit: contain;
 
@@ -610,7 +625,7 @@ html, body {
   top: 5%;
 
   width: min(30vw, 360px);
-  max-height: 52vh;
+  max-height: calc(var(--app-height) * 52 / 100);
 
   object-fit: contain;
 
@@ -697,7 +712,7 @@ html, body {
   bottom: 5%;
 
   width: min(24vw, 300px);
-  max-height: 43vh;
+  max-height: calc(var(--app-height) * 43 / 100);
 
   object-fit: contain;
 
@@ -786,7 +801,7 @@ html, body {
   top: 2%;
 
   width: min(11vw, 135px);
-  max-height: 19vh;
+  max-height: calc(var(--app-height) * 19 / 100);
 
   object-fit: contain;
 
@@ -943,11 +958,11 @@ html, body {
   }
 
   50% {
-    transform: translate(35px, 50vh) rotate(180deg);
+    transform: translate(35px, calc(var(--app-height) * 50 / 100)) rotate(180deg);
   }
 
   100% {
-    transform: translate(-20px, 110vh) rotate(360deg);
+    transform: translate(-20px, calc(var(--app-height) * 110 / 100)) rotate(360deg);
   }
 }
 
@@ -1161,7 +1176,7 @@ html, body {
 
   .sakurama {
     width: 62vw;
-    max-height: 58vh;
+    max-height: calc(var(--app-height) * 58 / 100);
   }
 
   .hubTitle {
@@ -1181,7 +1196,7 @@ html, body {
     top: 18%;
 
     width: 31vw;
-    max-height: 31vh;
+    max-height: calc(var(--app-height) * 31 / 100);
   }
 
   .kurogiName {
@@ -1212,7 +1227,7 @@ html, body {
     top: 12%;
 
     width: 47vw;
-    max-height: 36vh;
+    max-height: calc(var(--app-height) * 36 / 100);
   }
 
   .ikokaName {
@@ -1266,7 +1281,7 @@ html, body {
     bottom: 7%;
 
     width: 34vw;
-    max-height: 30vh;
+    max-height: calc(var(--app-height) * 30 / 100);
   }
 
   .sakuyoName {
@@ -1297,7 +1312,7 @@ html, body {
     bottom: 10%;
 
     width: 30vw;
-    max-height: 30vh;
+    max-height: calc(var(--app-height) * 30 / 100);
   }
 
   .aomaName {
@@ -1331,7 +1346,7 @@ html, body {
 
   .toraiCharacter {
     top: 39%;
-    max-height: 25vh;
+    max-height: calc(var(--app-height) * 25 / 100);
   }
 
   .toraiName {
@@ -1388,11 +1403,11 @@ html, body {
   /* Keep the landing button above the iPad home bar in both orientations. */
   .landing > .enter {
     position: fixed;
-    bottom: max(40px, 7dvh, calc(env(safe-area-inset-bottom, 0px) + 24px));
+    bottom: max(40px, calc(var(--app-height) * 7 / 100), calc(env(safe-area-inset-bottom, 0px) + 24px));
   }
 
   .world {
-    height: 100dvh;
+    height: var(--app-height);
   }
 
   .world .hubTitle {
@@ -1408,38 +1423,38 @@ html, body {
   /* Feet align to these baselines; PNG transparency is included in the offsets. */
   .world .sakurama, .world .sakuramaName {
     --art-center: 50%;
-    --art-size: min(40vw, 65dvh);
-    --feet: 86dvh;
+    --art-size: min(40vw, calc(var(--app-height) * 65 / 100));
+    --feet: calc(var(--app-height) * 86 / 100);
     --image-bottom: 0.97265625;
   }
   .world .kurogiCharacter, .world .kurogiName {
     --art-center: 18.5%;
-    --art-size: min(27vw, 35dvh);
-    --feet: 48dvh;
+    --art-size: min(27vw, calc(var(--app-height) * 35 / 100));
+    --feet: calc(var(--app-height) * 48 / 100);
     --image-bottom: 0.92890625;
   }
   .world .ikoka, .world .ikokaName {
     --art-center: 81.5%;
-    --art-size: min(27vw, 48dvh);
-    --feet: 45dvh;
+    --art-size: min(27vw, calc(var(--app-height) * 48 / 100));
+    --feet: calc(var(--app-height) * 45 / 100);
     --image-bottom: 0.71640625;
   }
   .world .sakuyoCharacter, .world .sakuyoName {
     --art-center: 18.5%;
-    --art-size: min(28vw, 36dvh);
-    --feet: 86dvh;
+    --art-size: min(28vw, calc(var(--app-height) * 36 / 100));
+    --feet: calc(var(--app-height) * 86 / 100);
     --image-bottom: 0.7875;
   }
   .world .aomaCharacter, .world .aomaName {
     --art-center: 81.5%;
-    --art-size: min(25vw, 33dvh);
-    --feet: 86dvh;
+    --art-size: min(25vw, calc(var(--app-height) * 33 / 100));
+    --feet: calc(var(--app-height) * 86 / 100);
     --image-bottom: 0.93984375;
   }
   .world .toraiCharacter, .world .toraiName {
     --art-center: 81.5%;
-    --art-size: min(12vw, 16dvh);
-    --feet: 18dvh;
+    --art-size: min(12vw, calc(var(--app-height) * 16 / 100));
+    --feet: calc(var(--app-height) * 18 / 100);
     --image-bottom: 0.965625;
   }
 
@@ -1505,28 +1520,28 @@ html, body {
       font-size: 10px;
     }
     .world .sakurama, .world .sakuramaName {
-      --art-size: min(48vw, 36dvh);
-      --feet: 69dvh;
+      --art-size: min(48vw, calc(var(--app-height) * 36 / 100));
+      --feet: calc(var(--app-height) * 69 / 100);
     }
     .world .kurogiCharacter, .world .kurogiName {
       --art-size: 31vw;
-      --feet: 37dvh;
+      --feet: calc(var(--app-height) * 37 / 100);
     }
     .world .ikoka, .world .ikokaName {
       --art-size: 34vw;
-      --feet: 36dvh;
+      --feet: calc(var(--app-height) * 36 / 100);
     }
     .world .sakuyoCharacter, .world .sakuyoName {
       --art-size: 34vw;
-      --feet: 88dvh;
+      --feet: calc(var(--app-height) * 88 / 100);
     }
     .world .aomaCharacter, .world .aomaName {
       --art-size: 28vw;
-      --feet: 88dvh;
+      --feet: calc(var(--app-height) * 88 / 100);
     }
     .world .toraiCharacter, .world .toraiName {
-      --art-size: min(17vw, 14dvh);
-      --feet: 19dvh;
+      --art-size: min(17vw, calc(var(--app-height) * 14 / 100));
+      --feet: calc(var(--app-height) * 19 / 100);
     }
   }
 }
@@ -1539,11 +1554,11 @@ html, body {
   /* Keep the landing button above the iPad home bar in both orientations. */
   .landing > .enter {
     position: fixed;
-    bottom: max(40px, 7dvh, calc(env(safe-area-inset-bottom, 0px) + 24px));
+    bottom: max(40px, calc(var(--app-height) * 7 / 100), calc(env(safe-area-inset-bottom, 0px) + 24px));
   }
 
   .world {
-    height: 100dvh;
+    height: var(--app-height);
   }
 
   .world .hubTitle {
@@ -1559,38 +1574,38 @@ html, body {
   /* Feet align to these baselines; PNG transparency is included in the offsets. */
   .world .sakurama, .world .sakuramaName {
     --art-center: 50%;
-    --art-size: min(34vw, 60dvh);
-    --feet: 82dvh;
+    --art-size: min(34vw, calc(var(--app-height) * 60 / 100));
+    --feet: calc(var(--app-height) * 82 / 100);
     --image-bottom: 0.97265625;
   }
   .world .kurogiCharacter, .world .kurogiName {
     --art-center: 18.5%;
-    --art-size: min(24vw, 30dvh);
-    --feet: 45dvh;
+    --art-size: min(24vw, calc(var(--app-height) * 30 / 100));
+    --feet: calc(var(--app-height) * 45 / 100);
     --image-bottom: 0.92890625;
   }
   .world .ikoka, .world .ikokaName {
     --art-center: 81.5%;
-    --art-size: min(26vw, 40dvh);
-    --feet: 45dvh;
+    --art-size: min(26vw, calc(var(--app-height) * 40 / 100));
+    --feet: calc(var(--app-height) * 45 / 100);
     --image-bottom: 0.71640625;
   }
   .world .sakuyoCharacter, .world .sakuyoName {
     --art-center: 18.5%;
-    --art-size: min(25vw, 32dvh);
-    --feet: 82dvh;
+    --art-size: min(25vw, calc(var(--app-height) * 32 / 100));
+    --feet: calc(var(--app-height) * 82 / 100);
     --image-bottom: 0.7875;
   }
   .world .aomaCharacter, .world .aomaName {
     --art-center: 81.5%;
-    --art-size: min(23vw, 25dvh);
-    --feet: 82dvh;
+    --art-size: min(23vw, calc(var(--app-height) * 25 / 100));
+    --feet: calc(var(--app-height) * 82 / 100);
     --image-bottom: 0.93984375;
   }
   .world .toraiCharacter, .world .toraiName {
     --art-center: 81.5%;
-    --art-size: min(12vw, 15dvh);
-    --feet: 19dvh;
+    --art-size: min(12vw, calc(var(--app-height) * 15 / 100));
+    --feet: calc(var(--app-height) * 19 / 100);
     --image-bottom: 0.965625;
   }
 
@@ -1646,7 +1661,7 @@ html, body {
   }
 
 
-  .landing { height: 100dvh; }
+  .landing { height: var(--app-height); }
   .title, .world .hubTitle {
     top: 8px;
     font-size: clamp(22px, 3.5vw, 30px);
@@ -1660,7 +1675,7 @@ html, body {
   }
   .tree {
     top: 55%;
-    width: min(42vw, 66dvh);
+    width: min(42vw, calc(var(--app-height) * 66 / 100));
     max-height: none;
   }
   .landing > .enter {
@@ -1677,7 +1692,7 @@ html, body {
   .quickMenuPanel {
     top: 58px;
     width: min(260px, calc(100vw - 48px));
-    max-height: calc(100dvh - 100px);
+    max-height: calc(var(--app-height) - 100px);
     overflow-y: auto;
   }
 }
@@ -1779,6 +1794,31 @@ html, body {
 </div>
 
 <script>
+/* =========================
+   STABLE VIEWPORT HEIGHT
+========================= */
+function setAppHeight() {
+  const height = window.visualViewport
+    ? window.visualViewport.height
+    : window.innerHeight;
+
+  document.documentElement.style.setProperty(
+    "--app-height",
+    `${Math.round(height)}px`
+  );
+}
+
+setAppHeight();
+window.addEventListener("resize", setAppHeight, { passive: true });
+window.addEventListener("orientationchange", () => {
+  requestAnimationFrame(setAppHeight);
+  setTimeout(setAppHeight, 150);
+});
+if (window.visualViewport) {
+  window.visualViewport.addEventListener("resize", setAppHeight, { passive: true });
+}
+
+
 
 /* =========================
    QUICK MENU
