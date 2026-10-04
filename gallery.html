@@ -1118,6 +1118,10 @@ body {
 @media (max-width: 900px) { .rugGrid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media (max-width: 600px) { .rugGrid { grid-template-columns: 1fr; gap: 20px; } .rugSection { margin-top: 45px; padding-top: 35px; } }
 
+
+/* Mark the latest addition without changing existing gallery cards. */
+.rugNewBadge { display: inline-block; margin-right: 8px; padding: 3px 7px; border-radius: 4px; background: #ff55aa; color: #170a18; font-size: 10px; line-height: 1.4; font-weight: 800; letter-spacing: .12em; vertical-align: middle; }
+
 </style>
 </head>
 
@@ -1328,6 +1332,14 @@ body {
       <h2 class="workTitle" id="more-rugs-title">MORE HANDMADE RUGS</h2>
       <p class="rugHint">Explore the details — tap any photo to open it full size.</p>
       <div class="rugGrid">
+        <!-- Newest gallery entry first. Move the NEW badge when adding the next rug. -->
+        <figure class="rugCard">
+          <a href="./IMG_7335.jpg" target="_blank" rel="noopener" aria-label="View full photo: Silver Surfer (opens in a new tab)">
+            <img src="./IMG_7335.jpg" alt="Handmade Silver Surfer rug in blue, white, yellow, and black" width="4284" height="5712" loading="lazy" decoding="async">
+          </a>
+          <figcaption><span class="rugNewBadge">NEW</span>Silver Surfer</figcaption>
+        </figure>
+
         <figure class="rugCard">
           <a href="./rug-astro-boy-skeleton-rug.jpg" target="_blank" rel="noopener" aria-label="View full photo: Astro Boy Skeleton Rug (opens in a new tab)">
             <img src="./rug-astro-boy-skeleton-rug.jpg" alt="Astro Boy Skeleton Rug" width="1800" height="1120" loading="lazy" decoding="async">
