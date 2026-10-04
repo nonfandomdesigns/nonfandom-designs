@@ -709,7 +709,7 @@ body{
 
     <p>$20 shipping</p>
 
-    <a class="claimButton" href="contact.html">
+    <a class="claimButton" href="https://buy.stripe.com/fZucN47ju3gC21KfzWbV60l">
       CLAIM A MYSTERY RUG
     </a>
 
@@ -730,7 +730,7 @@ body{
 
     <p>$20 shipping</p>
 
-    <a class="claimButton" href="contact.html">
+    <a class="claimButton" href="https://buy.stripe.com/9B64gycDO6sOeOwevSbV60m">
       CLAIM A MYSTERY RUG
     </a>
 
@@ -1075,6 +1075,30 @@ const oneOfOneDesigns = [
    BUILD AVAILABLE RUG CARDS
    ========================================================= */
 
+const rugPaymentLinks = {
+  "Mewtwo Noir": "https://buy.stripe.com/fZu00icDO9F0cGo0F2bV600",
+  "Sumo Gorgon": "https://buy.stripe.com/7sY9ASgU4g3ogWE0F2bV601",
+  "Hannya Genga Sword": "https://buy.stripe.com/3cI4gycDO3gC9ucbjGbV602",
+  "Halloween Bulby": "https://buy.stripe.com/00w14m9rCeZkcGo73qbV603",
+  "Devil Abduction": "https://buy.stripe.com/7sY9AS33edVg8q8cnKbV604",
+  "Buu Kimono": "https://buy.stripe.com/6oU3cufQ018ucGo3RebV605",
+  "Dear Venom": "https://buy.stripe.com/3cIaEWbzKaJ4ayg2NabV606",
+  "Ultra Homer": "https://buy.stripe.com/fZubJ05bm8AWeOwcnKbV607",
+  "Error Halloween Baymxx": "https://buy.stripe.com/8x2cN49rCdVgcGocnKbV608",
+  "Halloween Pooh": "https://buy.stripe.com/fZu14m9rCbN87m487ubV609",
+  "Pink Domo": "https://buy.stripe.com/7sY28q1ZadVgayggE0bV60a",
+  "Dorae Kimono": "https://buy.stripe.com/9B6aEWdHS9F035OfzWbV60b",
+  "Pool Kimono": "https://buy.stripe.com/00w28qavGeZkeOw1J6bV60c",
+  "Wolver Kimono": "https://buy.stripe.com/8x2cN447i2cy49S9bybV60d",
+  "Stitchy Poo": "https://buy.stripe.com/dRm14m6fq04qfSA5ZmbV60e",
+  "Snake Mickey": "https://buy.stripe.com/7sY3cuavG8AW35OdrObV60f",
+  "Kimono Mickey": "https://buy.stripe.com/cNi28qavG2cy21K73qbV60g",
+  "Donald Sai": "https://buy.stripe.com/bJe6oGdHS9F06i0cnKbV60h",
+  "Karate Groot": "https://buy.stripe.com/8x26oG0V65oK9uccnKbV60i",
+  "Torch Kimono": "https://buy.stripe.com/9B6aEW0V66sO6i0afCbV60j",
+  "Japan Cherryblossom": "https://buy.stripe.com/bJebJ0gU43gC8q8gE0bV60k"
+};
+
 const availableContainer =
   document.getElementById("availableRugs");
 
@@ -1137,12 +1161,12 @@ availableRugs.forEach(rug => {
       </div>
 
       ${rug.note
-        ? `<div class="specialNote">${rug.note}</div>`
+        ? `<div class="specialNote">${rug.name === "Pool Kimono" || rug.name === "Wolver Kimono" ? `<a href="contact.html" style="color: inherit;">${rug.note} Contact us for bundle pricing.</a>` : rug.note}</div>`
         : ""
       }
 
-      <a class="claimButton" href="${rug.name === "Mewtwo Noir" ? "https://buy.stripe.com/fZu00icDO9F0cGo0F2bV600" : "contact.html"}">
-        ${rug.name === "Mewtwo Noir" ? "BUY NOW" : "INQUIRE ABOUT THIS RUG"}
+      <a class="claimButton" href="${rugPaymentLinks[rug.name] || "contact.html"}">
+        ${rugPaymentLinks[rug.name] ? "BUY NOW" : "INQUIRE ABOUT THIS RUG"}
       </a>
 
     </div>
