@@ -20,6 +20,16 @@
   --app-height: 100vh;
 }
 
+/* On phones/tablets, use Safari's stable small viewport from the very first paint.
+   This prevents the first-load jump caused by the browser bars changing the reported height. */
+@supports (height: 100svh) {
+  @media (pointer: coarse) {
+    :root {
+      --app-height: 100svh;
+    }
+  }
+}
+
 /* Stable viewport height prevents Safari first-load layout jumps. */
 
 html, body {
@@ -1797,7 +1807,22 @@ html, body {
 /* =========================
    STABLE VIEWPORT HEIGHT
 ========================= */
+function usesStableTouchViewport() {
+  return window.matchMedia("(pointer: coarse)").matches &&
+         window.CSS &&
+         CSS.supports("height", "100svh");
+}
+
 function setAppHeight() {
+  /* iPhone/iPad/tablet Safari:
+     let CSS 100svh control the height from first paint.
+     Do not replace it with Safari's unstable initial visualViewport value. */
+  if (usesStableTouchViewport()) {
+    document.documentElement.style.removeProperty("--app-height");
+    return;
+  }
+
+  /* Desktop keeps the existing measured-viewport behavior. */
   const height = window.visualViewport
     ? window.visualViewport.height
     : window.innerHeight;
@@ -1809,11 +1834,18 @@ function setAppHeight() {
 }
 
 setAppHeight();
+
 window.addEventListener("resize", setAppHeight, { passive: true });
+
 window.addEventListener("orientationchange", () => {
   requestAnimationFrame(setAppHeight);
   setTimeout(setAppHeight, 150);
+  setTimeout(setAppHeight, 400);
 });
+
+window.addEventListener("pageshow", setAppHeight, { passive: true });
+window.addEventListener("load", setAppHeight, { passive: true });
+
 if (window.visualViewport) {
   window.visualViewport.addEventListener("resize", setAppHeight, { passive: true });
 }
