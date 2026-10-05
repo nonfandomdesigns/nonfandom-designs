@@ -1046,8 +1046,7 @@ html, body {
   pointer-events: none;
 }
 
-.quickMenu.open .quickMenuLabel,
-.quickMenu.entered .quickMenuLabel {
+.quickMenu.open .quickMenuLabel {
   visibility: hidden;
 }
 
@@ -1711,6 +1710,67 @@ html, body {
   }
 }
 
+
+/* Hub-only navigation occupies its own row, outside the character artwork.
+   Opening it adds scrollable space instead of covering or shrinking the scene. */
+:root {
+  --hub-viewport-height: var(--app-height);
+  --hub-toolbar-height: 76px;
+}
+body.hubActive {
+  height: var(--hub-viewport-height);
+  overflow-y: auto;
+}
+.hubActive .landing,
+.hubActive .world {
+  --app-height: calc(var(--hub-viewport-height) - var(--hub-toolbar-height));
+}
+.quickMenu.entered {
+  position: relative;
+  top: auto;
+  left: auto;
+  box-sizing: border-box;
+  min-height: var(--hub-toolbar-height);
+  padding: 8px max(16px, env(safe-area-inset-right)) 18px max(16px, env(safe-area-inset-left));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.quickMenu.entered .logoButton { width: 48px; height: 48px; }
+.quickMenu.entered .quickMenuLabel {
+  position: static;
+  width: auto;
+  font-size: 10px;
+  visibility: visible;
+}
+.quickMenu.entered .quickMenuPanel {
+  position: static;
+  display: none;
+  box-sizing: border-box;
+  flex-basis: 100%;
+  width: 100%;
+  max-height: none;
+  transform: none;
+}
+.quickMenu.entered.open .quickMenuPanel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.quickMenu.entered .menuBrand { grid-column: 1 / -1; }
+.quickMenu.entered .quickMenuPanel a { min-height: 44px; }
+@media (max-width: 600px) {
+  :root { --hub-toolbar-height: 68px; }
+  .quickMenu.entered { padding-top: 6px; padding-bottom: 18px; }
+  .quickMenu.entered .logoButton { width: 44px; height: 44px; }
+  .quickMenu.entered.open .quickMenuPanel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  :root { --hub-toolbar-height: 60px; }
+  .quickMenu.entered { padding-top: 4px; padding-bottom: 12px; }
+  .quickMenu.entered .logoButton { width: 44px; height: 44px; }
+}
+
 </style>
 </head>
 
@@ -1726,6 +1786,8 @@ html, body {
     class="logoButton"
     onclick="toggleQuickMenu(event)"
     aria-label="Open NonFandomDesigns quick menu"
+    aria-expanded="false"
+    aria-controls="quickMenuPanel"
   >
     <img
       src="./IMG_6754.PNG"
@@ -1735,7 +1797,7 @@ html, body {
 
   <div class="quickMenuLabel" aria-hidden="true">MENU</div>
 
-  <div class="quickMenuPanel">
+  <div class="quickMenuPanel" id="quickMenuPanel">
 
     <div class="menuBrand">
       NONFANDOMDESIGNS
@@ -1862,6 +1924,22 @@ if (window.visualViewport) {
    QUICK MENU
 ========================= */
 
+function setQuickMenuOpen(open) {
+  const menu = document.getElementById("quickMenu");
+  menu.classList.toggle("open", open);
+  const button = menu.querySelector(".logoButton");
+  button.setAttribute("aria-expanded", String(open));
+  button.setAttribute("aria-label", `${open ? "Close" : "Open"} NonFandomDesigns quick menu`);
+}
+
+document.addEventListener("keydown", function(event) {
+  const menu = document.getElementById("quickMenu");
+  if (event.key === "Escape" && menu.classList.contains("open")) {
+    setQuickMenuOpen(false);
+    menu.querySelector(".logoButton").focus();
+  }
+});
+
 function toggleQuickMenu(event) {
 
   event.stopPropagation();
@@ -1869,7 +1947,7 @@ function toggleQuickMenu(event) {
   const menu =
     document.getElementById("quickMenu");
 
-  menu.classList.toggle("open");
+  setQuickMenuOpen(!menu.classList.contains("open"));
 }
 
 document.addEventListener(
@@ -1880,7 +1958,7 @@ document.addEventListener(
       document.getElementById("quickMenu");
 
     if (!menu.contains(event.target)) {
-      menu.classList.remove("open");
+      setQuickMenuOpen(false);
     }
   }
 );
@@ -2180,7 +2258,7 @@ setInterval(
 
 function enterSite() {
 
-  document.getElementById("quickMenu").classList.add("entered");
+  setQuickMenuOpen(false);
 
   const landing =
     document.querySelector(".landing");
@@ -2327,6 +2405,8 @@ function enterSite() {
 
     `;
 
+    document.body.classList.add("hubActive");
+    document.getElementById("quickMenu").classList.add("entered");
     landing.style.opacity = "1";
 
   }, 800);
