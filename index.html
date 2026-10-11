@@ -15,6 +15,31 @@
 
 <title>Yomizakura — NonFandomDesigns</title>
 
+
+<script>
+/* One-time Halloween season, ending at midnight November 1 in New York.
+   The explicit offset is EDT: the clock change happens later that morning. */
+(() => {
+  const startsAt = Date.parse("2026-10-11T00:00:00-04:00");
+  const endsAt = Date.parse("2026-11-01T00:00:00-04:00");
+  let seasonalTimer;
+  function updateLandingSeason() {
+    clearTimeout(seasonalTimer);
+    const now = Date.now();
+    document.documentElement.classList.toggle(
+      "halloweenLanding", now >= startsAt && now < endsAt
+    );
+    const nextChange = now < startsAt ? startsAt : endsAt;
+    if (now < nextChange) {
+      seasonalTimer = setTimeout(updateLandingSeason, Math.min(nextChange - now, 60000));
+    }
+  }
+  updateLandingSeason();
+  window.addEventListener("pageshow", updateLandingSeason);
+  document.addEventListener("visibilitychange", updateLandingSeason);
+})();
+</script>
+
 <style>
 :root {
   --app-height: 100vh;
@@ -1769,6 +1794,20 @@ body.hubActive {
   :root { --hub-toolbar-height: 60px; }
   .quickMenu.entered { padding-top: 4px; padding-bottom: 12px; }
   .quickMenu.entered .logoButton { width: 44px; height: 44px; }
+}
+
+
+/* Temporary 2026 Halloween decoration: landing blossoms only. */
+html.halloweenLanding .landing > .petal {
+  width: 24px;
+  height: 24px;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M16%208q-3-5%202-6l2%202q-4%200-2%205%22%20fill%3D%22%239773ac%22%2F%3E%3Cpath%20d%3D%22M16%209C3%203-3%2027%2010%2029q6%203%2012%200C35%2027%2029%203%2016%209%22%20fill%3D%22%23e84999%22%20stroke%3D%22%23a82d70%22%20stroke-width%3D%221.3%22%2F%3E%3Cellipse%20cx%3D%2216%22%20cy%3D%2219%22%20rx%3D%227%22%20ry%3D%2211%22%20fill%3D%22%23ff84bd%22%2F%3E%3Cpath%20d%3D%22m7%2017%206-3-1%205zm18%200-6-3%201%205zM9%2022l5%202%202-2%202%202%205-2q-7%2010-14%200%22%20fill%3D%22%23451431%22%2F%3E%3Cg%20fill%3D%22%23ffe2f0%22%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%227%22%20rx%3D%221.5%22%20ry%3D%222.4%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%227%22%20rx%3D%221.5%22%20ry%3D%222.4%22%20transform%3D%22rotate%2872%2022%209%29%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%227%22%20rx%3D%221.5%22%20ry%3D%222.4%22%20transform%3D%22rotate%28144%2022%209%29%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%227%22%20rx%3D%221.5%22%20ry%3D%222.4%22%20transform%3D%22rotate%28216%2022%209%29%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%227%22%20rx%3D%221.5%22%20ry%3D%222.4%22%20transform%3D%22rotate%28288%2022%209%29%22%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2222%22%20cy%3D%229%22%20r%3D%221.1%22%20fill%3D%22%23ffd178%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+  border-radius: 0;
+  opacity: 0.85;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  html.halloweenLanding .landing > .petal { width: 20px; height: 20px; }
 }
 
 </style>
