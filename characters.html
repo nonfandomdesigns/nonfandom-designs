@@ -439,6 +439,22 @@ body {
   .characterArt, .petal { animation: none !important; }
   .petal { display: none; }
 }
+/* Alternate forms stay inside their matching character. Native radio controls
+   keep selection available without JavaScript and support arrow-key navigation. */
+.formSwitcher { position: relative; }
+.formRadio { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.formOptions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding-top: 24px; }
+.formOptions label { cursor: pointer; border: 1px solid rgba(255,79,163,.4); padding: 12px 16px; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; text-align: center; color: #ffb4d6; font-size: 13px; border-radius: 4px; }
+.originalRadio:checked ~ .formOptions label:first-child,
+.alternateRadio:checked ~ .formOptions label:last-child { background: #ff4fa3; color: #090609; border-color: #ff4fa3; }
+.originalRadio:focus-visible ~ .formOptions label:first-child,
+.alternateRadio:focus-visible ~ .formOptions label:last-child { outline: 2px solid #fff; outline-offset: 4px; }
+.formPanel { display: none; }
+.originalRadio:checked ~ .originalPanel,
+.alternateRadio:checked ~ .alternatePanel { display: block; }
+.formTitle { text-align: center; color: #ff7ab8; font-size: 17px; margin: 26px 0 0; }
+@media (max-width: 600px) { .formOptions label { flex: 1 1 130px; justify-content: center; } }
+
 </style>
 </head>
 
@@ -511,7 +527,15 @@ body {
         SAKURAMA
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="sakurama-form" id="sakurama-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="sakurama-form" id="sakurama-alternate">
+  <div class="formOptions" role="group" aria-label="SAKURAMA forms">
+    <label for="sakurama-original">Original Form</label>
+    <label for="sakurama-alternate">Yomiten Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait">
           <img class="characterArt motion-float" src="./lore-sakurama.png" alt="Sakurama" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #adff35; --art-duration: 7s; --art-delay: -1s;">
@@ -522,7 +546,17 @@ body {
           and the manifestation of the tree in devil form.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="Yomiten Form">
+    <h3 class="formTitle">Yomiten Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-float" src="./original-artwork/FAC55F1B-A133-4654-BEB5-F85EA6019163.PNG" alt="Sakurama — Yomiten Form" loading="lazy" decoding="async" style="--art-glow: #adff35; --art-duration: 7s;">
+    </div>
+    <p class="description">Sakurama’s Yomiten Form is the most powerful form of any character in the universe. She cannot be defeated in this state, but it drains the power of the Yomizakura tree.</p>
+  </section>
+</div>
+
 
     </details>
 
@@ -535,7 +569,15 @@ body {
         KUROGI
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="kurogi-form" id="kurogi-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="kurogi-form" id="kurogi-alternate">
+  <div class="formOptions" role="group" aria-label="KUROGI forms">
+    <label for="kurogi-original">Original Form</label>
+    <label for="kurogi-alternate">Cyber Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait">
           <img class="characterArt motion-breathe" src="./lore-kurogi.png" alt="Kurogi" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ed4055; --art-duration: 8s; --art-delay: -2s;">
@@ -545,7 +587,17 @@ body {
           The first creation and first seed of Sakurama, her main vessel used.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="Cyber Form">
+    <h3 class="formTitle">Cyber Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-breathe" src="./original-artwork/A423D077-B309-4F47-9700-234218C8AA00.PNG" alt="Kurogi — Cyber Form" loading="lazy" decoding="async" style="--art-glow: #ed4055; --art-duration: 7s;">
+    </div>
+    <p class="description">Kurogi takes this form when he traverses the cyber future, transforming his tentacles into robotic appendages.</p>
+  </section>
+</div>
+
 
     </details>
 
@@ -558,7 +610,15 @@ body {
         IKO &amp; IKA
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="iko-ika-form" id="iko-ika-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="iko-ika-form" id="iko-ika-alternate">
+  <div class="formOptions" role="group" aria-label="IKO &amp; IKA forms">
+    <label for="iko-ika-original">Original Form</label>
+    <label for="iko-ika-alternate">1,000-Year Ghost Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait twinPortrait">
           <img class="characterArt motion-float" src="./lore-iko.png" alt="Iko" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ff7ab8; --art-duration: 9s; --art-delay: -3s;">
@@ -570,7 +630,17 @@ body {
           They are his children.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="1,000-Year Ghost Form">
+    <h3 class="formTitle">1,000-Year Ghost Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-float" src="./original-artwork/90862F9E-58F1-4243-96D0-1D5170BB6AE7.PNG" alt="Iko &amp; Ika — 1,000-Year Ghost Form (Iko is pink; Ika is red)" loading="lazy" decoding="async" style="--art-glow: #ff7ab8; --art-duration: 7s;">
+    </div>
+    <p class="description">Iko and Ika take this ghost form after Earth has survived an apocalypse.</p>
+  </section>
+</div>
+
 
     </details>
 
@@ -583,7 +653,15 @@ body {
         AOMA
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="aoma-form" id="aoma-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="aoma-form" id="aoma-alternate">
+  <div class="formOptions" role="group" aria-label="AOMA forms">
+    <label for="aoma-original">Original Form</label>
+    <label for="aoma-alternate">Wandering Mage Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait">
           <img class="characterArt motion-breathe" src="./lore-aoma.png" alt="Aoma" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #35baff; --art-duration: 7s; --art-delay: -0s;">
@@ -595,7 +673,17 @@ body {
           one blue cherry blossom flower.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="Wandering Mage Form">
+    <h3 class="formTitle">Wandering Mage Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-breathe" src="./original-artwork/BC0EB589-E8C3-4655-881C-FF334BAB77CC.PNG" alt="Aoma — Wandering Mage Form" loading="lazy" decoding="async" style="--art-glow: #35baff; --art-duration: 7s;">
+    </div>
+    <p class="description">After mankind has fallen and little remains of Earth beyond a post-apocalyptic landscape, Aoma takes his Wandering Mage Form. His magic is more powerful in this state.</p>
+  </section>
+</div>
+
 
     </details>
 
@@ -633,7 +721,15 @@ body {
         SAKU
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="saku-form" id="saku-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="saku-form" id="saku-alternate">
+  <div class="formOptions" role="group" aria-label="SAKU forms">
+    <label for="saku-original">Original Form</label>
+    <label for="saku-alternate">Diamond Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait">
           <img class="characterArt motion-float" src="./lore-saku.png" alt="Saku" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ff7ab8; --art-duration: 9s; --art-delay: -2s;">
@@ -645,7 +741,17 @@ body {
           and helper to Sakurama, almost like a shoulder pal.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="Diamond Form">
+    <h3 class="formTitle">Diamond Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-float" src="./original-artwork/2B89AAF9-F25E-4070-A404-0122D0C4C318.PNG" alt="Saku — Diamond Form" loading="lazy" decoding="async" style="--art-glow: #ff7ab8; --art-duration: 7s;">
+    </div>
+    <p class="description">Saku hardens her body into diamond, allowing her to travel without worrying about injury or attack.</p>
+  </section>
+</div>
+
 
     </details>
 
@@ -658,7 +764,15 @@ body {
         KUROGUMO-RYUU
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="kurogumo-ryuu-form" id="kurogumo-ryuu-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="kurogumo-ryuu-form" id="kurogumo-ryuu-alternate">
+  <div class="formOptions" role="group" aria-label="KUROGUMO-RYUU forms">
+    <label for="kurogumo-ryuu-original">Original Form</label>
+    <label for="kurogumo-ryuu-alternate">Yomizakura Fusion Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait">
           <img class="characterArt motion-breathe" src="./lore-kurogumo-ryuu.png" alt="Kurogumo Ryuu" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #aa5cff; --art-duration: 6s; --art-delay: -3s;">
@@ -670,7 +784,17 @@ body {
           their giant dragon pet.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="Yomizakura Fusion Form">
+    <h3 class="formTitle">Yomizakura Fusion Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-breathe" src="./original-artwork/2FCD3026-8E7A-4EEE-9F22-73469929F015.PNG" alt="Kurogumo Ryuu — Yomizakura Fusion Form" loading="lazy" decoding="async" style="--art-glow: #aa5cff; --art-duration: 7s;">
+    </div>
+    <p class="description">The devil tree grants Kurogumo Ryuu its power by temporarily fusing with him.</p>
+  </section>
+</div>
+
 
     </details>
 
@@ -696,7 +820,15 @@ body {
         TENZARU
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="tenzaru-form" id="tenzaru-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="tenzaru-form" id="tenzaru-alternate">
+  <div class="formOptions" role="group" aria-label="TENZARU forms">
+    <label for="tenzaru-original">Original Form</label>
+    <label for="tenzaru-alternate">Omnipotent Gold Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait">
           <img class="characterArt motion-float" src="./lore-tenzaru.png" alt="Tenzaru" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #ffd35b; --art-duration: 7s; --art-delay: -4s;">
@@ -707,7 +839,17 @@ body {
           character whose main focus is to maintain balance.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="Omnipotent Gold Form">
+    <h3 class="formTitle">Omnipotent Gold Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-float" src="./original-artwork/D9969BA6-F0CC-409B-A81D-FFBCA6AB36B4.PNG" alt="Tenzaru — Omnipotent Gold Form" loading="lazy" decoding="async" style="--art-glow: #ffd35b; --art-duration: 7s;">
+    </div>
+    <p class="description">Tenzaru transforms his body using a rare gold, entering an all-seeing, all-knowing state.</p>
+  </section>
+</div>
+
 
     </details>
 
@@ -720,7 +862,15 @@ body {
         SHIKAYOMI
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="shikayomi-form" id="shikayomi-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="shikayomi-form" id="shikayomi-alternate">
+  <div class="formOptions" role="group" aria-label="SHIKAYOMI forms">
+    <label for="shikayomi-original">Original Form</label>
+    <label for="shikayomi-alternate">Ruin Witch Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait">
           <img class="characterArt motion-sway" src="./lore-shikayomi.png" alt="Shikayomi" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #b4a4d0; --art-duration: 8s; --art-delay: -0s;">
@@ -732,7 +882,17 @@ body {
           who is obsessed with her beauty.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="Ruin Witch Form">
+    <h3 class="formTitle">Ruin Witch Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-sway" src="./original-artwork/B816F78D-CD09-4AD0-8733-A12345F0554F.PNG" alt="Shikayomi — Ruin Witch Form" loading="lazy" decoding="async" style="--art-glow: #b4a4d0; --art-duration: 7s;">
+    </div>
+    <p class="description">Shikayomi becomes a yokai of complete destruction with four fox tails. Her face turns pure white, and everything she touches turns to black and white flames.</p>
+  </section>
+</div>
+
 
     </details>
 
@@ -809,7 +969,15 @@ body {
         KOJI &amp; KIRI
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="koji-kiri-form" id="koji-kiri-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="koji-kiri-form" id="koji-kiri-alternate">
+  <div class="formOptions" role="group" aria-label="KOJI &amp; KIRI forms">
+    <label for="koji-kiri-original">Original Form</label>
+    <label for="koji-kiri-alternate">Full Spore Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait">
           <img class="characterArt motion-sway" src="./lore-koji-kiri.png" alt="Koji &amp; Kiri" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #d99344; --art-duration: 7s; --art-delay: -3s;">
@@ -820,7 +988,17 @@ body {
           of Iko and Ika.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="Full Spore Form">
+    <h3 class="formTitle">Full Spore Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-sway" src="./original-artwork/40DCF7FE-2628-4A56-B571-5658F0C0A660.PNG" alt="Koji &amp; Kiri — Full Spore Form" loading="lazy" decoding="async" style="--art-glow: #d99344; --art-duration: 7s;">
+    </div>
+    <p class="description">Koji and Kiri fuse their heads, combining their power.</p>
+  </section>
+</div>
+
 
     </details>
 
@@ -833,7 +1011,15 @@ body {
         KINHOSHI
       </summary>
 
-      <div class="characterContent">
+      <div class="characterContent formSwitcher">
+  <input class="formRadio originalRadio" type="radio" name="kinhoshi-form" id="kinhoshi-original" checked>
+  <input class="formRadio alternateRadio" type="radio" name="kinhoshi-form" id="kinhoshi-alternate">
+  <div class="formOptions" role="group" aria-label="KINHOSHI forms">
+    <label for="kinhoshi-original">Original Form</label>
+    <label for="kinhoshi-alternate">Full Spore Form</label>
+  </div>
+  <section class="formPanel originalPanel" aria-label="Original Form">
+    
 
         <div class="characterPortrait">
           <img class="characterArt motion-breathe" src="./lore-kinhoshi.png" alt="Kinhoshi" width="1280" height="1280" loading="lazy" decoding="async" style="--art-glow: #d99e48; --art-duration: 8s; --art-delay: -4s;">
@@ -845,7 +1031,17 @@ body {
           on the ends and is a main enemy to Kurogi.
         </div>
 
-      </div>
+      
+  </section>
+  <section class="formPanel alternatePanel" aria-label="Full Spore Form">
+    <h3 class="formTitle">Full Spore Form</h3>
+    <div class="characterPortrait">
+      <img class="characterArt motion-breathe" src="./original-artwork/C38B2773-DE9D-4AA4-BF04-D100282E6793.PNG" alt="Kinhoshi — Full Spore Form" loading="lazy" decoding="async" style="--art-glow: #d99e48; --art-duration: 7s;">
+    </div>
+    <p class="description">Kinhoshi draws on the leftover residue of cherry blossoms he has destroyed, using the spores to create a shield and strengthen his weapon.</p>
+  </section>
+</div>
+
 
     </details>
 
