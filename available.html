@@ -626,7 +626,7 @@ body{
 </div>
 
 <section class="kurogiArea">
-  <img class="kurogi" src="./IMG_6693.PNG" alt="Kurogi">
+  <img class="kurogi" src="./available-IMG_6693.PNG.webp" decoding="async" fetchpriority="high" alt="Kurogi">
   <div class="kurogiName">KUROGI</div>
   <div class="kurogiRole">FIRST SEED OF YOMIZAKURA</div>
 </section>
@@ -1114,8 +1114,8 @@ availableRugs.forEach(rug => {
     imageHTML = `
       <div class="imageBox">
         <div class="dualImages">
-          <img src="./${rug.image}" alt="${rug.name}">
-          <img src="./${rug.secondImage}" alt="${rug.name} UV view">
+          <img src="./available-${rug.image}.webp" loading="lazy" decoding="async" alt="${rug.name}">
+          <img src="./available-${rug.secondImage}.webp" loading="lazy" decoding="async" alt="${rug.name} UV view">
         </div>
 
         <div class="status ${rug.sale ? "sale" : ""}">
@@ -1128,7 +1128,7 @@ availableRugs.forEach(rug => {
 
     imageHTML = `
       <div class="imageBox">
-        <img src="./${rug.image}" alt="${rug.name}">
+        <img src="./available-${rug.image}.webp" loading="lazy" decoding="async" alt="${rug.name}">
 
         <div class="status ${rug.sale ? "sale" : ""}">
           ${rug.sale ? "SALE" : "AVAILABLE"}
@@ -1194,7 +1194,7 @@ oneOfOneDesigns.forEach(design => {
     <div class="imageBox watermarked">
 
       <img
-        src="./${design.image}"
+        src="./available-${design.image}.webp" loading="lazy" decoding="async"
         alt="${design.name} 1/1 original rug design"
       >
 
