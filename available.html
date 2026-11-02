@@ -807,6 +807,16 @@ body{
 
 const availableRugs = [
 
+  {
+    name: "Ninja Genga UV REFLECTIVE",
+    size: "2.5 feet",
+    price: "$225",
+    image: "IMG_9707.jpeg",
+    secondImage: "20261102_170309_306.jpeg",
+    secondImageAlt: "Ninja Genga UV REFLECTIVE rug under UV light",
+    containPhotos: true
+  },
+
   /* 1 */
   {
     name: "Mewtwo Noir",
@@ -1006,13 +1016,6 @@ const oneOfOneDesigns = [
   },
 
   {
-    name: "Ninja Genga",
-    size: "Approx. 3 ft",
-    price: "$250",
-    image: "IMG_4692.JPG"
-  },
-
-  {
     name: "Samurai Diddy",
     size: "Approx. 3.5 ft",
     price: "$300",
@@ -1076,6 +1079,7 @@ const oneOfOneDesigns = [
    ========================================================= */
 
 const rugPaymentLinks = {
+  "Ninja Genga UV REFLECTIVE": "https://buy.stripe.com/8x27sK47i18ueOwfzWbV60n",
   "Mewtwo Noir": "https://buy.stripe.com/fZu00icDO9F0cGo0F2bV600",
   "Sumo Gorgon": "https://buy.stripe.com/7sY9ASgU4g3ogWE0F2bV601",
   "Hannya Genga Sword": "https://buy.stripe.com/3cI4gycDO3gC9ucbjGbV602",
@@ -1113,9 +1117,9 @@ availableRugs.forEach(rug => {
 
     imageHTML = `
       <div class="imageBox">
-        <div class="dualImages">
-          <img src="./available-${rug.image}.webp" loading="lazy" decoding="async" alt="${rug.name}">
-          <img src="./available-${rug.secondImage}.webp" loading="lazy" decoding="async" alt="${rug.name} UV view">
+        <div class="dualImages"${rug.containPhotos ? ' style="min-height:0"' : ""}>
+          <img src="./available-${rug.image}.webp" loading="lazy" decoding="async" alt="${rug.name}"${rug.containPhotos ? ' style="object-fit:contain;min-width:0"' : ""}>
+          <img src="./available-${rug.secondImage}.webp" loading="lazy" decoding="async" alt="${rug.secondImageAlt || `${rug.name} UV view`}"${rug.containPhotos ? ' style="object-fit:contain;min-width:0"' : ""}>
         </div>
 
         <div class="status ${rug.sale ? "sale" : ""}">
@@ -1247,3 +1251,4 @@ oneOfOneDesigns.forEach(design => {
 
 </body>
 </html>
+
