@@ -1872,7 +1872,49 @@ html.thanksgivingLanding .landing > .p6 { animation-delay: -4s; }
   html.thanksgivingLanding .landing > .petal { display: none; }
 }
 
+/* Reserve a real navigation row on the landing, as the hub already does.
+   The menu can expand in normal flow without covering titles or artwork. */
+:root { --landing-viewport-height: var(--app-height); }
+body:not(.hubActive) { overflow-y: auto; }
+body:not(.hubActive) .landing {
+  --app-height: calc(var(--landing-viewport-height) - var(--hub-toolbar-height));
+}
+.quickMenu:not(.entered) {
+  position: relative; top: auto; left: auto; bottom: auto;
+  box-sizing: border-box; min-height: var(--hub-toolbar-height);
+  padding: 8px max(16px, env(safe-area-inset-right)) 18px max(16px, env(safe-area-inset-left));
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+}
+.quickMenu:not(.entered) .logoButton { width: 48px; height: 48px; }
+.quickMenu:not(.entered) .quickMenuLabel { position: static; width: auto; font-size: 10px; visibility: visible; }
+.quickMenu:not(.entered) .quickMenuPanel {
+  position: static; display: none; box-sizing: border-box;
+  flex-basis: 100%; width: 100%; max-height: none; transform: none;
+}
+.quickMenu:not(.entered).open .quickMenuPanel { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); }
+.quickMenu:not(.entered) .menuBrand { grid-column: 1 / -1; }
+.quickMenu:not(.entered) .quickMenuPanel a { min-height: 44px; }
+@media (max-width: 600px) {
+  .quickMenu:not(.entered) { padding-top: 6px; padding-bottom: 18px; }
+  .quickMenu:not(.entered) .logoButton { width: 44px; height: 44px; }
+  .quickMenu:not(.entered).open .quickMenuPanel { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .quickMenu:not(.entered) { padding-top: 4px; padding-bottom: 12px; }
+  .quickMenu:not(.entered) .logoButton { width: 44px; height: 44px; }
+  .landing > .title { top: 8px; font-size: clamp(22px,3.5vw,30px); letter-spacing: .14em; white-space: nowrap; }
+  .landing > .subtitle { top: 46px; font-size: 8px; letter-spacing: .16em; }
+  .landing > .tree {
+    top: 54%; width: min(42vw, calc(var(--app-height) * .6));
+    height: min(42vw, calc(var(--app-height) * .6)); max-height: none;
+  }
+  .landing > .enter { bottom: max(14px, calc(env(safe-area-inset-bottom) + 8px)); padding: 10px 18px; font-size: 10px; }
+}
 </style>
+
+<link rel="stylesheet" href="./ankyu-gate.css?v=20261110-1">
+<script defer src="./ankyu-gate-config.js?v=20261110-1"></script>
+<script defer src="./ankyu-gate.js?v=20261110-1"></script>
 </head>
 
 <body>

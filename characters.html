@@ -456,6 +456,10 @@ body {
 @media (max-width: 600px) { .formOptions label { flex: 1 1 130px; justify-content: center; } }
 
 </style>
+
+<link rel="stylesheet" href="./ankyu-gate.css?v=20261110-1">
+<script defer src="./ankyu-gate-config.js?v=20261110-1"></script>
+<script defer src="./ankyu-gate.js?v=20261110-1"></script>
 </head>
 
 <body>
@@ -483,6 +487,20 @@ body {
 
   </header>
 
+
+
+  <section class="ag-feature" id="ankyu-gate" data-ankyu-gate aria-labelledby="ankyu-gate-title">
+    <div class="ag-feature-inner">
+      <img class="ag-guardian" src="./ankyu.webp" alt="Ankyu, guardian of the cherry blossom underworld" width="1086" height="1448">
+      <div>
+        <span class="ag-eyebrow">The Cherry Blossom Underworld</span>
+        <h2 id="ankyu-gate-title">Ankyu’s Gate</h2>
+        <p>At the edge of Yomizakura, Ankyu keeps watch.<br>Beyond his threshold, a golden coin turns in the dark.</p>
+        <button class="ag-button" type="button" data-open-gate disabled>Approach the gate</button>
+        <span class="ag-season-note" data-gate-note>The guardian awaits.</span>
+      </div>
+    </div>
+  </section>
 
   <section aria-labelledby="tarot-title" style="max-width:850px;margin:0 auto 65px;padding:32px 24px;border:1px solid #89536b;border-radius:12px;text-align:center;background:linear-gradient(135deg,#251422,#100b13);color:#f2dce5;">
     <p style="font-size:10px;letter-spacing:.2em;color:#cfab6c;">FIFTEEN CHOICES · THREE REFLECTIONS</p>
@@ -818,6 +836,24 @@ body {
       SUPPORTING CHARACTERS
     </div>
 
+
+
+    <!-- Exclusively revealed through the gate until Nov 27, 2026 Eastern. -->
+    <details class="character" id="tessumo-listing" hidden>
+      <summary data-reveal-text="name" style="text-transform:uppercase;">TESSUMO</summary>
+      <div class="characterContent">
+        <div class="characterPortrait">
+          <img data-reveal-art src="./tessumo.webp" alt="Tessumo — original character artwork" width="941" height="1672" loading="lazy" decoding="async" style="max-width:100%;max-height:720px;object-fit:contain;">
+        </div>
+        <div class="description">
+          <h3 data-reveal-text="title">The Demon Rat</h3>
+          <p data-reveal-text="lore"></p>
+          <h3>Where Treasures Gather</h3>
+          <p data-reveal-text="gathering"></p>
+          <p data-reveal-text="tagline" style="color:#e8bd86;font-style:italic;"></p>
+        </div>
+      </div>
+    </details>
 
     <!-- TENZARU -->
 
