@@ -202,7 +202,7 @@
     invitation.className = 'ag-invitation';
     invitation.hidden = true;
     invitation.setAttribute('aria-label', 'Open Ankyu’s Gate — a Yomizakura character reveal');
-    invitation.innerHTML = '<span class="ag-mini-gate" aria-hidden="true"></span>Ankyu’s Gate<br><span>Something awaits ↗</span>';
+    invitation.innerHTML = '<span class="ag-mini-gate" aria-hidden="true"></span><span class="ag-invitation-name">Ankyu’s Gate</span><span class="ag-invitation-hint">Something awaits ↗</span>';
     invitation.addEventListener('click', openGate);
     landing.append(invitation);
   }

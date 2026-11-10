@@ -15,6 +15,7 @@
 .ag-mini-gate { display: block; position: relative; margin: 0 auto 9px; width: 47px; height: 47px; border: 2px solid #ac5d82; border-bottom: 0; background: linear-gradient(90deg,#140b14 48%,#d290b4 50%,#140b14 52%); box-shadow: 0 0 14px #f373b52b,inset 0 0 14px #f373b51a; animation: ag-breathe 5s ease-in-out infinite; }
 .ag-mini-gate::before { content: ''; position: absolute; width: 69px; height: 6px; left: -13px; top: -8px; border-radius: 0 0 50% 50%; background: #ba7295; box-shadow: 0 0 12px #ff78b54d; }
 .ag-mini-gate::after { content: '✿'; position: absolute; top: 13px; left: 15px; color: #e7a1c1; font-size: 17px; }
+.ag-invitation-name, .ag-invitation-hint { display: block; }
 body.hubActive .ag-invitation { display: none; }
 @keyframes ag-breathe { 50% { box-shadow: 0 0 22px #f373b547,inset 0 0 16px #f373b52e; } }
 .ag-dialog { position: fixed; inset: 0; width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 0; border: 0; background: #000; color: #f5dfea; overflow-y: auto; overscroll-behavior: contain; font-family: Arial,Helvetica,sans-serif; }
@@ -56,13 +57,17 @@ body.hubActive .ag-invitation { display: none; }
   .ag-guardian { height: 260px; }
   .ag-feature h2 { font-size: 30px; }
   .ag-feature p { font-size: 12px; }
-  .ag-invitation { width: 80px; right: max(12px,env(safe-area-inset-right)); bottom: calc(7% + 68px); font-size: 9px; }
-  .ag-mini-gate { width: 33px; height: 35px; }
-  .ag-mini-gate::before { width: 53px; left: -12px; }
-  .ag-mini-gate::after { left: 9px; top: 7px; }
+  .ag-invitation { box-sizing: border-box; width: 80px; height: 54px; right: max(8px,env(safe-area-inset-right)); bottom: 5%; padding: 5px 3px; color: #ff7ab8; font-size: 9px; letter-spacing: .02em; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+  .ag-invitation-hint { display: none; }
+  .ag-mini-gate { width: 27px; height: 24px; margin: 3px 0 0; }
+  .ag-mini-gate::before { width: 43px; height: 4px; left: -10px; top: -6px; }
+  .ag-mini-gate::after { left: 7px; top: 2px; font-size: 13px; }
   .ag-portal { inset: 18% 9% 13%; }
   .ag-result { grid-template-columns: 1fr; gap: 8px; padding: 0 22px 50px; }
   .ag-result img { max-height: 62vh; }
+}
+@media (max-width: 360px) {
+  .ag-invitation { width: 68px; font-size: 8px; }
 }
 @media (max-height: 480px) and (orientation: landscape) {
   .ag-invitation { bottom: 10px; right: 15px; }
